@@ -1,0 +1,186 @@
+.download-container {
+  position: relative;
+  background-color: #f8fafc;
+  padding: 50px 30px 40px;
+  overflow: hidden;
+}
+
+/* Formas Azuis das Pontas */
+.dl-shape-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100px;
+  background-color: #0b519e;
+  clip-path: polygon(0 0, 100% 0, 40% 100%, 0% 100%);
+}
+
+/* Área Hero Superior */
+.download-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.download-text-side {
+  flex: 0 0 45%;
+}
+
+.download-subtitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0b519e;
+  letter-spacing: 2px;
+  display: block;
+  margin-top: 35px;
+}
+
+.download-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0c2340;
+  line-height: 1.15;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.download-description {
+  font-size: 0.9rem;
+  color: #556987;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.download-divider {
+  width: 50px;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+.download-image-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+/* Grid de Benefícios */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 35px;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit-icon-wrapper {
+  width: 55px;
+  height: 55px;
+  background-color: #eaf3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.benefit-icon-wrapper svg {
+  width: 26px;
+  height: 26px;
+  color: #0b519e;
+}
+
+.benefit-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0c2340;
+  margin-bottom: 4px;
+}
+
+.benefit-desc {
+  font-size: 0.75rem;
+  color: #556987;
+  line-height: 1.35;
+  max-width: 170px;
+}
+
+/* Botão de Download Principal */
+.action-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-download-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  transition: background-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.btn-download-main:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.4);
+}
+
+.btn-icon-left, .btn-icon-right {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+  .download-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .download-text-side {
+    flex: none;
+    width: 100%;
+  }
+  .download-divider {
+    margin: 0 auto;
+  }
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

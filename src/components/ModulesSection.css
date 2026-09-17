@@ -1,0 +1,190 @@
+.modules-container {
+  position: relative;
+  padding: 40px 20px 60px;
+  background-color: #f8fafc;
+  overflow: hidden;
+
+}
+
+/* Formas Azuis Decorativas nas Pontas */
+.bg-shape-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 90px;
+  background-color: #0b519e;
+  clip-path: polygon(0 0, 100% 0, 45% 100%, 0% 100%);
+}
+
+.bg-shape-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 140px;
+  height: 90px;
+  background-color: #0b519e;
+  clip-path: polygon(55% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Cabeçalho da Seção */
+.modules-header {
+  text-align: center;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.modules-subtitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0b519e;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modules-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0c2340;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.modules-description {
+  font-size: 0.88rem;
+  color: #556987;
+  line-height: 1.45;
+  margin-bottom: 15px;
+}
+
+.title-divider {
+  width: 50px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Grid de Cards */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card Individual */
+.module-card {
+  background: #ffffff;
+  border: 1px solid #e1e8f0;
+  border-radius: 12px;
+  padding: 30px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(11, 81, 158, 0.12);
+  border-color: #b0d4ff;
+}
+
+/* Círculo do Ícone */
+.icon-circle-wrapper {
+  margin-bottom: 16px;
+}
+
+.icon-circle {
+  width: 75px;
+  height: 75px;
+  background-color: #eaf3ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle svg {
+  width: 38px;
+  height: 38px;
+  color: #0b519e;
+}
+
+/* Badge MÓDULO X */
+.module-badge {
+  background-color: #0b519e;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+/* Título e Descrição do Card */
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0c2340;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  min-height: 42px; /* Garante alinhamento entre os cards */
+  display: flex;
+  align-items: center;
+}
+
+.card-description {
+  font-size: 0.78rem;
+  color: #556987;
+  line-height: 1.38;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* Botão Redondo com Seta */
+.card-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-arrow-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.module-card:hover .card-arrow-btn {
+  background-color: #0b519e;
+  transform: scale(1.08);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+}

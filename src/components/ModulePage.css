@@ -1,0 +1,375 @@
+.module-page-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 15px 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 1. HERO CARD */
+.hero-card {
+  background: #f0f7ff;
+  border-radius: 12px;
+  padding: 35px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.hero-badge {
+  background-color: #0b519e;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.hero-titl {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0c2340;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.hero-subtitl {
+  font-size: 0.92rem;
+  color: #556987;
+  margin-bottom: 22px;
+  line-height: 1.45;
+}
+
+.btn-hero-action {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 11px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-hero-action:hover {
+  background-color: #0056b3;
+}
+
+.hero-illustration img {
+  max-width: 250px;
+  height: auto;
+}
+
+/* 2. ACCORDION / FAQ STYLING */
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: #b8d5ff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.faq-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-title-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.faq-icon-box {
+  width: 38px;
+  height: 38px;
+  background-color: #0b519e;
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.faq-text-group h2 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0c2340;
+  margin-bottom: 2px;
+}
+
+.faq-text-group p {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.faq-toggle-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+/* CORPO DO FAQ EXPANSO */
+.faq-body {
+  padding: 0 20px 24px 73px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.faq-paragraph {
+  margin-top: 15px;
+  margin-bottom: 12px;
+}
+
+/* Caixa de Alerta Azul */
+.faq-alert-box {
+  background-color: #eaf3ff;
+  border-left: 4px solid #007bff;
+  padding: 12px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.info-icon {
+  background: #007bff;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Listas com Checkmark */
+.faq-bullets-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.check-svg {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Tabelas Internas */
+.faq-table-container {
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+th {
+  background-color: #f1f5f9;
+  color: #0c2340;
+  text-align: left;
+  padding: 10px;
+  font-weight: 700;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Cards de Comparação & Exemplo */
+.faq-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.comp-card {
+  padding: 12px 15px;
+  border-radius: 6px;
+}
+
+.comp-card.bad {
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.comp-card.good {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+/* Grid de Ferramentas */
+.faq-tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.tool-box {
+  background: #f8fafc;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.tool-box h4 {
+  color: #0b519e;
+  margin-bottom: 4px;
+}
+
+/* Erros Grid */
+.faq-errors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.error-card {
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* Checklist Interativo */
+.faq-checklist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-checklist li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Desafios Grid */
+.faq-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.challenge-card {
+  background: #f0f7ff;
+  border: 1px solid #bae6fd;
+  padding: 14px;
+  border-radius: 6px;
+}
+
+.challenge-card .num {
+  font-weight: 800;
+  color: #007bff;
+}
+
+/* BANNER PRÓXIMO MÓDULO */
+.next-module-banner {
+  background-color: #f0f7ff;
+  border-radius: 8px;
+  padding: 18px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-text {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rocket-icon {
+  font-size: 1.5rem;
+}
+
+.banner-text h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0c2340;
+}
+
+.banner-text p {
+  font-size: 0.78rem;
+  color: #556987;
+}
+
+.btn-next-module {
+  background-color: #0b519e;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .hero-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .faq-body {
+    padding-left: 20px;
+  }
+  .faq-bullets-block ul,
+  .faq-comparison,
+  .faq-tools-grid,
+  .faq-errors-grid,
+  .faq-challenges-grid {
+    grid-template-columns: 1fr;
+  }
+  .next-module-banner {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

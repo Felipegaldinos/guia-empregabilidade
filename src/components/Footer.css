@@ -1,0 +1,69 @@
+.footer-container {
+  position: relative;
+  background-color: #f8fafc;
+  padding: 30px 20px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Linha Azul Superior Centralizada */
+.footer-divider {
+  width: 45px;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+
+/* Textos do Rodapé */
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-copyright {
+  font-size: 0.88rem;
+  color: #0c2340;
+  margin-bottom: 4px;
+}
+
+.footer-copyright strong {
+  font-weight: 700;
+  color: #0b519e;
+}
+
+.footer-subtext {
+  font-size: 0.76rem;
+  color: #556987;
+  font-weight: 400;
+}
+
+/* Recortes Azuis nas Pontas Inferiores */
+.footer-shape-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 50px;
+  background-color: #0b519e;
+  clip-path: polygon(0 30%, 65% 100%, 0% 100%);
+}
+
+.footer-shape-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 50px;
+  background-color: #0b519e;
+  clip-path: polygon(35% 100%, 100% 30%, 100% 100%);
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .footer-shape-bottom-left,
+  .footer-shape-bottom-right {
+    width: 70px;
+    height: 30px;
+  }
+}
