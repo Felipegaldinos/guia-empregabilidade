@@ -17,7 +17,7 @@ const modulesMap = {
   1: { data: module1Data, nextPath: '/modulo/2' },
   2: { data: module2Data, nextPath: '/modulo/3' },
   3: { data: module3Data, nextPath: '/modulo/4' }, 
-  4: { data: module4Data, nextPath: null }          // Substitua null por module4Data
+  4: { data: module4Data, nextPath: null }          
 };
 
 // Componente da Página Inicial
