@@ -1,4 +1,5 @@
 export const module4Data = {
+  id: "4",
   tag: "MÓDULO 4",
   title: "Processos Seletivos Remotos",
   subtitle: "Orientações para testes técnicos, entrevistas virtuais e vídeos de apresentação.",
@@ -8,354 +9,426 @@ export const module4Data = {
       id: "01",
       title: "O que é um processo seletivo remoto?",
       description: "Explique como funciona uma seleção feita totalmente ou parcialmente pela internet.",
-      content: {
-        text: "Mesmo sendo remoto, o processo seletivo deve ser tratado com a mesma seriedade e profissionalismo de uma entrevista presencial.",
-        bulletsTitle: "Etapas comuns de uma seleção remota:",
-        bullets: [
-          "Inscrição e envio de dados online",
-          "Análise do currículo e triagem",
-          "Testes e avaliações de conhecimentos",
-          "Entrevista por vídeo (com RH e equipe técnica)",
-          "Dinâmicas online e resolução de problemas",
-          "Feedback, etapas finais, contratação e envio de documentos"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Sobre a postura exigida em um processo seletivo remoto, qual é a atitude correta que o candidato deve ter?",
+          options: [
+            { id: "a", label: "Tratar com menos seriedade por não ser presencial e poder responder de forma informal." },
+            { id: "b", label: "Tratar com a mesma seriedade e profissionalismo de uma entrevista presencial." },
+            { id: "c", label: "Deixar para testar a internet e os equipamentos apenas quando a reunião já estiver em andamento." },
+            { id: "d", label: "Manter a câmera desligada durante todo o processo sem aviso prévio." }
+          ],
+          correctAnswer: "b",
+          feedback: "Entrevistas e seleções virtuais possuem o mesmo peso e valor que encontros presenciais e exigem o mesmo nível de profissionalismo."
+        },
+        {
+          statement: "Quais são as etapas comumente encontradas em um fluxo de seleção remota?",
+          options: [
+            { id: "a", label: "Triagem de currículo, testes de conhecimentos, entrevistas por vídeo e feedback/contratação." },
+            { id: "b", label: "Contratação imediata via mensagem de texto sem checagem de perfil." },
+            { id: "c", label: "Envio de senhas pessoais e pagamento de taxa de inscrição." },
+            { id: "d", label: "Apenas uma conversa informal por áudio no WhatsApp." }
+          ],
+          correctAnswer: "a",
+          feedback: "Processos remotos estruturados passam por triagem, testes práticos, entrevistas virtuais com RH/técnicos e etapas finais de proposta."
+        }
+      ]
     },
     {
       id: "02",
       title: "Como se preparar para um processo seletivo?",
       description: "Antes de participar, o candidato deve pesquisar a vaga e se preparar para as possíveis etapas.",
-      content: {
-        checklistItems: [
-          "Ler novamente a descrição completa da vaga",
-          "Pesquise sobre a empresa, atuação e cultura",
-          "Revisar detalhadamente o currículo enviado",
-          "Separar certificados e links de projetos",
-          "Revisar conhecimentos técnicos relacionados à vaga",
-          "Testar câmera, áudio e microfone com antecedência",
-          "Conferir a estabilidade da conexão com a internet",
-          "Escolher um ambiente adequado e silencioso",
-          "Entrar no link da reunião alguns minutos antes",
-          "Manter celular no silencioso e notificações desligadas"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual dos itens abaixo faz parte de uma preparação adequada ANTES da entrevista virtual?",
+          options: [
+            { id: "a", label: "Revisar a descrição da vaga, testar equipamentos (câmera/microfone) e pesquisar sobre a empresa." },
+            { id: "b", label: "Acessar o link da entrevista com 20 minutos de atraso." },
+            { id: "c", label: "Deixar o celular no volume máximo para não perder notificações." },
+            { id: "d", label: "Entrar na reunião em um ambiente barulhento e com pouca iluminação." }
+          ],
+          correctAnswer: "a",
+          feedback: "Checar requisitos, testar a tecnologia e estudar a empresa são os pilares para passar confiança durante a entrevista."
+        }
+      ]
     },
     {
       id: "03",
       title: "Como funciona uma entrevista online?",
       description: "Explique o que normalmente acontece em uma entrevista virtual.",
-      content: {
-        text: "Uma entrevista online envolve conversas sobre sua trajetória, testes práticos e perguntas comportamentais.",
-        bulletsTitle: "Exemplos de perguntas comuns durante a entrevista:",
-        bullets: [
-          "“Fale um pouco sobre você.”",
-          "“Por que você se interessou por essa vaga e pela empresa?”",
-          "“Quais são seus principais conhecimentos e habilidades?”",
-          "“Conte sobre um projeto desafiador que você realizou.”",
-          "“Como você lida com problemas e pressão no dia a dia?”",
-          "“Quais são seus objetivos profissionais para o futuro?”"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Durante uma entrevista online, o que o recrutador busca avaliar através de perguntas e interações?",
+          options: [
+            { id: "a", label: "Apenas a velocidade de digitação do candidato no teclado." },
+            { id: "b", label: "Sua trajetória profissional, habilidades técnicas, perfil comportamental e clareza na comunicação." },
+            { id: "c", label: "Se o candidato tem a melhor câmera do mercado." },
+            { id: "d", label: "A quantidade de seguidores que o candidato possui nas redes sociais." }
+          ],
+          correctAnswer: "b",
+          feedback: "A entrevista virtual avalia o conjunto de conhecimentos técnicos, capacidade de articulação e adequação à cultura da empresa."
+        }
+      ]
     },
     {
       id: "04",
       title: "Como responder “fale sobre você”?",
       description: "Essa é uma das perguntas mais comuns no início das entrevistas.",
-      content: {
-        formula: {
-          title: "Estrutura recomendada de resposta",
-          structure: "Quem sou → Formação → Conhecimentos → Projetos/Experiências → Objetivo profissional",
-          example: "“Sou estudante da área de tecnologia e venho desenvolvendo conhecimentos em desenvolvimento web. Durante minha formação, participei de projetos acadêmicos e venho buscando aprimorar minhas habilidades por meio de cursos e projetos práticos. Atualmente, procuro uma oportunidade em que possa aplicar esses conhecimentos e continuar evoluindo profissionalmente.”"
-        },
-        alert: "Evite transformar essa resposta em uma narrativa longa sobre sua vida pessoal. Mantenha o foco na sua trajetória profissional e acadêmica."
-      }
+      quizzes: [
+        {
+          statement: "Qual é a estrutura recomendada para responder à pergunta 'Fale um pouco sobre você'?",
+          options: [
+            { id: "a", label: "Contar toda a sua história de infância e gostos pessoais não relacionados ao trabalho." },
+            { id: "b", label: "Quem é você → Formação → Conhecimentos/Projetos → Objetivo Profissional." },
+            { id: "c", label: "Dizer apenas 'O meu currículo já diz tudo' e aguardar a próxima pergunta." },
+            { id: "d", label: "Reclamar dos antigos empregos ou das dificuldades dos estudos." }
+          ],
+          correctAnswer: "b",
+          feedback: "Seguir um roteiro objetivo ligando sua formação, projetos e objetivos conecta diretamente seu perfil às necessidades da vaga."
+        }
+      ]
     },
     {
       id: "05",
       title: "Como se comportar diante da câmera?",
       description: "Sua comunicação não verbal e presença digital fazem muita diferença.",
-      content: {
-        bulletsTitle: "Boas práticas de linguagem corporal e postura:",
-        bullets: [
-          "Olhe diretamente para a lente da câmera para manter contato visual",
-          "Mantenha uma postura ereta e adequada na cadeira",
-          "Fale de maneira clara, em ritmo calmo e audível",
-          "Evite interromper o entrevistador enquanto ele fala",
-          "Demonstre atenção e interesse acenando afirmativamente com a cabeça",
-          "Evite olhar constantemente para outras telas ou celular",
-          "Não utilize filtros virtuais divertidos na câmera",
-          "Mantenha o microfone desligado quando não estiver falando"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Para transmitir atenção e conexão com o entrevistador durante uma videochamada, o candidato deve:",
+          options: [
+            { id: "a", label: "Ficar olhando fixamente para o celular enquanto responde." },
+            { id: "b", label: "Olhar para a lente da câmera periodicamente, manter boa postura e falar em ritmo calmo." },
+            { id: "c", label: "Usar filtros virtuais engraçados para descontrair a conversa." },
+            { id: "d", label: "Interromper o entrevistador sempre que discordar de algo imediato." }
+          ],
+          correctAnswer: "b",
+          feedback: "Olhar para a câmera simula o contato visual olho no olho, transmitindo segurança e interesse ao avaliador."
+        }
+      ]
     },
     {
       id: "06",
       title: "Como preparar o ambiente para a entrevista?",
       description: "Crie um espaço adequado para transmitir profissionalismo.",
-      content: {
-        checklistItems: [
-          "Local silencioso e livre de distrações",
-          "Fundo organizado e limpo",
-          "Boa iluminação (de preferência vindo de frente)",
-          "Câmera posicionada na altura dos olhos",
-          "Microfone testado e funcionando bem",
-          "Computador totalmente carregado ou conectado à tomada",
-          "Internet estável testada",
-          "Fones de ouvido disponíveis",
-          "Notificações do sistema desativadas"
-        ],
-        note: "💡 Dica: Faça uma chamada de teste com um amigo ou gravador antes da entrevista oficial para validar o ambiente."
-      }
+      quizzes: [
+        {
+          statement: "Qual é o ambiente e enquadramento ideal para realizar uma entrevista remota?",
+          options: [
+            { id: "a", label: "Ambiente silencioso, fundo limpo/organizado, iluminação frontal e câmera na altura dos olhos." },
+            { id: "b", label: "Quarto escuro com iluminação vindo de trás da cabeça (contra a luz)." },
+            { id: "c", label: "Local movimentado e barulhento com a câmera apontada de baixo para cima." },
+            { id: "d", label: "Dentro de um transporte público em movimento." }
+          ],
+          correctAnswer: "a",
+          feedback: "Iluminação frontal e câmera na altura dos olhos garantem uma imagem nítida sem sombras nem distrações ao fundo."
+        }
+      ]
     },
     {
       id: "07",
       title: "Quais ferramentas podem ser utilizadas?",
       description: "Apresente as principais plataformas de videoconferência e recursos.",
-      content: {
-        toolsList: [
-          { label: "Google Meet", desc: "Acesso fácil via navegador, muito utilizado por empresas e startups.", ideal: "Videoconferências e entrevistas" },
-          { label: "Microsoft Teams", desc: "Plataforma corporativa para chamadas, chats e reuniões completas.", ideal: "Processos em médias e grandes empresas" },
-          { label: "Zoom", desc: "Ferramenta popular com recursos avançados de áudio e vídeo.", ideal: "Entrevistas em grupo e individuais" },
-          { label: "Skype / WhatsApp", desc: "Usados em processos específicos ou para um primeiro contato rápido.", ideal: "Contatos iniciais de triagem" }
-        ],
-        bulletsTitle: "Recursos básicos que você precisa dominar na plataforma:",
-        bullets: ["🎥 Ligar/Desligar Câmera", "🎤 Mutar/Ativar Microfone", "💬 Utilizar o Chat para links", "🖥️ Compartilhamento de tela", "📄 Envio de arquivos"]
-      }
+      quizzes: [
+        {
+          statement: "Quais recursos básicos de plataformas como Google Meet, Zoom ou Teams o candidato deve dominar antes da entrevista?",
+          options: [
+            { id: "a", label: "Apenas como alterar o plano de fundo por imagens de praia." },
+            { id: "b", label: "Ligar/desligar câmera e microfone, utilizar o chat e compartilhar a tela quando solicitado." },
+            { id: "c", label: "Como gravar a chamada sem a permissão do recrutador." },
+            { id: "d", label: "Como bloquear o áudio dos outros participantes da reunião." }
+          ],
+          correctAnswer: "b",
+          feedback: "Saber mexer nos botões essenciais da plataforma evita atrasos e demonstra maturidade digital."
+        }
+      ]
     },
     {
       id: "08",
       title: "Como se preparar para testes técnicos?",
       description: "O teste técnico avalia como você aplica seu conhecimento na prática.",
-      content: {
-        text: "Testes podem envolver questões objetivas, exercícios de programação, análise ou desenvolvimento de código, banco de dados, lógica, redes ou estudos de caso.",
-        flowSteps: [
-          { title: "1. Leia com atenção", desc: "Leia todas as instruções do teste até o final antes de digitar qualquer linha de código." },
-          { title: "2. Entenda o problema", desc: "Certifique-se de compreender exatamente o requisito solicitado." },
-          { title: "3. Organize o raciocínio", desc: "Divida problemas grandes em partes menores para facilitar a implementação." },
-          { title: "4. Teste e revise", desc: "Rode testes na sua solução e revise a entrega antes de realizar o envio final." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Ao receber um teste técnico (código, lógica, banco de dados ou estudo de caso), qual deve ser seu primeiro passo?",
+          options: [
+            { id: "a", label: "Começar a programar/escrever imediatamente sem ler o enunciado." },
+            { id: "b", label: "Ler com atenção todas as instruções até o final para entender o problema requisitado." },
+            { id: "c", label: "Enviar o teste em branco dizendo que não teve tempo." },
+            { id: "d", label: "Copiar uma solução pronta do Google sem testar se atende aos requisitos." }
+          ],
+          correctAnswer: "b",
+          feedback: "Compreender exatamente os requisitos evita que você perca tempo construindo algo que não foi solicitado."
+        }
+      ]
     },
     {
       id: "09",
       title: "O que fazer quando não souber uma questão?",
       description: "Estratégias para lidar com dúvidas e diminuir a ansiedade.",
-      content: {
-        text: "Não saber uma resposta imediata não significa que você foi eliminado. Em testes técnicos, os avaliadores analisam como você raciocina para resolver problemas desconhecidos.",
-        formula: {
-          title: "Sequência para resolver questões difíceis",
-          structure: "Entender → Raciocinar → Tentar → Testar → Revisar",
-          example: "Explique sua linha de raciocínio. Mostre que você sabe onde pesquisar, como isolar o problema e qual lógica usaria para chegar à solução."
+      quizzes: [
+        {
+          statement: "Durante um teste ou entrevista técnica, como proceder ao se deparar com uma pergunta que você não sabe a resposta exata?",
+          options: [
+            { id: "a", label: "Inventar uma resposta falsa tentando enganar o avaliador." },
+            { id: "b", label: "Desligar a chamada imediatamente por vergonha." },
+            { id: "c", label: "Explicar sua linha de raciocínio, mostrar como pesquisaria e como tentaria isolar o problema." },
+            { id: "d", label: "Dizer que o tema da pergunta não é importante para a vaga." }
+          ],
+          correctAnswer: "c",
+          feedback: "Recrutadores técnicos valorizam a capacidade de raciocínio lógico e a maturidade em buscar soluções perante problemas desconhecidos."
         }
-      }
+      ]
     },
     {
       id: "10",
       title: "Como apresentar um projeto técnico?",
       description: "Utilize uma estrutura clara para explicar seus projetos em seleções.",
-      content: {
-        formula: {
-          title: "Estrutura de apresentação de projetos",
-          structure: "Problema → Solução → Tecnologias → Desenvolvimento → Resultado",
-          example: "“Criamos um Sistema de Gerenciamento de Vagas (Solução) para resolver a dificuldade de organização de candidaturas (Problema). Utilizámos HTML, CSS e JavaScript (Tecnologias) para construir uma interface onde o usuário cadastra e altera status (Resultado).”"
+      quizzes: [
+        {
+          statement: "Qual é a estrutura lógica recomendada para apresentar um projeto técnico em uma entrevista?",
+          options: [
+            { id: "a", label: "Mostrar direto o código sem explicar para que o sistema serve." },
+            { id: "b", label: "Problema → Solução → Tecnologias Utilizadas → Desenvolvimento → Resultado." },
+            { id: "c", label: "Falar apenas o nome das ferramentas utilizadas sem dar contexto." },
+            { id: "d", label: "Mencionar apenas os erros que aconteceram durante a criação." }
+          ],
+          correctAnswer: "b",
+          feedback: "Contextualizar o problema antes de falar do código ajuda o entrevistador a entender o valor e o impacto da sua solução."
         }
-      }
+      ]
     },
     {
       id: "11",
       title: "Como fazer um vídeo de apresentação?",
       description: "Estrutura sugerida para gravar um vídeo curto e objetivo.",
-      content: {
-        flowSteps: [
-          { title: "0–10 segundos", desc: "Apresente seu nome e sua área de atuação principal." },
-          { title: "10–30 segundos", desc: "Fale sobre sua formação e principais conhecimentos técnicos." },
-          { title: "30–50 segundos", desc: "Cite projetos práticos, cursos ou experiências marcantes." },
-          { title: "50–60 segundos", desc: "Conclua destacando seu objetivo profissional." }
-        ],
-        alert: "Exemplo de roteiro: “Olá, meu nome é [Nome], sou estudante da área de tecnologia com conhecimentos em [Tecnologias]. Durante minha formação desenvolvi projetos em [Área]. Estou buscando uma oportunidade para aplicar minhas habilidades e continuar evoluindo.”"
-      }
+      quizzes: [
+        {
+          statement: "Ao gravar um vídeo de apresentação profissional de 60 segundos, o que deve ser priorizado?",
+          options: [
+            { id: "a", label: "Nome e área (0-10s) → Formação/Tecnologias (10-30s) → Projetos/Prática (30-50s) → Objetivo (50-60s)." },
+            { id: "b", label: "Passar os 60 segundos contando hobbies e preferências pessoais." },
+            { id: "c", label: "Ler um texto de 5 páginas em velocidade rápida." },
+            { id: "d", label: "Falar apenas o nome e permanecer em silêncio no restante do tempo." }
+          ],
+          correctAnswer: "a",
+          feedback: "Dividir o vídeo em blocos curtos e objetivos garante que todas as informações essenciais sejam transmitidas sem estourar o tempo."
+        }
+      ]
     },
     {
       id: "12",
       title: "Como gravar um bom vídeo?",
       description: "Cuidados práticos de produção visual e sonora.",
-      content: {
-        bulletsTitle: "Checklist de gravação:",
-        bullets: [
-          "💡 Iluminação: Prefira luz natural ou lâmpadas posicionadas na sua frente",
-          "🎙️ Áudio: Grave em um local totalmente silencioso e livre de eco",
-          "📷 Câmera: Posicione a câmera exatamente na altura dos seus olhos",
-          "🖼️ Enquadramento: Ajuste o enquadramento mostrando o rosto e parte do tronco",
-          "🧹 Fundo: Mantenha o ambiente de fundo limpo, organizado e neutro",
-          "⏱️ Tempo: Seja objetivo e não ultrapasse o tempo limite solicitado"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Quais cuidados com áudio e enquadramento garantem boa qualidade na gravação do vídeo de apresentação?",
+          options: [
+            { id: "a", label: "Gravar em locais com eco, vento e enquadrar apenas a testa." },
+            { id: "b", label: "Gravar em local silencioso, com celular na horizontal/vertical estável e enquadrando rosto e parte do tronco." },
+            { id: "c", label: "Segurar o celular andando pela casa para o vídeo parecer dinâmico." },
+            { id: "d", label: "Colocar uma música de fundo em volume alto cobrindo a sua voz." }
+          ],
+          correctAnswer: "b",
+          feedback: "Áudio limpo e câmera firme no enquadramento correto transmitem cuidado e profissionalismo na entrega do vídeo."
+        }
+      ]
     },
     {
       id: "13",
       title: "Erros comuns em entrevistas virtuais",
       description: "Comportamentos que você deve evitar durante o processo seletivo.",
-      content: {
-        errors: [
-          { title: "❌ Falhas técnicas e atraso", desc: "Entrar atrasado na reunião ou não testar o microfone e a câmera com antecedência." },
-          { title: "❌ Desatenção visual", desc: "Ficar olhando para o celular, ler respostas prontas durante toda a entrevista ou olhar para outras telas." },
-          { title: "❌ Comunicação inadequada", desc: "Falar de forma excessiva sem objetividade, interromper constantemente o entrevistador ou ler textos engessados." },
-          { title: "❌ Falta de veracidade", desc: "Inventar conhecimentos técnicos que você não domina ou não saber explicar as experiências citadas no próprio currículo." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual dos comportamentos abaixo é considerado um ERRO GRAVE em uma entrevista online?",
+          options: [
+            { id: "a", label: "Fazer perguntas ao entrevistador sobre o dia a dia do time." },
+            { id: "b", label: "Ler respostas prontas fixadas na tela, demonstrar desatenção ou inventar qualificações no currículo." },
+            { id: "c", label: "Anotar tópicos em um caderno durante a conversa." },
+            { id: "d", label: "Entrar na sala virtual 3 minutos antes do horário combinado." }
+          ],
+          correctAnswer: "b",
+          feedback: "Ler textos decorados retira a naturalidade da conversa, e mentir sobre conhecimentos é facilmente descoberto em testes práticos."
+        }
+      ]
     },
     {
       id: "14",
       title: "Como responder perguntas comportamentais?",
       description: "Aprenda a estruturar respostas usando a técnica STAR.",
-      content: {
-        formula: {
-          title: "Técnica STAR para respostas comportamentais",
-          structure: "Situação → Tarefa → Ação → Resultado",
-          example: "“Havia um problema de atraso na entrega de um projeto (Situação). Minha responsabilidade era reorganizar o cronograma (Tarefa). Dividi as tarefas em etapas menores e alinhei com a equipe (Ação). Conseguimos entregar a aplicação no prazo correto (Resultado).”"
+      quizzes: [
+        {
+          statement: "O que significa a sigla da metodologia STAR, usada para responder perguntas comportamentais?",
+          options: [
+            { id: "a", label: "Sistema, Tarefa, Avaliação e Resposta." },
+            { id: "b", label: "Situação, Tarefa, Ação e Resultado." },
+            { id: "c", label: "Solução, Teste, Agilidade e Revisão." },
+            { id: "d", label: "Síntese, Trabalho, Aplicação e Raciocínio." }
+          ],
+          correctAnswer: "b",
+          feedback: "A técnica STAR (Situação, Tarefa, Ação, Resultado) organiza a narrativa mostrando o contexto e a sua contribuição real no problema."
         }
-      }
+      ]
     },
     {
       id: "15",
       title: "Como falar sobre pontos fortes?",
       description: "Demonstre suas qualidades por meio de fatos concretos.",
-      content: {
-        formula: {
-          title: "Fórmula de apresentação de qualidades",
-          structure: "Característica + Exemplo Prático + Resultado Obtido",
-          example: "“Tenho facilidade para aprender novas ferramentas. Em um projeto recente precisei utilizar uma tecnologia que ainda não conhecia, então li a documentação e desenvolvi uma pequena aplicação para praticar, entregando o módulo com sucesso.”"
+      quizzes: [
+        {
+          statement: "Qual é a melhor forma de comprovar um ponto forte durante a entrevista?",
+          options: [
+            { id: "a", label: "Afirmar que é o melhor naquilo sem dar nenhum exemplo." },
+            { id: "b", label: "Citar a característica + Exemplo prático de onde usou + Resultado obtido." },
+            { id: "c", label: "Mostrar certificados de cursos sem explicar o que aprendeu neles." },
+            { id: "d", label: "Dizer que não possui nenhum ponto forte." }
+          ],
+          correctAnswer: "b",
+          feedback: "Associar a qualidade a um caso prático traz veracidade à sua fala e demonstra como você aplica essa virtude no trabalho."
         }
-      }
+      ]
     },
     {
       id: "16",
       title: "Como falar sobre pontos a melhorar?",
       description: "Apresente pontos reais acompanhados do seu plano de ação.",
-      content: {
-        text: "Evite respostas clichês e artificiais como “sou perfeccionista”. Prefira uma oportunidade real de aprendizado mostrando o que você faz para evoluir.",
-        alert: "Exemplo adequado: “Tenho buscado melhorar minha organização durante projetos. Para isso, comecei a dividir tarefas em etapas diárias e a utilizar listas de acompanhamento.”"
-      }
+      quizzes: [
+        {
+          statement: "Ao ser questionado sobre 'pontos a melhorar', qual abordagem transmite mais maturidade?",
+          options: [
+            { id: "a", label: "Usar frases clichês como 'sou perfeccionista demais'." },
+            { id: "b", label: "Apresentar um ponto real de aprendizado acompanhado das ações concretas que você já está realizando para evoluir." },
+            { id: "c", label: "Dizer que não tem nenhum ponto a melhorar e que já sabe de tudo." },
+            { id: "d", label: "Mencionar defeitos graves que inviabilizem sua atuação na vaga." }
+          ],
+          correctAnswer: "b",
+          feedback: "Demonstrar autoconhecimento e mostrar o que você está fazendo de prático para superar uma dificuldade é o que os avaliadores buscam."
+        }
+      ]
     },
     {
       id: "17",
       title: "Como compartilhar a tela durante uma entrevista?",
       description: "Cuidados e boas práticas ao exibir seus projetos ou código.",
-      content: {
-        bulletsTitle: "Passo a passo antes de iniciar o compartilhamento:",
-        bullets: [
-          "Abra o projeto e a IDE antes da reunião começar",
-          "Feche arquivos, fotos e documentos pessoais",
-          "Feche abas desnecessárias no navegador",
-          "Desative notificações de aplicativos de mensagens",
-          "Compartilhe apenas a janela do aplicativo, em vez da tela inteira",
-          "Vá explicando o projeto com calma enquanto navega pela tela"
-        ],
-        alert: "⚠️ Regra de ouro: Nunca compartilhe a tela sem verificar previamente o que está visível na sua área de trabalho!"
-      }
+      quizzes: [
+        {
+          statement: "Antes de clicar no botão de compartilhar tela para apresentar um projeto, o candidato DEVE:",
+          options: [
+            { id: "a", label: "Compartilhar a tela inteira sem checar o que está aberto." },
+            { id: "b", label: "Fechar abas pessoais, desativar notificações de mensagens e abrir a IDE/projeto previamente." },
+            { id: "c", label: "Deixar conversas privadas do WhatsApp visíveis para mostrar que é comunicativo." },
+            { id: "d", label: "Aumentar a resolução da tela para o menor tamanho possível." }
+          ],
+          correctAnswer: "b",
+          feedback: "Preparar a área de trabalho previamente evita o vazamento acidental de dados pessoais e conversas privadas."
+        }
+      ]
     },
     {
       id: "18",
       title: "Como controlar o nervosismo?",
       description: "Táticas simples para manter a calma antes e durante a conversa.",
-      content: {
-        comparison: {
-          badTitle: "Antes da entrevista:",
-          bad: "• Prepare-se bem\n• Faça chamadas de teste\n• Revise seus projetos\n• Respire fundo e faça pausas",
-          goodTitle: "Durante a entrevista:",
-          good: "• Escute a pergunta até o fim\n• Pense alguns segundos antes de falar\n• Fale pausadamente\n• Peça para repetir caso falhe o áudio\n• Seja honesto se não souber algo"
+      quizzes: [
+        {
+          statement: "Se você sentir nervosismo no meio de uma resposta durante a entrevista, qual das táticas abaixo ajuda a retomar o controle?",
+          options: [
+            { id: "a", label: "Começar a falar o mais rápido possível para terminar logo." },
+            { id: "b", label: "Fazer uma breve pausa, respirar, ouvir a pergunta até o final e responder com calma." },
+            { id: "c", label: "Desligar a câmera e fingir que a internet caiu." },
+            { id: "d", label: "Mudar bruscamente de assunto sem responder à pergunta feita." }
+          ],
+          correctAnswer: "b",
+          feedback: "Fazer uma pausa consciente para organizar o raciocínio é plenamente aceitável e demonstra autocontrole."
         }
-      }
+      ]
     },
     {
       id: "19",
       title: "Como pesquisar a empresa antes da entrevista?",
       description: "Chegue à reunião entendendo o contexto do negócio.",
-      content: {
-        bulletsTitle: "O que pesquisar sobre a contratante:",
-        bullets: [
-          "Site oficial e produtos/serviços oferecidos",
-          "Área de atuação e principal público-alvo",
-          "Redes sociais e perfil institucional no LinkedIn",
-          "Notícias recentes sobre a empresa na mídia",
-          "Requisitos da vaga e tecnologias utilizadas"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "O que você deve pesquisar sobre a empresa contratante antes de ir para a entrevista?",
+          options: [
+            { id: "a", label: "Apenas o endereço do prédio físico da sede." },
+            { id: "b", label: "Site oficial, produtos/serviços, área de atuação, notícias recentes e perfil no LinkedIn." },
+            { id: "c", label: "Apenas a quantidade de funcionários cadastrados no CNPJ." },
+            { id: "d", label: "Não é necessário pesquisar nada sobre a empresa." }
+          ],
+          correctAnswer: "b",
+          feedback: "Conhecer o negócio e as soluções da empresa permite que você adapte suas respostas e mostre interesse genuíno."
+        }
+      ]
     },
     {
       id: "20",
       title: "Quais perguntas fazer ao entrevistador?",
       description: "Demonstre interesse fazendo perguntas estratégicas ao final.",
-      content: {
-        bulletsTitle: "Sugestões de perguntas para o avaliador:",
-        bullets: [
-          "“Como funciona a rotina e o dia a dia dessa função?”",
-          "“Quais seriam as principais atividades e objetivos nos primeiros meses?”",
-          "“Como é estruturada a equipe de trabalho?”",
-          "“Quais tecnologias ou ferramentas são mais utilizadas no time?”",
-          "“Quais são os próximos passos do processo seletivo?”"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Ao final da entrevista, quando o avaliador pergunta 'Você tem alguma dúvida?', qual é a melhor postura?",
+          options: [
+            { id: "a", label: "Responder 'Não tenho nenhuma dúvida, tchau'." },
+            { id: "b", label: "Fazer perguntas estratégicas sobre a rotina da vaga, desafios do time ou próximas etapas." },
+            { id: "c", label: "Perguntar imediatamente quantas folgas folgadas terá no ano." },
+            { id: "d", label: "Perguntar se o recrutador achou sua roupa bonita." }
+          ],
+          correctAnswer: "b",
+          feedback: "Fazer perguntas inteligentes demonstra interesse ativo no cargo e ajuda você a entender se a empresa é adequada ao seu perfil."
+        }
+      ]
     },
     {
       id: "21",
       title: "Como identificar uma entrevista suspeita?",
       description: "Atenção a sinais de fraude em processos seletivos remotos.",
-      content: {
-        alert: "🚨 Nunca entregue senhas, códigos de autenticação recebidos por SMS ou faça pagamentos em qualquer etapa de um processo seletivo!",
-        errors: [
-          { title: "Cobranças indevidas", desc: "Pedidos de pagamento para inscrição, exames ou liberação de equipamento." },
-          { title: "Solicitações de credenciais", desc: "Pedidos de senhas de e-mail, redes sociais ou códigos de autenticação." },
-          { title: "Canais estranhos e urgência", desc: "Comunicação feita por números desconhecidos com pressão para decisões imediatas." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual dos comportamentos abaixo é um sinal claro de FRAUDE em um processo seletivo remoto?",
+          options: [
+            { id: "a", label: "Agendamento da conversa pelo Google Meet com e-mail corporativo da empresa." },
+            { id: "b", label: "Pedido de dinheiro para liberar exames admissionais, treinamento ou equipamentos." },
+            { id: "c", label: "Envio de um teste prático de código via GitHub." },
+            { id: "d", label: "Entrevista conduzida pelo gestor técnico da área." }
+          ],
+          correctAnswer: "b",
+          feedback: "Empresas sérias nunca cobram valores do candidato para participação em processos seletivos ou liberação de vagas."
+        }
+      ]
     },
     {
       id: "22",
       title: "Checklist antes da entrevista",
       description: "Verificação final antes de entrar na sala virtual.",
-      content: {
-        checklistItems: [
-          "Ambiente: Local silencioso, iluminação frontal e fundo neutro/organizado",
-          "Equipamentos: Conexão com internet, câmera, microfone, fone e carregador na tomada",
-          "Preparação: Currículo revisado, descrição lida, empresa pesquisada e links separados",
-          "Atitude: Entrada antecipada, postura profissional, comunicação clara e escuta ativa"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Quais são os 4 pilares do checklist pré-entrevista aprovado?",
+          options: [
+            { id: "a", label: "Ambiente silencioso, Equipamentos testados, Preparação/Pesquisa e Atitude profissional." },
+            { id: "b", label: "Celular carregado, Redes sociais abertas, Fones guardados e Roupa amassada." },
+            { id: "c", label: "Decoreba de texto, Microfone desligado, Câmera quebrada e Atraso." },
+            { id: "d", label: "Conexão sem senha, Luz apagada, Fundo bagunçado e Celular tocando." }
+          ],
+          correctAnswer: "a",
+          feedback: "Garantir ambiente, tecnologia, conteúdo estudado e pontualidade elimina imprevistos e transmite máxima confiança."
+        }
+      ]
     },
     {
       id: "23",
       title: "🎯 Desafio prático do módulo",
       description: "Simulação completa de um processo seletivo remoto.",
-      content: {
-        challenges: [
-          {
-            number: "01",
-            title: "Pesquisa e Roteiro",
-            items: [
-              "Etapa 1: Escolha uma vaga real de seu interesse.",
-              "Etapa 2: Pesquise a empresa responsável.",
-              "Etapa 3: Prepare um roteiro de apresentação pessoal de 60 segundos."
-            ]
-          },
-          {
-            number: "02",
-            title: "Gravação e Respostas",
-            items: [
-              "Etapa 4: Grave um vídeo curto simulando sua apresentação.",
-              "Etapa 5: Responda gravando: Fale sobre você; Por que quer a vaga?; Seus conhecimentos; Um projeto realizado; Conhecimento a desenvolver."
-            ]
-          },
-          {
-            number: "03",
-            title: "Autoavaliação",
-            items: [
-              "Etapa 6: Assista ao vídeo gravado e avalie os pontos:",
-              "☑ Clareza | ☑ Postura | ☑ Áudio | ☑ Iluminação | ☑ Tempo | ☑ Objetividade"
-            ]
-          }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual é o objetivo principal das etapas de simulação e autoavaliação propostas no desafio do Módulo 4?",
+          options: [
+            { id: "a", label: "Gravar um vídeo qualquer sem assistir ao resultado final." },
+            { id: "b", label: "Simular o pitch de apresentação, gravar respostas para perguntas reais e avaliar pontos de clareza, postura e tempo." },
+            { id: "c", label: "Publicar o vídeo no TikTok para ganhar curtidas." },
+            { id: "d", label: "Apenas ler o roteiro em voz baixa sem usar a câmera." }
+          ],
+          correctAnswer: "b",
+          feedback: "Treinar a oratória diante da câmera e autoavaliar seu desempenho é o caminho mais rápido para perder o nervosismo e evoluir nas entrevistas reais."
+        }
+      ]
     }
   ]
 };

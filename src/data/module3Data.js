@@ -1,4 +1,5 @@
 export const module3Data = {
+  id: "3",
   tag: "MÓDULO 3",
   title: "Segurança Digital e Dicas Antigolpe",
   subtitle: "Checklists para identificar fraudes, proteger suas contas e cuidar da sua privacidade durante cadastros e atividades online.",
@@ -8,303 +9,387 @@ export const module3Data = {
       id: "01",
       title: "O que é segurança digital?",
       description: "Entenda por que proteger suas informações é importante.",
-      content: {
-        text: "Segurança digital é o conjunto de práticas utilizadas para proteger suas contas, senhas, documentos, dados pessoais, fotografias, informações financeiras, dispositivos, arquivos e identidade digital. Não significa deixar de utilizar a internet, mas sim utilizá-la com mais atenção e consciência.",
-        bulletsTitle: "Pense na segurança digital como camadas:",
-        bullets: [
-          "🔑 Senha → Protege sua conta",
-          "📱 2FA → Adiciona uma camada de proteção",
-          "🔎 Verificação → Ajuda a identificar golpes",
-          "🔒 Privacidade → Reduz a exposição de dados",
-          "💾 Backup → Ajuda a recuperar arquivos"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "O que define o conceito e o objetivo principal da segurança digital?",
+          options: [
+            { id: "a", label: "Deixar de usar a internet totalmente para evitar qualquer risco de invasão." },
+            { id: "b", label: "Conjunto de práticas para proteger contas, senhas, documentos e dados, permitindo navegar com mais consciência." },
+            { id: "c", label: "Instalar um único antivírus gratuito e não se preocupar mais com senhas ou links." },
+            { id: "d", label: "Guardar todas as senhas de banco anotadas em um papel dentro do celular." }
+          ],
+          correctAnswer: "b",
+          feedback: "Segurança digital envolve criar hábitos e camadas de proteção para navegar na internet de forma consciente e segura."
+        },
+        {
+          statement: "Quais são as camadas de proteção fundamentais recomendadas para a segurança digital?",
+          options: [
+            { id: "a", label: "Senha forte, autenticação em dois fatores (2FA), verificação de links, privacidade e backup regular." },
+            { id: "b", label: "Apenas trocar a foto de perfil das redes sociais uma vez por mês." },
+            { id: "c", label: "Usar Wi-Fi aberto em locais públicos sem utilizar senhas nas contas." },
+            { id: "d", label: "Deixar a localização do aparelho ativada em todos os aplicativos." }
+          ],
+          correctAnswer: "a",
+          feedback: "Pensar em segurança como camadas (senha + 2FA + verificação + backup) reduz drasticamente as chances de ter contas ou arquivos comprometidos."
+        }
+      ]
     },
     {
       id: "02",
       title: "O que é phishing?",
       description: "Aprenda a reconhecer uma das formas mais comuns de fraude digital.",
-      content: {
-        text: "Phishing é uma tentativa de enganar a pessoa para que ela forneça informações ou realize alguma ação, normalmente por meio de uma mensagem ou página falsa (via e-mail, SMS, WhatsApp, redes sociais, ligações, QR Codes ou sites falsos).",
-        alert: "🚨 Exemplo de mensagem suspeita: “Sua conta será bloqueada hoje. Clique aqui para atualizar seus dados.”\n\nAntes de clicar: Pare → Confira → Acesse o canal oficial diretamente.",
-        note: "O Ministério das Comunicações alerta que mensagens de phishing tentam obter senhas, códigos de autenticação, dados bancários e informações pessoais."
-      }
+      quizzes: [
+        {
+          statement: "Como funciona a técnica de fraude digital conhecida como Phishing?",
+          options: [
+            { id: "a", label: "É uma atualização automática enviada pela loja oficial de aplicativos do celular." },
+            { id: "b", label: "Uma tentativa de enganar a pessoa por mensagens ou sites falsos para obter dados sensíveis como senhas e códigos." },
+            { id: "c", label: "É um vírus que estraga o hardware do computador imediatamente ao ser baixado." },
+            { id: "d", label: "É o envio legítimo de faturas e comprovantes pelos bancos." }
+          ],
+          correctAnswer: "b",
+          feedback: "O phishing usa engenharia social (mensagens convincentes ou alarmantes) para induzir a vítima a entregar dados ou clicar em links maliciosos."
+        },
+        {
+          statement: "Ao receber uma mensagem dizendo 'Sua conta será bloqueada em 1 hora, clique aqui para atualizar seus dados', qual deve ser sua atitude?",
+          options: [
+            { id: "a", label: "Clicar imediatamente no link para evitar que a conta seja encerrada." },
+            { id: "b", label: "Encaminhar a mensagem para todos os contatos da sua agenda." },
+            { id: "c", label: "Parar, não clicar no link e acessar o canal ou aplicativo oficial do serviço para verificar a situação." },
+            { id: "d", label: "Responder à mensagem enviando sua senha para liberar o acesso." }
+          ],
+          correctAnswer: "c",
+          feedback: "Diante do senso de urgência, nunca clique no link fornecido. Sempre confirme acessando diretamente o aplicativo ou site oficial."
+        }
+      ]
     },
     {
       id: "03",
       title: "Como identificar uma mensagem suspeita?",
       description: "Conheça os sinais de alerta antes de clicar.",
-      content: {
-        text: "Desconfie imediatamente se uma mensagem apresentar os seguintes sinais de alerta:",
-        errors: [
-          { title: "🚨 Cria urgência", desc: "“Você tem apenas 10 minutos para responder!”" },
-          { title: "🚨 Promete algo inesperado", desc: "“Você foi selecionado para ganhar um prêmio!”" },
-          { title: "🚨 Solicita dados e códigos", desc: "“Envie sua senha” ou “Informe o código recebido por SMS”." },
-          { title: "🚨 Links e domínios estranhos", desc: "Endereços suspeitos como empresa-seguranca-login.xyz." },
-          { title: "🚨 Tenta assustar", desc: "“Sua conta será encerrada imediatamente se não clicar.”" }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual dos itens abaixo representa um SINAL CLARO DE ALERTA em mensagens recebidas por e-mail ou SMS?",
+          options: [
+            { id: "a", label: "Mensagem personalizada vinda de um canal verificado da empresa." },
+            { id: "b", label: "Criar urgência exagerada, promessas de prêmios inesperados e links com domínios estranhos." },
+            { id: "c", label: "Informativo mensal de fatura que você já esperava receber." },
+            { id: "d", label: "Notificação de atualização do sistema operacional enviada pelo próprio aparelho." }
+          ],
+          correctAnswer: "b",
+          feedback: "Gatilhos de urgência, ofertas irrealistas e links com endereços estranhos são as marcas registradas de mensagens golpistas."
+        }
+      ]
     },
     {
       id: "04",
       title: "Como verificar um link antes de acessar?",
       description: "Aprenda a conferir o endereço de um site.",
-      content: {
-        flowSteps: [
-          { title: "1. Observe o domínio", desc: "Confira o endereço completo da URL no navegador." },
-          { title: "2. Procure por erros", desc: "Golpistas utilizam endereços muito parecidos com os legítimos mudando poucas letras." },
-          { title: "3. Não confie apenas no visual", desc: "Páginas falsas conseguem copiar perfeitamente cores, logotipos e a aparência da empresa." },
-          { title: "4. Evite links inesperados", desc: "Digite você mesmo o endereço oficial no navegador ou utilize o aplicativo oficial da instituição." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Por que não se deve confiar apenas no visual bonito ou nos logotipos de um site ao abrir um link?",
+          options: [
+            { id: "a", label: "Porque golpistas conseguem copiar facilmente a identidade visual, cores e logos de empresas legítimas em páginas falsas." },
+            { id: "b", label: "Porque os sites oficiais não utilizam logotipos nem cores institucionais." },
+            { id: "c", label: "Porque sites bonitos navegam mais devagar na internet móvel." },
+            { id: "d", label: "Porque navegadores bloqueiam imagens de sites que possuem links seguros." }
+          ],
+          correctAnswer: "a",
+          feedback: "A aparência visual é fácil de replicar. O que realmente valida a autenticidade é o endereço de domínio (URL) correto no navegador."
+        },
+        {
+          statement: "Qual é a melhor conduta ao receber um link de pagamento ou login enviado por mensagem inesperada?",
+          options: [
+            { id: "a", label: "Clicar no link e preencher os dados o mais rápido possível." },
+            { id: "b", label: "Evitar clicar no link e digitar você mesmo o endereço oficial da empresa no navegador." },
+            { id: "c", label: "Compartilhar o link em grupos do WhatsApp para checar se é confiável." },
+            { id: "d", label: "Desligar o Wi-Fi e clicar usando os dados móveis." }
+          ],
+          correctAnswer: "b",
+          feedback: "Digitar manualmente a URL oficial garante que você vá para o portal autêntico da instituição."
+        }
+      ]
     },
     {
       id: "05",
       title: "Como criar uma senha segura?",
       description: "Aprenda a proteger suas principais contas.",
-      content: {
-        text: "A Polícia Federal recomenda o uso de senhas fortes e longas, orientando evitar informações pessoais fáceis de identificar.",
-        comparison: {
-          badTitle: "❌ Evite usar senhas como:",
-          bad: "• 123456\n• senha123\n• felipe2026\n• Datas de nascimento\n• Nome + ano atual",
-          goodTitle: "💡 O que faz uma senha ser boa?",
-          good: "• Deve ser longa\n• Dificil de adivinhar\n• Exclusiva para aquela conta\n• Sem informações pessoais óbvias\n• Armazenada com auxílio de um Gerenciador de Senhas"
+      quizzes: [
+        {
+          statement: "Segundo boas práticas de segurança digital, qual das opções abaixo é um exemplo de SENHA SEGURA?",
+          options: [
+            { id: "a", label: "12345678" },
+            { id: "b", label: "NomeDoCachorro2024" },
+            { id: "c", label: "senha123" },
+            { id: "d", label: "Uma combinação longa, sem dados pessoais e exclusiva para aquela conta, gerenciada com apoio de um gerenciador de senhas." }
+          ],
+          correctAnswer: "d",
+          feedback: "Senhas longas, complexas, sem informações pessoais óbvias e exclusivas são significativamente mais difíceis de serem quebradas por ataques automatizados."
         }
-      }
+      ]
     },
     {
       id: "06",
       title: "Por que não devo usar a mesma senha?",
       description: "Entenda o efeito dominó de uma senha vazada.",
-      content: {
-        text: "Se a mesma senha for utilizada em vários serviços, um incidente em uma única conta compromete todas as outras.",
-        alert: "Efeito Dominó: Senha vazada → E-mail comprometido → Redefinição de outras contas → Redes sociais e serviços financeiros invadidos.",
-        bulletsTitle: "Regra simples: Uma conta importante = uma senha exclusiva. Priorize:",
-        bullets: ["🔐 E-mail", "🔐 Banco", "🔐 Gov.br", "🔐 Redes sociais", "🔐 Armazenamento em nuvem"]
-      }
+      quizzes: [
+        {
+          statement: "O que é o chamado 'Efeito Dominó' relacionado ao reuso de senhas?",
+          options: [
+            { id: "a", label: "Quando a senha é tão forte que o sistema bloqueia o usuário automaticamente." },
+            { id: "b", label: "Quando o vazamento de uma única senha permite que invasores acessem todas as suas outras contas que usam essa mesma senha." },
+            { id: "c", label: "Quando o celular desliga sozinho por falta de memória de armazenamento." },
+            { id: "d", label: "Quando o provedor de internet muda o IP da sua residência." }
+          ],
+          correctAnswer: "b",
+          feedback: "Se você usa a mesma senha no e-mail, banco e redes sociais, o vazamento de um serviço compromete a segurança de toda a sua vida digital."
+        }
+      ]
     },
     {
       id: "07",
       title: "O que é autenticação em dois fatores?",
       description: "Adicione uma segunda camada de proteção às suas contas.",
-      content: {
-        formula: {
-          title: "Como funciona a verificação em duas etapas (2FA)",
-          structure: "Senha + Código de Autenticação = Acesso Liberado",
-          example: "Mesmo que descubram sua senha, o invasor precisará do código enviado ao seu aplicativo autenticador ou dispositivo."
+      quizzes: [
+        {
+          statement: "Como funciona a Autenticação em Dois Fatores (2FA)?",
+          options: [
+            { id: "a", label: "Ela exige duas senhas de texto iguais digitadas em campos diferentes." },
+            { id: "b", label: "Ela combina a sua senha com um segundo elemento de verificação (ex: código gerado em app autenticador) para liberar o acesso." },
+            { id: "c", label: "É um antivírus que roda em segundo plano verificando downloads." },
+            { id: "d", label: "É a obrigação de mudar a senha do e-mail todos os dias." }
+          ],
+          correctAnswer: "b",
+          feedback: "Com o 2FA ativo, mesmo que um invasor descubra sua senha, ele não conseguirá logar sem o código temporário do seu dispositivo."
         },
-        bulletsTitle: "Ative a autenticação em dois fatores imediatamente em:",
-        bullets: ["E-mail (Google/Microsoft)", "Instagram e LinkedIn", "WhatsApp", "Aplicativos de Bancos", "Conta Gov.br"]
-      }
+        {
+          statement: "Em quais destas contas a ativação da verificação em dois fatores (2FA) é considerada PRIORITÁRIA?",
+          options: [
+            { id: "a", label: "Apenas em jogos online offline." },
+            { id: "b", label: "E-mail principal, WhatsApp, redes sociais, aplicativos bancários e Conta Gov.br." },
+            { id: "c", label: "Em aplicativos de calculadora e lanterna do celular." },
+            { id: "d", label: "Não é necessário ativar em nenhuma conta importante." }
+          ],
+          correctAnswer: "b",
+          feedback: "Contas essenciais e que contêm dados sensíveis ou dão acesso a outros serviços (como e-mail e Gov.br) devem ser protegidas com 2FA imediatamente."
+        }
+      ]
     },
     {
       id: "08",
       title: "O que nunca devo compartilhar?",
       description: "Saiba quais informações precisam de atenção especial.",
-      content: {
-        text: "Uma pessoa mal-intencionada pode se passar por banco, empresa, recrutador, amigo, familiar ou suporte técnico. O fato de saberem seu nome não significa que sejam legítimos.",
-        bulletsTitle: "🔴 NUNCA compartilhe com terceiros:",
-        bullets: [
-          "Senhas de acesso",
-          "Códigos de autenticação recebidos por SMS/E-mail",
-          "PIN de segurança",
-          "Códigos e chaves de recuperação",
-          "Dados bancários completos",
-          "Fotos de documentos sem real necessidade",
-          "Informações pessoais excessivas"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Quais dados você NUNCA deve compartilhar com terceiros, mesmo que a pessoa afirme ser do suporte técnico ou do seu banco?",
+          options: [
+            { id: "a", label: "Seu nome completo para cadastro público de currículos." },
+            { id: "b", label: "Senhas, PINs de segurança e códigos de validação recebidos por SMS ou e-mail." },
+            { id: "c", label: "O endereço de e-mail comercial para receber propostas de trabalho." },
+            { id: "d", label: "O link para seu perfil profissional do LinkedIn." }
+          ],
+          correctAnswer: "b",
+          feedback: "Códigos SMS, PINs e senhas são dados de acesso estritamente pessoais. Bancos e empresas legítimas jamais solicitam esses códigos por telefone ou mensagem."
+        }
+      ]
     },
     {
       id: "09",
       title: "Como proteger seus dados em cadastros?",
       description: "Pense antes de entregar informações pessoais.",
-      content: {
-        text: "Quanto mais informações pessoais você disponibiliza na rede, maior deve ser a atenção sobre onde e para quem esses dados estão sendo fornecidos.",
-        checklistItems: [
-          "Quem está coletando meus dados?",
-          "Por que esses dados são realmente necessários?",
-          "O site em questão é oficial?",
-          "Existe uma conexão segura na página (HTTPS)?",
-          "O site possui uma política de privacidade clara?",
-          "Preciso realmente fornecer essa informação opcional?"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "O que deve ser analisado antes de preencher formulários com dados pessoais em um site?",
+          options: [
+            { id: "a", label: "Verificar se a conexão é segura (HTTPS), se o site é oficial e por que as informações estão sendo solicitadas." },
+            { id: "b", label: "Preencher tudo sem ler, desde que o site tenha cores bonitas." },
+            { id: "c", label: "Enviar fotos dos documentos pessoais para qualquer aba de comentários." },
+            { id: "d", label: "Fornecer dados bancários mesmo quando o cadastro for para um serviço gratuito." }
+          ],
+          correctAnswer: "a",
+          feedback: "Sempre avalie a legitimidade da página e forneça apenas as informações estritamente necessárias para o cadastro."
+        }
+      ]
     },
     {
       id: "10",
       title: "Como proteger sua conta de e-mail?",
       description: "Seu e-mail merece atenção especial.",
-      content: {
-        text: "A Anatel destaca que o e-mail costuma ser o ponto central de recuperação e entrada para todas as outras contas online.",
-        bulletsTitle: "Práticas fundamentais para a proteção do e-mail:",
-        bullets: [
-          "Utilize uma senha exclusiva e forte",
-          "Ative obrigatoriamente o 2FA (dois fatores)",
-          "Revise periodicamente os dispositivos conectados",
-          "Verifique o histórico de atividades suspeitas",
-          "Mantenha as opções de recuperação (telefone e e-mail secundário) atualizadas",
-          "Nunca compartilhe códigos e tome cuidado com anexos"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Por que a conta de e-mail é considerada o ponto mais crítico da segurança digital de um usuário?",
+          options: [
+            { id: "a", label: "Porque ocupa mais espaço de armazenamento do celular que outros apps." },
+            { id: "b", label: "Porque o e-mail é a chave central usada para redefinir senhas de quase todas as outras contas online." },
+            { id: "c", label: "Porque e-mails não aceitam o uso de senhas fortes." },
+            { id: "d", label: "Porque os e-mails só funcionam se estiverem conectados a um Wi-Fi público." }
+          ],
+          correctAnswer: "b",
+          feedback: "Se um invasor acessar seu e-mail, ele pode utilizar a opção 'Esqueci minha senha' para invadir suas redes sociais, e-commerces e serviços financeiros."
+        }
+      ]
     },
     {
       id: "11",
       title: "Como se proteger no WhatsApp?",
       description: "Reduza o risco de clonagem e engenharia social.",
-      content: {
-        bulletsTitle: "Recomendações fundamentais:",
-        bullets: [
-          "🔒 Ative a verificação em duas etapas nas configurações",
-          "👤 Controle nas opções de privacidade quem pode adicionar você a grupos",
-          "📵 Desconfie de mensagens urgentes solicitando dinheiro ou PIX",
-          "🔑 Nunca envie códigos de confirmação recebidos por SMS para ninguém",
-          "📞 Se um conhecido pedir dinheiro por número novo, ligue e confirme a identidade por outro canal"
-        ],
-        alert: "Exemplo: “Oi, troquei de número. Preciso que você faça um PIX urgente.” Não tome atitudes por impulso só porque a foto e o nome parecem familiares!"
-      }
+      quizzes: [
+        {
+          statement: "O que fazer ao receber uma mensagem de um número desconhecido usando a foto de um familiar solicitando um PIX urgente?",
+          options: [
+            { id: "a", label: "Fazer o PIX imediatamente para ajudar, afinal a foto do perfil é do seu familiar." },
+            { id: "b", label: "Enviar um código de confirmação do seu WhatsApp para o número." },
+            { id: "c", label: "Ligar para o número antigo/oficial do seu familiar ou usar outro canal para confirmar a identidade antes de qualquer transferência." },
+            { id: "d", label: "Pedir os dados do cartão de crédito do familiar antes de enviar o dinheiro." }
+          ],
+          correctAnswer: "c",
+          feedback: "Golpistas frequentemente baixam fotos públicas e criam contas de WhatsApp informando que 'trocaram de número'. Nunca transfira valores por impulso!"
+        }
+      ]
     },
     {
       id: "12",
       title: "Como identificar golpes em vagas de emprego?",
       description: "Aprenda a detectar fraudes em oportunidades profissionais.",
-      content: {
-        alert: "🚨 Fique atento! Desconfie de vagas que prometem salários incompatíveis, garantem contratação imediata, cobram taxas de participação ou exigem pagamentos por treinamentos obrigatórios.",
-        bulletsTitle: "Antes de prosseguir com uma candidatura, pesquise:",
-        bullets: [
-          "Nome da Empresa + Vaga",
-          "Nome da Empresa + Site Oficial",
-          "Nome da Empresa + Perfil Oficial no LinkedIn",
-          "Nome da Empresa + Reclamações no Reclame Aqui"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual das situações abaixo aponta uma FRAUDE ou GOLPE em um anúncio de vaga de trabalho?",
+          options: [
+            { id: "a", label: "A empresa solicita o envio de um currículo atualizado em formato PDF." },
+            { id: "b", label: "Exigência de pagamento de taxa para fazer a inscrição ou comprar um curso obrigatório antes de ser contratado." },
+            { id: "c", label: "Agendamento de entrevista remota via Google Meet ou Microsoft Teams." },
+            { id: "d", label: "Solicitação para realizar um teste prático de conhecimentos alinhado ao cargo." }
+          ],
+          correctAnswer: "b",
+          feedback: "Processos seletivos legítimos nunca cobram taxas para inscrição, treinamento ou compra de materiais/exames do candidato."
+        }
+      ]
     },
     {
       id: "13",
       title: "Golpes em compras e ofertas",
       description: "Nem toda promoção é uma oportunidade.",
-      content: {
-        text: "A Polícia Federal recomenda atenção redobrada a ofertas com valores excessivamente abaixo do preço de mercado e a links de promoções recebidos por mensagens.",
-        errors: [
-          { title: "Sinais de ofertas falsas", desc: "“90% de desconto somente hoje!”, “Últimas unidades!”, “Você foi selecionado!”, “Pagamento exclusivo via PIX”." },
-          { title: "O que verificar antes de comprar", desc: "Endereço do site, CNPJ, reputação da loja, política de troca, formas de pagamento e canais oficiais de contato." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Ao se deparar com uma oferta na internet com desconto de 90% e opção de pagamento EXCLUSIVAMENTE por PIX, o que você deve fazer?",
+          options: [
+            { id: "a", label: "Comprar imediatamente antes que o estoque acabe." },
+            { id: "b", label: "Desconfiar do valor irreal, pesquisar a reputação da loja (ex: Reclame Aqui) e conferir a URL do site." },
+            { id: "c", label: "Transferir o valor usando a chave PIX do vendedor sem verificar o CNPJ da loja." },
+            { id: "d", label: "Passar seus dados do cartão de crédito por mensagem direta no Instagram." }
+          ],
+          correctAnswer: "b",
+          feedback: "Preços excessivamente abaixo do mercado combinados com pagamento exclusivo via PIX são indicativos clássicos de e-commerce falso."
+        }
+      ]
     },
     {
       id: "14",
       title: "Como proteger seu celular e computador?",
       description: "Segurança também depende da manutenção do seu dispositivo.",
-      content: {
-        text: "A Polícia Federal recomenda manter sistemas, aplicativos e mecanismos de proteção devidamente atualizados, além de realizar backups periódicos.",
-        checklistItems: [
-          "Sistema operacional atualizado na última versão",
-          "Aplicativos mantidos atualizados",
-          "Bloqueio de tela ativado (Biometria/PIN)",
-          "Aplicativos instalados apenas de lojas oficiais",
-          "Backup periódico dos arquivos importantes feito",
-          "Antivírus ativo quando apropriado"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Por que manter o Sistema Operacional e os Aplicativos do dispositivo sempre ATUALIZADOS melhora a segurança?",
+          options: [
+            { id: "a", label: "Porque as atualizações corrigem falhas e vulnerabilidades de segurança que poderiam ser exploradas por hackers." },
+            { id: "b", label: "Porque atualizações apagam todas as senhas salvas no aparelho." },
+            { id: "c", label: "Para mudar a cor dos ícones da tela inicial do celular." },
+            { id: "d", label: "Apenas para deixar o aparelho ocupando mais espaço de memória." }
+          ],
+          correctAnswer: "a",
+          feedback: "As atualizações de software frequentemente contêm correções de bugs de segurança que impedem a ação de softwares maliciosos."
+        }
+      ]
     },
     {
       id: "15",
       title: "Como usar Wi-Fi público com segurança?",
       description: "Tenha cuidado ao acessar serviços importantes em redes desconhecidas.",
-      content: {
-        text: "Em redes Wi-Fi abertas e públicas, evite realizar atividades sensíveis como:",
-        bullets: [
-          "Acesso ao Internet Banking",
-          "Alteração ou redefinição de senhas",
-          "Acesso a documentos pessoais e confidenciais",
-          "Qualquer tipo de operação financeira"
-        ],
-        alert: "A Polícia Federal recomenda utilizar apenas redes Wi-Fi confiáveis para o acesso a serviços importantes."
-      }
+      quizzes: [
+        {
+          statement: "Qual ação DEVE SER EVITADA ao estar conectado a uma rede Wi-Fi pública ou aberta em praças e aeroportos?",
+          options: [
+            { id: "a", label: "Ler notícias em portais abertos de comunicação." },
+            { id: "b", label: "Realizar transações financeiras e acessar o aplicativo do seu banco." },
+            { id: "c", label: "Consultar a previsão do tempo no celular." },
+            { id: "d", label: "Buscar a rota do transporte público em aplicativos de mapa." }
+          ],
+          correctAnswer: "b",
+          feedback: "Redes Wi-Fi públicas podem ter o tráfego interceptado. Evite acessar bancos ou digitar senhas importantes nessas conexões."
+        }
+      ]
     },
     {
       id: "16",
       title: "O que fazer se eu cair em um golpe?",
       description: "Agir rapidamente pode ajudar a reduzir os impactos.",
-      content: {
-        flowSteps: [
-          { title: "PASSO 1", desc: "Cesse e interrompa imediatamente todo e qualquer contato com o golpista." },
-          { title: "PASSO 2", desc: "Altere de imediato as senhas de todas as contas que possam ter sido afetadas." },
-          { title: "PASSO 3", desc: "Ative ou revise a autenticação em dois fatores (2FA)." },
-          { title: "PASSO 4", desc: "Em caso de prejuízo financeiro, entre em contato urgente com sua instituição bancária." },
-          { title: "PASSO 5", desc: "Guarde provas do ocorrido: prints de conversas, e-mails, comprovantes, links e números de telefone." },
-          { title: "PASSO 6", desc: "Registre o Boletim de Ocorrência (BO) e busque os órgãos e canais oficiais adequados." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual é o PRIMEIRO PASSO imediato a ser tomado caso perceba ter sido vítima de um golpe financeiro ou vazamento de dados?",
+          options: [
+            { id: "a", label: "Esperar alguns dias para ver se o valor da transferência é devolvido." },
+            { id: "b", label: "Interromper contato com o golpista, alterar as senhas afetadas e contatar urgentemente seu banco." },
+            { id: "c", label: "Deletar todos os prints e mensagens para não lembrar do ocorrido." },
+            { id: "d", label: "Desinstalar os aplicativos sem avisar a instituição financeira." }
+          ],
+          correctAnswer: "b",
+          feedback: "A agilidade em bloquear acessos, contatar o banco e guardar os comprovantes/prints é essencial para tentar conter os danos e registrar o Boletim de Ocorrência."
+        }
+      ]
     },
     {
       id: "17",
       title: "Checklist: estou diante de um possível golpe?",
       description: "Responda a estas perguntas antes de realizar qualquer ação online.",
-      content: {
-        text: "Se várias respostas para as perguntas abaixo forem suspeitas: NÃO CLIQUE e NÃO COMPARTILHE DADOS.",
-        checklistItems: [
-          "Eu realmente conheço quem enviou a mensagem?",
-          "Eu estava esperando por essa mensagem ou contato?",
-          "O endereço/link enviado parece oficial?",
-          "Estão solicitando minha senha?",
-          "Estão solicitando um código recebido no meu celular?",
-          "Estão pedindo transferência ou dinheiro?",
-          "Existe um tom de urgência exagerada?",
-          "Existe uma promessa boa demais para ser verdade?",
-          "Posso confirmar essa informação por outro canal de atendimento?",
-          "Posso acessar o serviço digitando o site oficial diretamente no navegador?"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Se uma mensagem atender a estes critérios: 'Desconhecido + Tom de urgência exagerada + Solicitação de PIX/Código SMS', o que fazer?",
+          options: [
+            { id: "a", label: "Não clicar, não enviar dados e bloquear o remetente." },
+            { id: "b", label: "Clicar e responder para tirar dúvida com o remetente." },
+            { id: "c", label: "Enviar um valor pequeno de PIX para testar se é verdade." },
+            { id: "d", label: "Preencher apenas o seu CPF para liberar o atendimento." }
+          ],
+          correctAnswer: "a",
+          feedback: "Se os critérios de alerta foram ativados, recuse a interação e proteja suas informações."
+        }
+      ]
     },
     {
       id: "18",
       title: "Sites e recursos para aprender mais",
       description: "Fontes oficiais para aprofundar seus conhecimentos em segurança.",
-      content: {
-        toolsList: [
-          { label: "🛡️ CERT.br", desc: "Cartilha de Segurança para Internet com conteúdos detalhados sobre fraudes, privacidade e dispositivos.", ideal: "Estudo e conscientização digital" },
-          { label: "🏛️ Polícia Federal", desc: "Sessão de combate a crimes cibernéticos com orientações e dicas de prevenção de golpes.", ideal: "Orientações oficiais de segurança" },
-          { label: "🇧🇷 Gov.br", desc: "Instruções e guias para proteção da conta gov.br e configuração do 2FA.", ideal: "Proteção da identidade cidadã" },
-          { label: "📡 Anatel", desc: "Dicas de segurança digital, proteção de contas, privacidade e redes móveis.", ideal: "Segurança em telecomunicações" }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual destas instituições disponibiliza a 'Cartilha de Segurança para Internet' com orientações gratuitas sobre proteção digital?",
+          options: [
+            { id: "a", label: "CERT.br" },
+            { id: "b", label: "Netflix" },
+            { id: "c", label: "Spotify" },
+            { id: "d", label: "Steam" }
+          ],
+          correctAnswer: "a",
+          feedback: "O CERT.br mantém cartilhas excelentes e atualizadas para ensinar cidadãos a se protegerem na internet."
+        }
+      ]
     },
     {
       id: "19",
       title: "🎯 Desafio prático do módulo",
       description: "Faça um check-up completo na sua segurança digital.",
-      content: {
-        challenges: [
-          {
-            number: "01",
-            title: "Auditoria de Contas",
-            items: [
-              "MISSÃO 01: Verifique suas principais contas online.",
-              "MISSÃO 02: Ative o 2FA (dois fatores) onde estiver disponível.",
-              "MISSÃO 03: Identifique e troque senhas reutilizadas em contas importantes."
-            ]
-          },
-          {
-            number: "02",
-            title: "Recuperação e Dispositivos",
-            items: [
-              "MISSÃO 04: Atualize suas opções e e-mail de recuperação.",
-              "MISSÃO 05: Revise o histórico de dispositivos conectados às suas contas.",
-              "MISSÃO 06: Analise e revogue permissões desnecessárias de aplicativos."
-            ]
-          },
-          {
-            number: "03",
-            title: "Prevenção Prática",
-            items: [
-              "MISSÃO 07: Faça o backup dos seus arquivos mais importantes.",
-              "MISSÃO 08: Analise três mensagens suspeitas e identifique os sinais de golpe.",
-              "MISSÃO 09: Salve nos seus favoritos os canais oficiais das instituições que você utiliza."
-            ]
-          }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual é o objetivo prático principal do desafio do Módulo 3?",
+          options: [
+            { id: "a", label: "Realizar uma auditoria de contas, ativar o 2FA nas suas principais aplicações e fazer o backup dos seus arquivos essenciais." },
+            { id: "b", label: "Comprar um celular novo com sistema operacional fechado." },
+            { id: "c", label: "Apagar todas as suas redes sociais e contas de e-mail." },
+            { id: "d", label: "Anotar todas as suas senhas em um bloco de notas público." }
+          ],
+          correctAnswer: "a",
+          feedback: "O desafio incentiva a colocar em prática todas as etapas ativas de proteção para manter sua identidade digital e seus dados seguros."
+        }
+      ]
     }
   ]
 };

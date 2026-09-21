@@ -1,4 +1,5 @@
 export const module2Data = {
+  id: "2",
   tag: "MÓDULO 2",
   title: "Otimização para Redes e Busca de Vagas",
   subtitle: "Passo a passo para melhorar sua presença no LinkedIn, encontrar oportunidades e utilizar palavras-chave para aumentar a relevância do seu perfil.",
@@ -8,315 +9,307 @@ export const module2Data = {
       id: "01",
       title: "Como funciona uma busca de emprego eficiente?",
       description: "Entenda como organizar sua busca antes de começar a se candidatar.",
-      content: {
-        text: "Uma busca de emprego eficiente começa antes da primeira candidatura.",
-        bulletsTitle: "Primeiro, defina:",
-        bullets: [
-          "Área profissional",
-          "Cargos de interesse",
-          "Nível de experiência",
-          "Cidade ou região",
-          "Modalidade de trabalho",
-          "Faixa salarial desejada",
-          "Competências que você possui",
-          "Competências que precisa desenvolver"
-        ],
-        comparison: {
-          badTitle: "Em vez de pesquisar apenas:",
-          bad: "vaga tecnologia",
-          goodTitle: "Experimente pesquisas mais específicas:",
-          good: "• Desenvolvedor Front-end Júnior\n• Analista de Suporte Júnior\n• Estágio em Desenvolvimento Web\n• Assistente de TI\n• Desenvolvedor JavaScript Natal\n• Analista de Sistemas RN"
-        },
-        alert: "Quanto mais específica for a busca, mais fácil fica identificar oportunidades compatíveis com seu objetivo."
-      }
+      quizzes: [
+        {
+          statement: "O que caracteriza uma busca de emprego realmente eficiente?",
+          options: [
+            { id: "a", label: "Pesquisar termos genéricos como 'vaga tecnologia' e enviar o currículo para todas as vagas." },
+            { id: "b", label: "Definir cargo, nível de experiência, localização e usar pesquisas específicas como 'Desenvolvedor Front-end Júnior'." },
+            { id: "c", label: "Candidatar-se apenas a vagas do tipo Home Office no exterior." },
+            { id: "d", label: "Aguardar os recrutadores entrarem em contato sem realizar pesquisas ativas." }
+          ],
+          correctAnswer: "b",
+          feedback: "Pesquisas específicas filtram oportunidades realmente compatíveis com seu objetivo, economizando tempo e aumentando suas chances de retorno."
+        }
+      ]
     },
     {
       id: "02",
       title: "Como otimizar meu LinkedIn?",
       description: "Transforme seu perfil em uma apresentação profissional estratégica.",
-      content: {
-        text: "Seu LinkedIn deve funcionar como uma extensão do seu currículo. O LinkedIn utiliza informações como título, seção 'Sobre', experiência, formação e preferências de localização para gerar recomendações de vagas.",
-        blocks: [
-          {
-            header: "Foto",
-            text: "Utilize uma imagem adequada ao contexto profissional."
-          },
-          {
-            header: "Título",
-            badExample: "“Estudante”",
-            goodExample: "“Estudante de ADS | Desenvolvimento Web | HTML, CSS e JavaScript”"
-          },
-          {
-            header: "Sobre",
-            text: "Explique quem você é, o que estuda, em qual área pretende trabalhar, quais competências possui e quais projetos desenvolveu."
-          },
-          {
-            header: "Competências e Projetos",
-            text: "Adicione competências realmente relacionadas à área desejada e, sempre que possível, mostre projetos e resultados."
-          }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual destas opções representa o melhor título profissional no LinkedIn para quem está em busca do primeiro emprego na área técnica?",
+          options: [
+            { id: "a", label: "“Em busca de recolocação / Desempregado”" },
+            { id: "b", label: "“Estudante”" },
+            { id: "c", label: "“Estudante de ADS | Desenvolvimento Web | HTML, CSS e JavaScript”" },
+            { id: "d", label: "“Futuro Engenheiro de Software na Google”" }
+          ],
+          correctAnswer: "c",
+          feedback: "O título deve destacar sua área de estudo/atuação e as principais tecnologias/competências que você domina, ajudando os recrutadores a encontrarem você nas buscas."
+        }
+      ]
     },
     {
       id: "03",
       title: "O que são palavras-chave?",
       description: "Aprenda a utilizar os termos que aparecem nas descrições das vagas.",
-      content: {
-        text: "Palavras-chave são termos relacionados às competências, tecnologias, funções e conhecimentos procurados pelas empresas.",
-        bulletsTitle: "Por exemplo, uma vaga de desenvolvimento web pode mencionar:",
-        bullets: ["HTML", "CSS", "JavaScript", "React", "Git", "APIs", "Responsividade"],
-        note: "Se você realmente possui essas competências, pode apresentá-las de maneira natural no Currículo, LinkedIn, Portfólio e Descrição dos projetos.",
-        alert: "⚠️ Importante: Não coloque uma lista de tecnologias que você não conhece apenas porque aparecem nas vagas. A ideia é apresentar melhor competências reais, não inventar qualificações."
-      }
+      quizzes: [
+        {
+          statement: "Qual é a maneira correta de utilizar palavras-chave no seu perfil e currículo?",
+          options: [
+            { id: "a", label: "Copiar uma lista de 50 tecnologias famosas no rodapé, mesmo que não saiba usá-las." },
+            { id: "b", label: "Apresentar de forma natural no resumo e projetos as tecnologias e competências que você realmente possui." },
+            { id: "c", label: "Usar apenas palavras genéricas como 'dedicado', 'esforçado' e 'pontual'." },
+            { id: "d", label: "Esconder palavras em texto branco dentro do arquivo do currículo." }
+          ],
+          correctAnswer: "b",
+          feedback: "As palavras-chave devem representar seus conhecimentos reais. Inventar qualificações pode ser desmascarado facilmente em uma entrevista ou teste prático."
+        }
+      ]
     },
     {
       id: "04",
       title: "Como encontrar as palavras-chave certas?",
       description: "Aprenda a analisar uma vaga antes de adaptar seu currículo.",
-      content: {
-        text: "Pegue uma descrição de vaga e procure por termos-chave em cada categoria abaixo:",
-        flowSteps: [
-          { title: "🧑‍💻 Tecnologias", desc: "JavaScript, React, Python, SQL..." },
-          { title: "🎓 Formação", desc: "ADS, Sistemas de Informação, Administração..." },
-          { title: "🛠️ Competências", desc: "Comunicação, organização, análise..." },
-          { title: "📋 Atividades", desc: "Atendimento, desenvolvimento, análise de dados..." },
-          { title: "📍 Localização", desc: "Natal, Parnamirim, Mossoró, remoto..." }
-        ],
-        comparison: {
-          badTitle: "Exemplo - A vaga pede:",
-          bad: "HTML, CSS, JavaScript e Git.",
-          goodTitle: "Você possui esses conhecimentos?",
-          good: "Essas competências devem aparecer claramente no seu currículo, LinkedIn e portfólio."
+      quizzes: [
+        {
+          statement: "Ao analisar uma vaga desejada, quais elementos você deve mapear para identificar as palavras-chave principais?",
+          options: [
+            { id: "a", label: "Apenas o salário e os benefícios oferecidos." },
+            { id: "b", label: "Tecnologias solicitadas, formação exigida, competências, atividades da vaga e localização." },
+            { id: "c", label: "A quantidade de seguidores que a empresa tem nas redes sociais." },
+            { id: "d", label: "O nome do recrutador que publicou a vaga." }
+          ],
+          correctAnswer: "b",
+          feedback: "Mapear esses 5 pontos ajuda a entender o perfil exato exigido pela vaga e a verificar a sua aderência à oportunidade."
         }
-      }
+      ]
     },
     {
       id: "05",
       title: "Onde procurar vagas?",
       description: "Conheça plataformas diferentes para ampliar sua busca.",
-      content: {
-        toolsList: [
-          { label: "LinkedIn", desc: "Permite pesquisar vagas, aplicar filtros, salvar oportunidades e criar alertas.", ideal: "Rede profissional e vagas gerais" },
-          { label: "Gupy", desc: "Plataforma utilizada por empresas para divulgação e recrutamento com diversos filtros.", ideal: "Processos seletivos corporativos" },
-          { label: "SINE / Emprega Brasil", desc: "Consulta de oportunidades via Portal Emprega Brasil e app Carteira de Trabalho Digital.", ideal: "Vagas do sistema público de emprego" },
-          { label: "SINE-RN", desc: "Referência local no RN para intermediação de mão de obra e serviços do Portal do Cidadão.", ideal: "Oportunidades locais no RN" },
-          { label: "Outras Plataformas", desc: "Indeed, Glassdoor, Vagas.com, CIEE, Nube, Programathor, Trampos, Jooble.", ideal: "Ampliar o alcance de busca" }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Sobre as plataformas de vaga, assinale a alternativa correta:",
+          options: [
+            { id: "a", label: "O LinkedIn é a única plataforma que existe para buscar emprego." },
+            { id: "b", label: "Plataformas locais como o SINE-RN e regionais não possuem vagas operacionais ou técnicas." },
+            { id: "c", label: "É recomendado diversificar a busca entre redes profissionais (LinkedIn), portais corporativos (Gupy), órgãos públicos (SINE) e sites especializados." },
+            { id: "d", label: "Sites de vagas exigem pagamento mensal obrigatório do candidato." }
+          ],
+          correctAnswer: "c",
+          feedback: "Diversificar as plataformas amplia suas oportunidades, já que diferentes empresas utilizam canais variados para recrutamento."
+        }
+      ]
     },
     {
       id: "06",
       title: "Como pesquisar vagas no LinkedIn?",
       description: "Use filtros para evitar perder tempo com oportunidades pouco relevantes.",
-      content: {
-        flowSteps: [
-          { title: "Acesse a área de vagas", desc: "Entre na aba 'Vagas' no menu principal." },
-          { title: "Pesquise pelo cargo", desc: "Digite o cargo desejado (Exemplo: Desenvolvedor Web Júnior)." },
-          { title: "Aplique filtros estratégicos", desc: "Filtre por Localização (Remoto/Híbrido/Presencial), Nível de experiência e Data de publicação." },
-          { title: "Salve e ative alertas", desc: "Salve as vagas relevantes e ative alertas para receber notificações periódicas." }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Para não perder oportunidades recentes e relevantes no LinkedIn, qual combinação de recursos você deve usar?",
+          options: [
+            { id: "a", label: "Apenas rolar o feed de notícias diariamente sem usar a aba de vagas." },
+            { id: "b", label: "Filtros de localização/modalidade, nível de experiência e ativação de Alertas de Vagas." },
+            { id: "c", label: "Enviar mensagens diretas para os CEOs de grandes empresas." },
+            { id: "d", label: "Buscar termos genéricos sem aplicar nenhum tipo de filtro." }
+          ],
+          correctAnswer: "b",
+          feedback: "Aplicar filtros por localização/nível e ativar alertas faz com que as vagas compatíveis cheguem até você assim que forem publicadas."
+        }
+      ]
     },
     {
       id: "07",
       title: "Como procurar vagas no RN?",
       description: "Aprenda a transformar sua busca em algo local e específico.",
-      content: {
-        text: "Para oportunidades no Rio Grande do Norte, experimente pesquisar combinações de palavras-chave por município ou região:",
-        bulletsTitle: "Exemplos de termos de busca local:",
-        bullets: [
-          "Natal: Desenvolvedor Natal | Estágio TI Natal | Assistente administrativo Natal",
-          "Parnamirim: TI Parnamirim | Estágio Parnamirim",
-          "Mossoró: Desenvolvedor Mossoró | Analista de sistemas Mossoró",
-          "Estado: Tecnologia Rio Grande do Norte | Estágio RN"
-        ],
-        alert: "Além das plataformas nacionais, acompanhe os canais do SINE-RN e os serviços estaduais em diferentes municípios do RN."
-      }
+      quizzes: [
+        {
+          statement: "Qual é a forma ideal de pesquisar vagas com foco local no Rio Grande do Norte?",
+          options: [
+            { id: "a", label: "Buscar termos combinando a área/cargo e o município, como 'Desenvolvedor Natal' ou 'Estágio TI Mossoró'." },
+            { id: "b", label: "Pesquisar apenas 'Brasil' na caixa de localização." },
+            { id: "c", label: "Procurar vagas presenciais sem especificar a cidade." },
+            { id: "d", label: "Buscar apenas empresas com sede em São Paulo." }
+          ],
+          correctAnswer: "a",
+          feedback: "Incluir a cidade ou estado (Natal, Parnamirim, Mossoró, RN) ajuda a encontrar vagas presenciais e híbridas da sua região."
+        }
+      ]
     },
     {
       id: "08",
       title: "Como encontrar vagas de estágio e primeiro emprego?",
       description: "Existem estratégias específicas para quem ainda não possui experiência.",
-      content: {
-        text: "Utilize termos direcionados a posições de entrada no mercado de trabalho:",
-        bulletsTitle: "Palavras de busca recomendadas:",
-        bullets: ["Estágio", "Jovem Aprendiz", "Trainee", "Assistente", "Auxiliar", "Júnior", "Primeiro emprego", "Banco de talentos"],
-        comparison: {
-          badTitle: "Em vez de pesquisar:",
-          bad: "“Desenvolvedor”",
-          goodTitle: "Experimente termos específicos:",
-          good: "• “Estágio Desenvolvimento Web”\n• “Desenvolvedor Júnior”\n• “Estágio TI”\n• “Suporte Técnico Júnior”\n• “Assistente de TI”"
+      quizzes: [
+        {
+          statement: "Se você não possui experiência formal e quer a primeira oportunidade, quais termos de busca são mais indicados?",
+          options: [
+            { id: "a", label: "“Especialista”, “Líder Técnico” e “Sênior”." },
+            { id: "b", label: "“Estágio”, “Jovem Aprendiz”, “Assistente”, “Júnior” e “Banco de Talentos”." },
+            { id: "c", label: "“Gerente de Projetos” e “Coordenador”." },
+            { id: "d", label: "Apenas a palavra “Desenvolvedor” solta." }
+          ],
+          correctAnswer: "b",
+          feedback: "Termos como 'Estágio', 'Júnior' e 'Assistente' filtram posições de entrada voltadas ao aprendizado e início de carreira."
         }
-      }
+      ]
     },
     {
       id: "09",
       title: "Como analisar uma vaga antes de se candidatar?",
       description: "Nem toda vaga precisa receber uma candidatura.",
-      content: {
-        text: "Antes de aplicar, passe a oportunidade por este checklist de compatibilidade. Se a maioria das respostas for positiva, avance para a candidatura:",
-        checklistItems: [
-          "Cargo compatível com seu objetivo?",
-          "Localização ou modalidade adequada (Presencial/Remoto)?",
-          "Escolaridade exigida compatível?",
-          "Possui as competências principais requeridas?",
-          "Nível de experiência condiz com o seu?",
-          "Jornada de trabalho possível?",
-          "Processo seletivo de fonte confiável?"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Por que é importante fazer um checklist prévio da vaga antes de enviar seu currículo?",
+          options: [
+            { id: "a", label: "Para garantir que você só se candidate a oportunidades onde possui compatibilidade de requisitos, localização e nível." },
+            { id: "b", label: "Para demorar mais tempo no processo de busca." },
+            { id: "c", label: "Porque os algoritmos bloqueiam quem envia mais de 3 currículos por dia." },
+            { id: "d", label: "Para tentar mudar os requisitos exigidos pela empresa." }
+          ],
+          correctAnswer: "a",
+          feedback: "Analisar a compatibilidade antes evita frustrações e aumenta a taxa de resposta dos recrutadores nas suas candidaturas."
+        }
+      ]
     },
     {
       id: "10",
       title: "Como adaptar o currículo para cada vaga?",
       description: "Aprenda a deixar seu currículo mais alinhado à oportunidade.",
-      content: {
-        text: "Você não precisa criar um currículo completamente diferente do zero para cada vaga. A ideia é priorizar e destacar as informações mais relevantes para aquela oportunidade específica.",
-        comparison: {
-          badTitle: "Se a Vaga A foca em ATENDIMENTO, destaque:",
-          bad: "• Comunicação\n• Atendimento ao cliente\n• Organização\n• Relacionamento",
-          goodTitle: "Se a Vaga B foca em TECNOLOGIA, destaque:",
-          good: "• Projetos desenvolvidos\n• HTML, CSS, JavaScript, Git\n• Desenvolvimento Web"
+      quizzes: [
+        {
+          statement: "O que significa 'adaptar o currículo' de forma inteligente para uma vaga específica?",
+          options: [
+            { id: "a", label: "Reescrever o documento do zero trocando todas as suas experiências anteriores por histórias falsas." },
+            { id: "b", label: "Destacar e reordenar as competências e projetos reais mais relevantes para o foco daquela vaga." },
+            { id: "c", label: "Mudar as cores do arquivo para combinar com a logo da empresa." },
+            { id: "d", label: "Aumentar o tamanho da fonte para o currículo parecer mais longo." }
+          ],
+          correctAnswer: "b",
+          feedback: "Adaptar não é inventar dados, mas sim dar destaque às informações da sua trajetória que mais interessam para a vaga em questão."
         }
-      }
+      ]
     },
     {
       id: "11",
       title: "Como usar alertas de vagas?",
       description: "Faça as oportunidades chegarem até você.",
-      content: {
-        text: "Crie alertas em plataformas como o LinkedIn para receber notificações por e-mail e aplicativo sempre que surgirem vagas com os critérios definidos.",
-        bulletsTitle: "Exemplos de alertas para configurar:",
-        bullets: [
-          "🔔 Alerta 01: Desenvolvedor Web Júnior — 📍 Natal",
-          "🔔 Alerta 02: Estágio em TI — 📍 Rio Grande do Norte",
-          "🔔 Alerta 03: Analista de Suporte — 📍 Remoto"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual é o principal benefício de configurar alertas de vagas no LinkedIn ou em outras plataformas?",
+          options: [
+            { id: "a", label: "Fazer o candidato ser contratado automaticamente sem participar de entrevistas." },
+            { id: "b", label: "Receber notificações em tempo real/diárias de novas vagas para se candidatar entre os primeiros." },
+            { id: "c", label: "Garantir que os recrutadores vejam seu perfil primeiro." },
+            { id: "d", label: "Bloquear candidaturas de outros concorrentes." }
+          ],
+          correctAnswer: "b",
+          feedback: "Candidatar-se nas primeiras horas de publicação de uma vaga aumenta significativamente as chances de o seu currículo ser visualizado."
+        }
+      ]
     },
     {
       id: "12",
       title: "Como organizar minhas candidaturas?",
       description: "Não dependa apenas da memória.",
-      content: {
-        text: "Mantenha o controle do seu processo seletivo utilizando uma planilha de acompanhamento:",
-        table: {
-          title: "Modelo de Acompanhamento de Candidaturas",
-          headers: ["Empresa / Cargo", "Data / Status / Link"],
-          rows: [
-            ["Empresa A - Estágio TI", "17/09 | Status: Enviado | 🔗 Link da Vaga"],
-            ["Empresa B - Suporte Jr.", "18/09 | Status: Entrevista | 🔗 Link da Vaga"],
-            ["Empresa C - Dev Jr.", "19/09 | Status: Em análise | 🔗 Link da Vaga"]
-          ]
-        },
-        bulletsTitle: "Legenda de Status recomendada:",
-        bullets: [
-          "🟡 Pesquisar",
-          "🔵 Candidatura enviada",
-          "🟣 Em análise",
-          "🟢 Entrevista",
-          "🔴 Encerrada",
-          "⚪ Banco de talentos"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual é a melhor prática para acompanhar seu progresso no mercado de trabalho?",
+          options: [
+            { id: "a", label: "Confiar na memória e esperar as empresas ligarem." },
+            { id: "b", label: "Manter uma planilha com nome da empresa, cargo, data de envio, link e status (ex: Em análise, Entrevista)." },
+            { id: "c", label: "Anotar os nomes das vagas no bloco de notas e apagar em seguida." },
+            { id: "d", label: "Candidatar-se novamente para a mesma vaga todos os dias." }
+          ],
+          correctAnswer: "b",
+          feedback: "Acompanhar candidaturas em uma planilha previne constrangimentos em ligações de surpresa e ajuda a entender o andamento dos seus processos."
+        }
+      ]
     },
     {
       id: "13",
       title: "Como se candidatar corretamente?",
       description: "Atenção aos detalhes antes do envio.",
-      content: {
-        text: "No LinkedIn, algumas vagas possuem Candidatura Simplificada, enquanto outras redirecionam para sites externos ou da própria empresa.",
-        bulletsTitle: "Checklist pré-candidatura (Confira antes de clicar em Enviar):",
-        bullets: [
-          "Currículo atualizado no formato adequado",
-          "Informações de contato e dados pessoais corretos",
-          "Links do portfólio e GitHub funcionando",
-          "Perfil do LinkedIn devidamente atualizado",
-          "Documentos e questionários solicitados revisados"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "O que deve ser verificado na etapa final de checklist pré-candidatura?",
+          options: [
+            { id: "a", label: "Se o currículo está em formato adequado, com contatos corretos e links (portfólio/GitHub/LinkedIn) funcionando." },
+            { id: "b", label: "Se a empresa responde mensagens aos finais de semana." },
+            { id: "c", label: "Se o logotipo do PDF está na cor azul." },
+            { id: "d", label: "Se o recrutador possui amigos em comum no Facebook." }
+          ],
+          correctAnswer: "a",
+          feedback: "Links quebrados ou dados de contato errados desclassificam candidatos qualificados antes mesmo do início da triagem."
+        }
+      ]
     },
     {
       id: "14",
       title: "Como evitar golpes em vagas?",
       description: "Proteja seus dados e evite ciladas no mercado.",
-      content: {
-        alert: "🚨 Desconfie imediatamente se pedirem dinheiro para participar do processo, se garantirem contratação fácil ou pedirem pagamentos para liberar treinamentos/equipamentos.",
-        errors: [
-          { title: "Solicitação de dinheiro", desc: "Cobranças por exames, treinamentos, material ou taxa de inscrição." },
-          { title: "Promessas irrealistas", desc: "Garantia de contratação imediata com altos salários e sem exigências." },
-          { title: "Dados excessivos de início", desc: "Pedidos de dados bancários, documentos ou senhas no primeiro contato." },
-          { title: "Contatos e canais suspeitos", desc: "E-mails genéricos de domínio gratuito e empresas sem canais oficiais verificáveis." }
-        ],
-        bulletsTitle: "Passos para verificar a autenticidade da empresa:",
-        bullets: [
-          "Pesquise: Nome da Empresa + Vaga",
-          "Pesquise: Nome da Empresa + Reclamações",
-          "Verifique o site e o LinkedIn oficial da empresa",
-          "Confirme se os canais de contato correspondem ao domínio oficial"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual das alternativas abaixo indica um SINAL CLARO DE GOLPE em um processo seletivo?",
+          options: [
+            { id: "a", label: "A empresa pedir uma entrevista por vídeo no Google Meet ou Teams." },
+            { id: "b", label: "Cobrar taxa de inscrição, pagamento de treinamento ou compra de exames/equipamentos para liberar a vaga." },
+            { id: "c", label: "O recrutador pedir para você enviar seu currículo atualizado em PDF." },
+            { id: "d", label: "A vaga solicitar testes práticos compatíveis com a função." }
+          ],
+          correctAnswer: "b",
+          feedback: "Nenhuma empresa séria cobra do candidato para que ele participe de um processo seletivo ou trabalhe. Fique alerta!"
+        }
+      ]
     },
     {
       id: "15",
       title: "Redes além do LinkedIn",
       description: "Sua presença profissional pode estar em diferentes lugares.",
-      content: {
-        toolsList: [
-          { label: "GitHub", desc: "Essencial para hospedagem de código e histórico de projetos.", ideal: "Desenvolvimento de Software" },
-          { label: "Behance / Dribbble", desc: "Exibição visual de trabalhos de design, UI/UX e artes gráficas.", ideal: "Design e Áreas Criativas" },
-          { label: "Notion", desc: "Criação de portfólios organizados, documentações e apresentações.", ideal: "Organização e Portfólios" },
-          { label: "Instagram Profissional", desc: "Divulgação de projetos visuais, serviços e networking.", ideal: "Criativos e Negócios Locais" }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Para um desenvolvedor ou profissional de tecnologia, qual plataforma é considerada essencial para demonstrar seus projetos práticos na prática?",
+          options: [
+            { id: "a", label: "Pinterest" },
+            { id: "b", label: "GitHub" },
+            { id: "c", label: "TikTok" },
+            { id: "d", label: "Snapchat" }
+          ],
+          correctAnswer: "b",
+          feedback: "O GitHub funciona como um portfólio vivo de código onde os avaliadores conseguem inspecionar seus projetos e evolução técnica."
+        }
+      ]
     },
     {
       id: "16",
       title: "Checklist da busca de vagas",
       description: "Revise todos os pontos para garantir uma busca eficiente.",
-      content: {
-        checklistItems: [
-          "Perfil: LinkedIn atualizado, foto profissional, título, Sobre, competências e projetos cadastrados",
-          "Currículo: PDF profissional atualizado, links ativos, palavras-chave revisadas",
-          "Busca: Cargos, localização e modalidade definidos; alertas criados nas plataformas",
-          "Candidaturas: Planilha de registro atualizada, links salvos, acompanhamento ativo das fases"
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Um candidato pronto para o mercado cumpriu com êxito quais etapas do checklist?",
+          options: [
+            { id: "a", label: "Criou um LinkedIn completo, PDF atualizado com links ativos, alertas de vagas configurados e planilha de acompanhamento." },
+            { id: "b", label: "Apenas baixou o modelo de currículo sem alterar os dados." },
+            { id: "c", label: "Enviou 100 e-mails genéricos com cópia oculta para várias empresas." },
+            { id: "d", label: "Criou um perfil no LinkedIn sem foto e sem preencher a seção Sobre." }
+          ],
+          correctAnswer: "a",
+          feedback: "Garantir que a apresentação profissional, a busca estratégica e o controle estejam alinhados é a chave para o sucesso na busca por vagas."
+        }
+      ]
     },
     {
       id: "17",
       title: "🎯 Desafio prático do módulo",
       description: "Otimize sua presença profissional e encontre oportunidades.",
-      content: {
-        challenges: [
-          {
-            number: "01",
-            title: "Presença e Alertas",
-            items: [
-              "MISSÃO 01: Atualize seu perfil no LinkedIn com base nas instruções.",
-              "MISSÃO 02: Escolha 3 cargos de seu interesse.",
-              "MISSÃO 03: Crie 3 alertas de vagas nas plataformas."
-            ]
-          },
-          {
-            number: "02",
-            title: "Mapeamento e Palavras-chave",
-            items: [
-              "MISSÃO 04: Encontre 10 vagas compatíveis.",
-              "MISSÃO 05: Selecione 5 oportunidades e analise seus requisitos.",
-              "MISSÃO 06: Identifique as palavras-chave mais recorrentes."
-            ]
-          },
-          {
-            number: "03",
-            title: "Ação e Candidatura",
-            items: [
-              "MISSÃO 07: Compare as palavras-chave com suas competências atuais.",
-              "MISSÃO 08: Faça pelo menos 3 candidaturas conscientes e organizadas."
-            ]
-          }
-        ]
-      }
+      quizzes: [
+        {
+          statement: "Qual deve ser a atitude principal ao concluir os desafios de presença, mapeamento e candidaturas deste módulo?",
+          options: [
+            { id: "a", label: "Aguardar os resultados passivamente sem atualizar os dados." },
+            { id: "b", label: "Acompanhar as métricas, ajustar o perfil conforme feedback e manter uma rotina consistente de candidaturas consciente." },
+            { id: "c", label: "Deletar os alertas criados assim que enviar a primeira candidatura." },
+            { id: "d", label: "Candidatar-se apenas uma vez por mês." }
+          ],
+          correctAnswer: "b",
+          feedback: "A busca por vagas é um processo contínuo de aprendizado, otimização e consistência no mercado de trabalho."
+        }
+      ]
     }
   ]
 };

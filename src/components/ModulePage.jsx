@@ -1,10 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ModulePage.css';
 import img from '../assets/module-hero.png';
 
 export default function ModulePage({ moduleData, onNextModule }) {
-  // Guarda qual item do FAQ está aberto (01 inicia aberto por padrão como no layout)
   const [openIndex, setOpenIndex] = useState(0);
+
+  // Armazena as respostas da sessão atual do usuário: { [quizUniqueKey]: optionIdSelected }
+  const [answers, setAnswers] = useState({});
+
+  // Chave base para persistência no localStorage
+  const STORAGE_KEY = `module_${moduleData.id}_quiz_answers`;
+
+  // Carrega respostas salvas ao iniciar a página
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        setAnswers(JSON.parse(saved));
+      } catch (e) {
+        console.error("Erro ao carregar respostas do localStorage", e);
+      }
+    }
+  }, [STORAGE_KEY]);
+
+  // Calcula o número total de questões existentes em todas as seções
+  const totalQuestions = moduleData.sections.reduce((acc, sec) => {
+    return acc + (sec.quizzes ? sec.quizzes.length : (sec.quiz ? 1 : 0));
+  }, 0);
+
+  // Quantidade de questões já respondidas
+  const answeredCount = Object.keys(answers).length;
+  const isAllAnswered = totalQuestions > 0 && answeredCount === totalQuestions;
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -14,6 +40,33 @@ export default function ModulePage({ moduleData, onNextModule }) {
     const element = document.getElementById('faq-accordion');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Processa a seleção de uma opção de resposta
+  const handleSelectOption = (quizKey, selectedOptionId) => {
+    if (answers[quizKey]) return; // Impede alterar caso já respondida na sessão atual
+
+    const newAnswers = { ...answers, [quizKey]: selectedOptionId };
+    setAnswers(newAnswers);
+
+    // Salva no localStorage caso ainda não haja um registro definitivo salvo
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newAnswers));
+    }
+  };
+
+  // Reinicia a visualização das questões na tela sem apagar o histórico do localStorage
+  const handleResetQuiz = () => {
+    setAnswers({});
+  };
+
+  // Trata o clique de avanço com validação
+  const handleNextClick = () => {
+    if (isAllAnswered) {
+      onNextModule();
+    } else {
+      alert(`Responda todas as questões para liberar o próximo módulo (${answeredCount}/${totalQuestions})`);
     }
   };
 
@@ -34,14 +87,30 @@ export default function ModulePage({ moduleData, onNextModule }) {
         </div>
       </header>
 
-      {/* 2. ACCORDION / FAQ DAS 14 AULAS */}
+      {/* PAINEL DE PROGRESSO & REINÍCIO DOS QUIZZES */}
+      <div className="quiz-progress-panel" style={{ margin: '20px 0', padding: '15px', background: '#f5f5f5', borderRadius: '8px' }}>
+        <p style={{ margin: 0, fontWeight: 'bold' }}>
+          Progresso das Atividades: {answeredCount} de {totalQuestions} respondidas
+        </p>
+        {isAllAnswered && (
+          <button 
+            onClick={handleResetQuiz}
+            style={{ marginTop: '10px', padding: '8px 16px', cursor: 'pointer', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px' }}
+          >
+            Refazer todas as questões
+          </button>
+        )}
+      </div>
+
+      {/* 2. ACCORDION DAS SEÇÕES DO MÓDULO */}
       <main className="faq-wrapper" id="faq-accordion">
         {moduleData.sections.map((sec, index) => {
           const isOpen = openIndex === index;
+          const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
 
           return (
             <article className={`faq-item ${isOpen ? 'active' : ''}`} key={sec.id}>
-              {/* Botão do Cabeçalho do FAQ */}
+              {/* Botão do Cabeçalho */}
               <button 
                 className="faq-header" 
                 onClick={() => toggleFAQ(index)}
@@ -61,224 +130,63 @@ export default function ModulePage({ moduleData, onNextModule }) {
                 </div>
               </button>
 
-              {/* Corpo do FAQ Expansível */}
+              {/* Corpo da Seção */}
               {isOpen && (
                 <div className="faq-body">
-                  {/* Texto simples */}
-                  {sec.content.text && <p className="faq-paragraph">{sec.content.text}</p>}
+                  {quizzesList.length > 0 ? (
+                    <div className="faq-quizzes-wrapper" style={{ marginTop: '10px' }}>
+                      <h3>📝 Questões de Fixação</h3>
+                      {quizzesList.map((q, qIdx) => {
+                        const quizKey = `${sec.id}_q${qIdx}`;
+                        const selectedOption = answers[quizKey];
+                        const isAnswered = Boolean(selectedOption);
 
-                  {/* Listas simples com marcadores */}
-                  {sec.content.bullets && (
-                    <div className="faq-bullets-block">
-                      {sec.content.bulletsTitle && <strong>{sec.content.bulletsTitle}</strong>}
-                      <ul>
-                        {sec.content.bullets.map((item, i) => (
-                          <li key={i}><span className="check-svg">✓</span> {item}</li>
-                        ))}
-                      </ul>
+                        return (
+                          <div key={quizKey} className="quiz-box" style={{ marginBottom: '20px', padding: '15px', border: '1px solid #e0e0e0', borderRadius: '8px' }}>
+                            <p style={{ fontWeight: 'bold' }}>Questão {qIdx + 1}: {q.statement}</p>
+                            <div className="quiz-options" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                              {q.options.map((opt) => {
+                                let btnStyle = { padding: '8px 12px', textAlign: 'left', cursor: isAnswered ? 'default' : 'pointer', borderRadius: '4px', border: '1px solid #ccc' };
+
+                                if (isAnswered) {
+                                  if (opt.id === q.correctAnswer) {
+                                    btnStyle.backgroundColor = '#d4edda';
+                                    btnStyle.borderColor = '#c3e6cb';
+                                    btnStyle.color = '#155724';
+                                  } else if (opt.id === selectedOption) {
+                                    btnStyle.backgroundColor = '#f8d7da';
+                                    btnStyle.borderColor = '#f5c6cb';
+                                    btnStyle.color = '#721c24';
+                                  }
+                                }
+
+                                return (
+                                  <button
+                                    key={opt.id}
+                                    style={btnStyle}
+                                    disabled={isAnswered}
+                                    onClick={() => handleSelectOption(quizKey, opt.id)}
+                                  >
+                                    {opt.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+
+                            {/* Feedback explicativo exibido após responder */}
+                            {isAnswered && (
+                              <div className="quiz-explanation" style={{ marginTop: '10px', padding: '10px', backgroundColor: '#e9ecef', borderRadius: '4px' }}>
+                                <p style={{ margin: 0 }}>
+                                  <strong>{selectedOption === q.correctAnswer ? '✓ Correto!' : '✕ Incorreto!'}</strong> {q.feedback || q.explanation}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  )}
-
-                  {/* Alerta em destaque */}
-                  {sec.content.alert && (
-                    <div className="faq-alert-box">
-                      <span className="info-icon">i</span>
-                      <p>{sec.content.alert}</p>
-                    </div>
-                  )}
-
-                  {/* Tabelas de comparação ou dados */}
-                  {sec.content.table && (
-                    <div className="faq-table-container">
-                      {sec.content.table.title && <h4>{sec.content.table.title}</h4>}
-                      <table>
-                        <thead>
-                          <tr>
-                            {sec.content.table.headers.map((h, i) => <th key={i}>{h}</th>)}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {sec.content.table.rows.map((row, i) => (
-                            <tr key={i}>
-                              <td>{row[0]}</td>
-                              <td>{row[1]}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-
-                  {/* Blocos Estruturados (Seção 02) */}
-                  {sec.content.blocks && sec.content.blocks.map((b, i) => (
-                    <div className="faq-block-item" key={i}>
-                      <h3>{b.header}</h3>
-                      {b.text && <p>{b.text}</p>}
-                      {b.bullets && (
-                        <ul>
-                          {b.bullets.map((bullet, idx) => <li key={idx}>• {bullet}</li>)}
-                        </ul>
-                      )}
-                      {b.badExample && <div className="example-box bad"><strong>Exemplo ruim:</strong> {b.badExample}</div>}
-                      {b.goodExample && <div className="example-box good"><strong>Exemplo melhor:</strong> {b.goodExample}</div>}
-                      {b.alert && <div className="faq-alert-box warning"><p>{b.alert}</p></div>}
-                    </div>
-                  ))}
-
-                  {/* CORREÇÃO SEÇÃO 08: FlowSteps para o Passo a Passo do LinkedIn */}
-                  {sec.content.flowSteps && (
-                    <div className="faq-flow-steps">
-                      {sec.content.flowSteps.map((step, i) => (
-                        <div className="step-card" key={i}>
-                          <h4>{i + 1}. {step.title}</h4>
-                          <p>{step.desc}</p>
-                        </div>
-                      ))}
-                      {sec.content.note && (
-                        <div className="faq-alert-box">
-                          <span className="info-icon">i</span>
-                          <p>{sec.content.note}</p>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Comparações (Certo x Errado) */}
-                  {sec.content.comparison && (
-                    <div className="faq-comparison">
-                      <div className="comp-card bad">
-                        <strong>{sec.content.comparison.badTitle || "Em vez de:"}</strong>
-                        <p style={{ whitespace: 'pre-line' }}>{sec.content.comparison.bad}</p>
-                      </div>
-                      <div className="comp-card good">
-                        <strong>{sec.content.comparison.goodTitle || "Apresente assim:"}</strong>
-                        <p style={{ whitespace: 'pre-line' }}>{sec.content.comparison.good}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Fórmulas ou estruturas simples */}
-                  {sec.content.formula && (
-                    <div className="faq-formula-card">
-                      <h4>{sec.content.formula.title}</h4>
-                      <div className="formula-badge">{sec.content.formula.structure}</div>
-                      <p><strong>Exemplo:</strong> {sec.content.formula.example}</p>
-                    </div>
-                  )}
-
-                  {/* CORREÇÃO SEÇÃO 10: TemplateBox para a Estrutura de Projetos */}
-                  {sec.content.templateBox && (
-                    <div className="faq-project-card">
-                      <h4>{sec.content.templateBox.header}</h4>
-                      <p><strong>Problema/Objetivo:</strong> {sec.content.templateBox.problem}</p>
-                      <p><strong>Desenvolvimento:</strong> {sec.content.templateBox.developed}</p>
-                      
-                      {sec.content.templateBox.techs && (
-                        <div className="tech-stack" style={{ margin: '10px 0' }}>
-                          <strong>Tecnologias: </strong>
-                          {sec.content.templateBox.techs.map((tech, i) => (
-                            <span key={i} className="tech-badge" style={{ marginRight: '6px' }}>{tech}</span>
-                          ))}
-                        </div>
-                      )}
-
-                      {sec.content.templateBox.learned && (
-                        <div className="learned-items">
-                          <strong>O que aprendeu:</strong>
-                          <ul>
-                            {sec.content.templateBox.learned.map((item, i) => (
-                              <li key={i}>• {item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {sec.content.templateBox.links && (
-                        <div className="project-links" style={{ marginTop: '10px' }}>
-                          {sec.content.templateBox.links.map((link, i) => (
-                            <span key={i} style={{ marginRight: '12px' }}>{link}</span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Projetos individuais (Seção 04) */}
-                  {sec.content.exampleBox && (
-                    <div className="faq-project-card">
-                      <h4>{sec.content.exampleBox.title}</h4>
-                      <p>{sec.content.exampleBox.desc}</p>
-                      <span className="tech-badge">{sec.content.exampleBox.techs}</span>
-                      <div className="project-links">
-                        {sec.content.exampleBox.links.map((link, i) => <span key={i}>{link}</span>)}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Modelo de Currículo para Iniciantes (Seção 11) */}
-                  {sec.content.exampleResume && (
-                    <div className="faq-resume-card">
-                      <p><strong>Formação:</strong> {sec.content.exampleResume.education}</p>
-                      <p><strong>Projetos:</strong></p>
-                      <ul>
-                        {sec.content.exampleResume.projects.map((p, i) => <li key={i}>• {p}</li>)}
-                      </ul>
-                      <p><strong>Competências:</strong> {sec.content.exampleResume.skills}</p>
-                    </div>
-                  )}
-
-                  {/* Ferramentas recomendadas (Seção 06) */}
-                  {sec.content.toolsList && (
-                    <div className="faq-tools-grid">
-                      {sec.content.toolsList.map((t, i) => (
-                        <div className="tool-box" key={i}>
-                          <h4>{t.label}</h4>
-                          <p>{t.desc}</p>
-                          <small>Ideal para: {t.ideal}</small>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Erros a evitar (Seção 12) */}
-                  {sec.content.errors && (
-                    <div className="faq-errors-grid">
-                      {sec.content.errors.map((err, i) => (
-                        <div className="error-card" key={i}>
-                          <h4>{err.title}</h4>
-                          <p>{err.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Checklist interativo (Seção 13) */}
-                  {sec.content.checklistItems && (
-                    <div className="faq-checklist">
-                      <ul>
-                        {sec.content.checklistItems.map((chk, i) => (
-                          <li key={i}>
-                            <input type="checkbox" id={`chk-${i}`} />
-                            <label htmlFor={`chk-${i}`}>{chk}</label>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Desafio prático do módulo (Seção 14) */}
-                  {sec.content.challenges && (
-                    <div className="faq-challenges-grid">
-                      {sec.content.challenges.map((c, i) => (
-                        <div className="challenge-card" key={i}>
-                          <span className="num">{c.number}</span>
-                          <h4>{c.title}</h4>
-                          <ul>
-                            {c.items.map((item, idx) => <li key={idx}>• {item}</li>)}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+                  ) : (
+                    <p style={{ color: '#666', fontStyle: 'italic' }}>Nenhuma questão disponível nesta seção.</p>
                   )}
                 </div>
               )}
@@ -293,11 +201,23 @@ export default function ModulePage({ moduleData, onNextModule }) {
           <span className="rocket-icon">🚀</span>
           <div>
             <h3>Pronto para o próximo módulo?</h3>
-            <p>Agora que você já construiu sua identidade profissional, vamos aprender a se destacar no mercado!</p>
+            <p>
+              {isAllAnswered 
+                ? "Parabéns! Você concluiu todas as questões deste módulo."
+                : `Responda todas as questões para desbloquear. (${answeredCount}/${totalQuestions})`}
+            </p>
           </div>
         </div>
-        <button className="btn-next-module" onClick={onNextModule}>
-          Próximo módulo →
+        <button 
+          className="btn-next-module" 
+          onClick={handleNextClick}
+          disabled={!isAllAnswered}
+          style={{
+            opacity: isAllAnswered ? 1 : 0.6,
+            cursor: isAllAnswered ? 'pointer' : 'not-allowed'
+          }}
+        >
+          {isAllAnswered ? "Próximo módulo →" : `Bloqueado (${answeredCount}/${totalQuestions})`}
         </button>
       </footer>
     </div>
