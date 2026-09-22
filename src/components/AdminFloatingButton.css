@@ -1,0 +1,23 @@
+.admin-floating-btn {
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  user-select: none;
+  z-index: 9999;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.admin-floating-btn:active {
+  cursor: grabbing;
+  transform: scale(1.08);
+  background-color: #007bff;
+}

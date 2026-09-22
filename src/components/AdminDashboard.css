@@ -1,0 +1,338 @@
+/* ==========================================================================
+   CONTAINER E ESTRUTURA GERAL
+   ========================================================================== */
+.admin-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ==========================================================================
+   CABEÇALHO ADMIN
+   ========================================================================== */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 15px;
+  gap: 15px;
+  flex-wrap: wrap; /* Permite quebrar linha no mobile */
+}
+
+.admin-header h1 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin: 0 0 5px 0;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+.admin-header p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* Agrupamento de Ações no Cabeçalho (se houver mais de um botão) */
+.admin-header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   BOTÕES E AÇÕES
+   ========================================================================== */
+.btn-back-home {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.btn-back-home:hover {
+  background-color: #e2e6ea;
+  color: #000;
+}
+
+.btn-logout {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+  background-color: #bd2130;
+}
+
+/* ==========================================================================
+   CARDS DE CONTEÚDO E MÉTRICAS
+   ========================================================================== */
+.admin-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-card h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.user-details {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Flexibilidade para telas pequenas */
+}
+
+.user-details p {
+  margin: 0;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.no-user-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin: 0;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   GRID DE MÉTRICAS
+   ========================================================================== */
+.admin-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.metric-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.metric-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 8px 0;
+}
+
+.metric-subtext {
+  font-size: 0.85rem;
+  color: #28a745;
+}
+
+.progress-bar-bg {
+  background: #e9ecef;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar-fill {
+  background: #007bff;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   LISTA DE MÓDULOS E STATUS
+   ========================================================================== */
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.module-status-item {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.module-info {
+  flex: 1 1 250px; /* Expande e contrai conforme o espaço */
+}
+
+.module-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: #212529;
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-badge.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.in-progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.module-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.module-stats div {
+  text-align: center;
+  min-width: 80px;
+}
+
+.module-stats small {
+  color: #6c757d;
+  display: block;
+  font-size: 0.8rem;
+}
+
+.module-stats p {
+  margin: 2px 0 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.admin-future-note {
+  background-color: #e8f4fd;
+  border-left: 4px solid #007bff;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #004085;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE)
+   ========================================================================== */
+
+/* Telas médias/tablets (Até 768px) */
+@media (max-width: 768px) {
+  .admin-container {
+    margin: 15px auto;
+    padding: 0 12px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-header-actions,
+  .btn-back-home,
+  .btn-logout {
+    width: 100%; /* Botões em largura total em telas médias/pequenas */
+  }
+
+  .admin-card {
+    padding: 16px;
+  }
+
+  .user-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .module-status-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .module-stats {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #e9ecef;
+    padding-top: 12px;
+  }
+
+  .module-stats div {
+    text-align: left; /* Alinha à esquerda para melhor leitura */
+    min-width: auto;
+  }
+}
+
+/* Telas muito pequenas/smartphones (Até 480px) */
+@media (max-width: 480px) {
+  .admin-metrics-grid {
+    grid-template-columns: 1fr; /* Coluna única para cards de métricas */
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .metric-number {
+    font-size: 1.5rem;
+  }
+
+  .module-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide estatísticas em 2 colunas */
+    gap: 10px;
+  }
+}

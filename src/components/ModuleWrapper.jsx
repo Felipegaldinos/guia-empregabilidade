@@ -12,23 +12,47 @@ const modulesMap = {
   1: { data: module1Data, nextPath: '/modulo/2' },
   2: { data: module2Data, nextPath: '/modulo/3' },
   3: { data: module3Data, nextPath: '/modulo/4' },
-  4: { data: module4Data, nextPath: null }
+  4: { data: module4Data, nextPath: '/resultado' }
 };
 
 export default function ModuleWrapper() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  const [isSessionActive, setIsSessionActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Evita renderizar o modal antes de ler o localStorage
 
-  // Verifica se o usuário já preencheu os dados anteriormente
   useEffect(() => {
     const savedUser = localStorage.getItem('user_identification');
-    if (savedUser) {
+    const sessionActive = localStorage.getItem('user_session_active');
+    const adminAuth = localStorage.getItem('admin_authenticated');
+
+    // Considera logado se houver usuário salvo E (sessão ativa OU admin logado)
+    if (savedUser && (sessionActive === 'true' || adminAuth === 'true')) {
       setUserData(JSON.parse(savedUser));
+      setIsSessionActive(true);
+    } else {
+      setIsSessionActive(false);
     }
-  }, []);
+
+    setIsLoading(false); // Conclui a leitura do localStorage
+  }, [id]);
+
+  const handleFormSubmitSuccess = (data) => {
+    localStorage.setItem('user_identification', JSON.stringify(data));
+    localStorage.setItem('user_session_active', 'true');
+    localStorage.setItem('admin_authenticated', 'true');
+
+    setUserData(data);
+    setIsSessionActive(true);
+  };
 
   const currentModule = modulesMap[id];
+
+  // Enquanto lê o localStorage, não renderiza nada para evitar o "piscar" do modal
+  if (isLoading) {
+    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando...</div>;
+  }
 
   if (!currentModule || !currentModule.data) {
     return (
@@ -45,16 +69,14 @@ export default function ModuleWrapper() {
     if (currentModule.nextPath) {
       navigate(currentModule.nextPath);
       window.scrollTo(0, 0);
-    } else {
-      alert("Parabéns! Você concluiu todos os módulos!");
     }
   };
 
   return (
     <div>
-      {/* Se não houver dados do usuário salvos, bloqueia e exibe o modal */}
-      {!userData && (
-        <UserFormModal onSubmitSuccess={(data) => setUserData(data)} />
+      {/* Exibe o modal SOMENTE se a checagem terminou e NÃO houver sessão ativa */}
+      {!isSessionActive && (
+        <UserFormModal onSubmitSuccess={handleFormSubmitSuccess} />
       )}
 
       <div style={{ maxWidth: '980px', margin: '20px auto 0', padding: '0 15px' }}>
@@ -75,8 +97,9 @@ export default function ModuleWrapper() {
       </div>
 
       <ModulePage 
-        key={id}
+        key={`${id}-${userData?.nome || 'guest'}`}
         moduleData={currentModule.data} 
+        userData={userData}
         onNextModule={handleNextModule} 
       />
     </div>

@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import './UserFormModal.css'; // Certifique-se de criar este arquivo CSS para estilizar o modal
+import './UserFormModal.css';
 
 export default function UserFormModal({ onSubmitSuccess }) {
   const [formData, setFormData] = useState({
     nome: '',
     idade: '',
     curso: '',
-    objetivo: ''
+    objetivo: '',
+    senha: ''
   });
 
   const handleChange = (e) => {
@@ -16,19 +17,25 @@ export default function UserFormModal({ onSubmitSuccess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Salva a identificação no navegador para persistir a sessão
+
+    // 1. Salva a ficha de cadastro do usuário
     localStorage.setItem('user_identification', JSON.stringify(formData));
-    
-    // Notifica o componente pai que o formulário foi preenchido
+
+    // 2. Marca a sessão do usuário como ativa (para não perder o login ao navegar)
+    localStorage.setItem('user_session_active', 'true');
+
+    // 3. Autentica o usuário automaticamente como Administrador
+    localStorage.setItem('admin_authenticated', 'true');
+
+    // 4. Dispara o callback informando o sucesso
     onSubmitSuccess(formData);
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <h2>Identificação de Acesso</h2>
-        <p>Preencha os campos abaixo para desbloquear o conteúdo interativo do módulo:</p>
+        <h2>Cadastro de Acesso</h2>
+        <p>Preencha seus dados para criar seu perfil e acessar o módulo:</p>
 
         <form onSubmit={handleSubmit} className="user-form">
           <div className="form-group">
@@ -85,8 +92,21 @@ export default function UserFormModal({ onSubmitSuccess }) {
             />
           </div>
 
+          <div className="form-group">
+            <label htmlFor="senha">Crie uma Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              required
+              placeholder="Crie sua senha de acesso"
+              value={formData.senha}
+              onChange={handleChange}
+            />
+          </div>
+
           <button type="submit" className="submit-btn">
-            Iniciar Módulo
+            Cadastrar e Iniciar Módulo
           </button>
         </form>
       </div>

@@ -2,16 +2,21 @@ import { useState, useEffect } from 'react';
 import './ModulePage.css';
 import img from '../assets/module-hero.png';
 
-export default function ModulePage({ moduleData, onNextModule }) {
+export default function ModulePage({ moduleData, userData, onNextModule }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   // Armazena as respostas da sessão atual do usuário: { [quizUniqueKey]: optionIdSelected }
   const [answers, setAnswers] = useState({});
 
-  // Chave base para persistência no localStorage
-  const STORAGE_KEY = `module_${moduleData.id}_quiz_answers`;
+  // Gera o prefixo único do usuário cadastrado (ex: "joao_silva")
+  const userPrefix = userData?.nome
+    ? userData.nome.trim().toLowerCase().replace(/\s+/g, '_')
+    : 'default_user';
 
-  // Carrega respostas salvas ao iniciar a página
+  // Chave de persistência individualizada por usuário e por módulo
+  const STORAGE_KEY = `${userPrefix}_module_${moduleData.id}_quiz_answers`;
+
+  // Carrega respostas salvas do usuário atual ao carregar a página/módulo
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -19,7 +24,10 @@ export default function ModulePage({ moduleData, onNextModule }) {
         setAnswers(JSON.parse(saved));
       } catch (e) {
         console.error("Erro ao carregar respostas do localStorage", e);
+        setAnswers({});
       }
+    } else {
+      setAnswers({});
     }
   }, [STORAGE_KEY]);
 
@@ -50,15 +58,16 @@ export default function ModulePage({ moduleData, onNextModule }) {
     const newAnswers = { ...answers, [quizKey]: selectedOptionId };
     setAnswers(newAnswers);
 
-    // Salva no localStorage caso ainda não haja um registro definitivo salvo
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newAnswers));
-    }
+    // Salva/Atualiza o registro no localStorage para este usuário específico
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newAnswers));
   };
 
-  // Reinicia a visualização das questões na tela sem apagar o histórico do localStorage
+  // Reinicia a visualização das questões e limpa o histórico do usuário para este módulo
   const handleResetQuiz = () => {
-    setAnswers({});
+    if (window.confirm("Deseja refazer as questões deste módulo? Seu progresso neste módulo será reiniciado.")) {
+      setAnswers({});
+      localStorage.removeItem(STORAGE_KEY);
+    }
   };
 
   // Trata o clique de avanço com validação
