@@ -17,10 +17,8 @@ export default function AdminLogin({ onLoginSuccess }) {
     setError('');
 
     try {
-      // Autentica o usuário diretamente no Firebase Authentication
       await signInWithEmailAndPassword(auth, email.trim(), password);
 
-      // Mantém a chave legada para compatibilidade temporária
       localStorage.setItem('admin_authenticated', 'true');
       
       if (onLoginSuccess) {
@@ -31,7 +29,6 @@ export default function AdminLogin({ onLoginSuccess }) {
     } catch (err) {
       console.error("Erro na autenticação:", err.code, err.message);
 
-      // Trata os códigos de erro padrão do Firebase Auth
       switch (err.code) {
         case 'auth/invalid-credential':
         case 'auth/user-not-found':
@@ -97,9 +94,15 @@ export default function AdminLogin({ onLoginSuccess }) {
           </button>
         </form>
 
-        <button className="btn-back" onClick={() => navigate('/')}>
-          ← Voltar ao Início
-        </button>
+        <div className="login-navigation-actions" style={{ marginTop: '15px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <button className="btn-form-redirect" onClick={() => navigate('/modulo/1')} style={{ cursor: 'pointer', padding: '10px', borderRadius: '6px', border: '1px solid #007bff', background: '#e7f1ff', color: '#007bff', fontWeight: '500' }}>
+            📝 Ir para o Formulário
+          </button>
+
+          <button className="btn-back" onClick={() => navigate('/')}>
+            ← Voltar ao Início
+          </button>
+        </div>
       </div>
     </div>
   );

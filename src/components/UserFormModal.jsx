@@ -28,7 +28,7 @@ export default function UserFormModal({ onSubmitSuccess }) {
     setError('');
 
     try {
-      // 1. Cria a conta de autenticação do aluno no Firebase Auth
+  
       const userCredential = await createUserWithEmailAndPassword(
         auth, 
         formData.email.trim(), 
@@ -37,7 +37,6 @@ export default function UserFormModal({ onSubmitSuccess }) {
 
       const user = userCredential.user;
 
-      // 2. Prepara o documento do usuário para salvar no Firestore
       const userPayload = {
         uid: user.uid,
         nome: formData.nome.trim(),
@@ -48,14 +47,11 @@ export default function UserFormModal({ onSubmitSuccess }) {
         createdAt: serverTimestamp()
       };
 
-      // 3. Salva os detalhes do perfil na coleção 'users' no Firestore usando o UID como ID
       await setDoc(doc(db, 'users', user.uid), userPayload);
 
-      // 4. Mantém salvamentos locais para compatibilidade de sessão
       localStorage.setItem('user_identification', JSON.stringify(userPayload));
       localStorage.setItem('user_session_active', 'true');
 
-      // 5. Notifica o componente pai do sucesso no cadastro
       onSubmitSuccess(userPayload);
 
     } catch (err) {

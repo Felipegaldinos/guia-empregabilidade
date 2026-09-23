@@ -24,7 +24,7 @@
   border-bottom: 2px solid #e9ecef;
   padding-bottom: 15px;
   gap: 15px;
-  flex-wrap: wrap; /* Permite quebrar linha no mobile */
+  flex-wrap: wrap; 
 }
 
 .admin-header h1 {
@@ -113,7 +113,7 @@
 .user-details {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* Flexibilidade para telas pequenas */
+  flex-wrap: wrap; 
 }
 
 .user-details p {
@@ -206,7 +206,7 @@
 }
 
 .module-info {
-  flex: 1 1 250px; /* Expande e contrai conforme o espaço */
+  flex: 1 1 250px; 
 }
 
 .module-info h3 {
@@ -286,7 +286,7 @@
   .admin-header-actions,
   .btn-back-home,
   .btn-logout {
-    width: 100%; /* Botões em largura total em telas médias/pequenas */
+    width: 100%; 
   }
 
   .admin-card {
@@ -311,7 +311,7 @@
   }
 
   .module-stats div {
-    text-align: left; /* Alinha à esquerda para melhor leitura */
+    text-align: left; 
     min-width: auto;
   }
 }

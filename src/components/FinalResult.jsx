@@ -20,7 +20,7 @@ export default function FinalResult({ allModulesData = [] }) {
       const currentUser = auth.currentUser;
       const remoteAnswersMap = {};
 
-      // 1. Busca as respostas gravadas no Firestore para o usuário
+      
       if (currentUser) {
         try {
           const querySnapshot = await getDocs(
@@ -41,11 +41,10 @@ export default function FinalResult({ allModulesData = [] }) {
       let totalAnswered = 0;
       let correctAnswersCount = 0;
 
-      // 2. Itera sobre todos os módulos do curso
       allModulesData.forEach((mod) => {
         let savedAnswers = remoteAnswersMap[mod.id];
 
-        // Fallback local se não houver dados no Firestore
+       
         if (!savedAnswers) {
           const userPrefix = currentUser?.displayName
             ? currentUser.displayName.trim().toLowerCase().replace(/\s+/g, '_')

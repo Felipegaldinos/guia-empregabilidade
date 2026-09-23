@@ -23,7 +23,6 @@ function HomePage() {
   );
 }
 
-// Rota Privada conectada ao Firebase Auth
 function PrivateRoute({ children }) {
   const { currentUser, loading } = useAuth();
 
@@ -47,7 +46,6 @@ export default function AppRoutes() {
       />
       <Route path="/admin-login" element={<AdminLogin />} />
 
-      {/* Rota Protegida do Admin */}
       <Route 
         path="/admin" 
         element={

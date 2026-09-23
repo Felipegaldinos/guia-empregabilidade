@@ -6,7 +6,7 @@ export default function ModulesSection() {
 
   const handleModuleClick = (id) => {
     navigate(`/modulo/${id}`);
-    window.scrollTo(0, 0); // Garante que a página inicie no topo ao abrir o módulo
+    window.scrollTo(0, 0); 
   };
 
   const modules = [

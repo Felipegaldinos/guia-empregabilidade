@@ -33,7 +33,7 @@ export default function AdminFloatingButton() {
     window.removeEventListener('mouseup', handleMouseUp.current);
   });
 
-  // Garante a remoção dos event listeners ao desmontar o componente
+
   useEffect(() => {
     const mouseMoveHandler = handleMouseMove.current;
     const mouseUpHandler = handleMouseUp.current;
@@ -44,12 +44,12 @@ export default function AdminFloatingButton() {
     };
   }, []);
 
-  // 2. Retorno antecipado após a declaração de todos os Hooks
+
   if (location.pathname === '/admin' || location.pathname === '/admin-login') {
     return null;
   }
 
-  // Início do arraste (Mouse)
+
   const handleMouseDown = (e) => {
     isDragging.current = true;
     hasMoved.current = false;
@@ -62,7 +62,7 @@ export default function AdminFloatingButton() {
     window.addEventListener('mouseup', handleMouseUp.current);
   };
 
-  // Suporte a Telas Sensíveis ao Toque (Mobile)
+
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
     isDragging.current = true;

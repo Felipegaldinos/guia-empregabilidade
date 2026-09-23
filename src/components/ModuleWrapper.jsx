@@ -27,11 +27,9 @@ export default function ModuleWrapper() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Escuta o estado de autenticação em tempo real no Firebase
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
-          // Busca os dados do perfil salvos no Firestore
           const userDocRef = doc(db, 'users', user.uid);
           const userSnap = await getDoc(userDocRef);
 
@@ -40,7 +38,6 @@ export default function ModuleWrapper() {
             setUserData(data);
             localStorage.setItem('user_identification', JSON.stringify(data));
           } else {
-            // Fallback para dados salvos localmente se o documento não existir
             const savedUser = localStorage.getItem('user_identification');
             if (savedUser) setUserData(JSON.parse(savedUser));
           }
@@ -50,7 +47,6 @@ export default function ModuleWrapper() {
           setIsSessionActive(true);
         }
       } else {
-        // Se não estiver logado no Firebase, limpa a sessão
         setUserData(null);
         setIsSessionActive(false);
       }

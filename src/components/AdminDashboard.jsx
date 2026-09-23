@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../services/firebase';
 import './AdminDashboard.css';
 
@@ -12,11 +12,12 @@ export default function AdminDashboard({ allModulesData = [] }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchAdminDashboardData() {
+    let unsubscribeResponses = () => {};
+
+    async function initDashboard() {
       setLoading(true);
       const currentUser = auth.currentUser;
 
-      // 1. Busca os dados do perfil do usuário (Firestore ou LocalStorage)
       let currentProfile = null;
 
       if (currentUser) {
@@ -38,79 +39,88 @@ export default function AdminDashboard({ allModulesData = [] }) {
 
       setUserData(currentProfile);
 
-      // 2. Busca as respostas dos módulos salvas no Firestore
-      const remoteAnswersMap = {};
-
-      if (currentUser) {
-        try {
-          const querySnapshot = await getDocs(
-            collection(db, 'users', currentUser.uid, 'module_responses')
-          );
-          querySnapshot.forEach((docSnap) => {
-            const data = docSnap.data();
-            if (data.moduleId && data.answers) {
-              remoteAnswersMap[data.moduleId] = data.answers;
-            }
-          });
-        } catch (error) {
-          console.error("Erro ao buscar respostas do Firestore:", error);
-        }
-      }
-
-      // 3. Monta o progresso de cada módulo
       const userPrefix = currentProfile?.nome
         ? currentProfile.nome.trim().toLowerCase().replace(/\s+/g, '_')
         : 'default_user';
 
-      const progress = allModulesData.map((mod) => {
-        let savedAnswers = remoteAnswersMap[mod.id];
+      const calculateProgress = (remoteAnswersMap = {}) => {
+        const progress = allModulesData.map((mod) => {
+          let savedAnswers = remoteAnswersMap[mod.id];
 
-        // Fallback para respostas salvas localmente no localStorage
-        if (!savedAnswers) {
-          const storageKey = `${userPrefix}_module_${mod.id}_quiz_answers`;
-          try {
-            savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
-          } catch (e) {
-            savedAnswers = {};
+          if (!savedAnswers) {
+            const storageKey = `${userPrefix}_module_${mod.id}_quiz_answers`;
+            try {
+              savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
+            } catch (e) {
+              savedAnswers = {};
+            }
           }
-        }
 
-        let moduleTotalQuestions = 0;
-        let moduleAnsweredCount = 0;
-        let moduleCorrectCount = 0;
+          let moduleTotalQuestions = 0;
+          let moduleAnsweredCount = 0;
+          let moduleCorrectCount = 0;
 
-        (mod.sections || []).forEach((sec) => {
-          const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
+          (mod.sections || []).forEach((sec) => {
+            const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
 
-          quizzesList.forEach((q, qIdx) => {
-            moduleTotalQuestions++;
-            const quizKey = `${sec.id}_q${qIdx}`;
-            const userAnswer = savedAnswers ? savedAnswers[quizKey] : undefined;
+            quizzesList.forEach((q, qIdx) => {
+              moduleTotalQuestions++;
+              const quizKey = `${sec.id}_q${qIdx}`;
+              const userAnswer = savedAnswers ? savedAnswers[quizKey] : undefined;
 
-            if (userAnswer !== undefined) moduleAnsweredCount++;
-            if (userAnswer && userAnswer === q.correctAnswer) moduleCorrectCount++;
+              if (userAnswer !== undefined) moduleAnsweredCount++;
+              if (userAnswer && userAnswer === q.correctAnswer) moduleCorrectCount++;
+            });
           });
+
+          return {
+            id: mod.id,
+            title: mod.title,
+            totalQuestions: moduleTotalQuestions,
+            answeredCount: moduleAnsweredCount,
+            correctCount: moduleCorrectCount,
+            isCompleted: moduleTotalQuestions > 0 && moduleAnsweredCount === moduleTotalQuestions,
+            accuracy: moduleAnsweredCount > 0 ? Math.round((moduleCorrectCount / moduleAnsweredCount) * 100) : 0
+          };
         });
 
-        return {
-          id: mod.id,
-          title: mod.title,
-          totalQuestions: moduleTotalQuestions,
-          answeredCount: moduleAnsweredCount,
-          correctCount: moduleCorrectCount,
-          isCompleted: moduleTotalQuestions > 0 && moduleAnsweredCount === moduleTotalQuestions,
-          accuracy: moduleAnsweredCount > 0 ? Math.round((moduleCorrectCount / moduleAnsweredCount) * 100) : 0
-        };
-      });
+        setModulesProgress(progress);
+        setLoading(false);
+      };
 
-      setModulesProgress(progress);
-      setLoading(false);
+      if (currentUser) {
+        const responsesRef = collection(db, 'users', currentUser.uid, 'module_responses');
+        
+        unsubscribeResponses = onSnapshot(
+          responsesRef,
+          (querySnapshot) => {
+            const remoteAnswersMap = {};
+            querySnapshot.forEach((docSnap) => {
+              const data = docSnap.data();
+              if (data.moduleId && data.answers) {
+                remoteAnswersMap[data.moduleId] = data.answers;
+              }
+            });
+            calculateProgress(remoteAnswersMap);
+          },
+          (error) => {
+            console.error("Erro ao escutar respostas em tempo real:", error);
+            calculateProgress({});
+          }
+        );
+      } else {
+        calculateProgress({});
+      }
     }
 
-    fetchAdminDashboardData();
+    initDashboard();
+
+    return () => {
+      unsubscribeResponses();
+    };
   }, [allModulesData]);
 
-  // Ação para deslogar
+
   const handleLogout = async () => {
     if (window.confirm("Deseja realmente sair do Painel?")) {
       try {
