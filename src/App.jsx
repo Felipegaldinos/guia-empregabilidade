@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AdminFloatingButton from './components/AdminFloatingButton';
 import AppRoutes from './components/Rotas/AppRoutes';
+import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 
@@ -28,7 +29,9 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppLayout />
+      <AuthProvider>
+        <AppLayout />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

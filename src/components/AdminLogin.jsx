@@ -1,42 +1,54 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../services/firebase';
 import './AdminLogin.css';
 
 export default function AdminLogin({ onLoginSuccess }) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
 
-    // 1. Busca os dados cadastrados salvos no localStorage
-    const savedUserData = JSON.parse(localStorage.getItem('user_identification') || 'null');
+    try {
+      // Autentica o usuário diretamente no Firebase Authentication
+      await signInWithEmailAndPassword(auth, email.trim(), password);
 
-    // 2. Verifica se existe algum cadastro realizado
-    if (!savedUserData) {
-      setError('Nenhum usuário cadastrado encontrado. Por favor, faça o cadastro primeiro.');
-      return;
-    }
-
-    // 3. Normaliza os nomes para evitar erros de acentuação/espaços extras/letras maiúsculas
-    const inputUser = username.trim().toLowerCase();
-    const savedUser = (savedUserData.nome || '').trim().toLowerCase();
-    const inputPassword = password.trim();
-    const savedPassword = (savedUserData.senha || '').trim();
-
-    // 4. Valida se o Nome e a Senha coincidem com o cadastro
-    if (inputUser === savedUser && inputPassword === savedPassword) {
+      // Mantém a chave legada para compatibilidade temporária
       localStorage.setItem('admin_authenticated', 'true');
       
       if (onLoginSuccess) {
         onLoginSuccess();
       }
-      
+
       navigate('/admin');
-    } else {
-      setError('Nome completo ou senha incorretos.');
+    } catch (err) {
+      console.error("Erro na autenticação:", err.code, err.message);
+
+      // Trata os códigos de erro padrão do Firebase Auth
+      switch (err.code) {
+        case 'auth/invalid-credential':
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+          setError('E-mail ou senha incorretos.');
+          break;
+        case 'auth/invalid-email':
+          setError('Formato de e-mail inválido.');
+          break;
+        case 'auth/too-many-requests':
+          setError('Muitas tentativas sem sucesso. Tente novamente mais tarde.');
+          break;
+        default:
+          setError('Erro ao realizar login. Tente novamente.');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,22 +57,22 @@ export default function AdminLogin({ onLoginSuccess }) {
       <div className="login-card">
         <div className="login-icon">🔐</div>
         <h2>Acesso ao Painel</h2>
-        <p className="login-subtitle">Informe o nome completo e senha cadastrados</p>
+        <p className="login-subtitle">Informe suas credenciais do Firebase para acessar</p>
 
         {error && <div className="login-error-message">{error}</div>}
 
         <form onSubmit={handleLogin} className="login-form">
           <div className="form-group">
-            <label htmlFor="username">Nome Completo</label>
+            <label htmlFor="email">E-mail</label>
             <input
-              type="text"
-              id="username"
-              value={username}
+              type="email"
+              id="email"
+              value={email}
               onChange={(e) => {
-                setUsername(e.target.value);
+                setEmail(e.target.value);
                 if (error) setError('');
               }}
-              placeholder="Digite o seu nome completo"
+              placeholder="seu-email@exemplo.com"
               required
             />
           </div>
@@ -80,8 +92,8 @@ export default function AdminLogin({ onLoginSuccess }) {
             />
           </div>
 
-          <button type="submit" className="btn-login">
-            Entrar no Painel
+          <button type="submit" className="btn-login" disabled={loading}>
+            {loading ? 'Autenticando...' : 'Entrar no Painel'}
           </button>
         </form>
 

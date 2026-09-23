@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './AdminFloatingButton.css';
 
@@ -6,18 +6,46 @@ export default function AdminFloatingButton() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 1. Declarar TODOS os Hooks no topo
+  // 1. Hooks declarados no topo
   const [position, setPosition] = useState(() => ({
     x: typeof window !== 'undefined' ? window.innerWidth - 80 : 20,
     y: typeof window !== 'undefined' ? window.innerHeight - 80 : 20
   }));
-  
+
   const isDragging = useRef(false);
   const dragStartOffset = useRef({ x: 0, y: 0 });
   const hasMoved = useRef(false);
 
-  // 2. Se estiver na página do Admin, retorna null DEPOIS dos hooks serem executados
-  if (location.pathname === '/admin') {
+  // Manipuladores de movimento e finalização do drag do mouse via refs para evitar re-binds desnecessários
+  const handleMouseMove = useRef((e) => {
+    if (!isDragging.current) return;
+    hasMoved.current = true;
+
+    const newX = Math.max(10, Math.min(window.innerWidth - 70, e.clientX - dragStartOffset.current.x));
+    const newY = Math.max(10, Math.min(window.innerHeight - 70, e.clientY - dragStartOffset.current.y));
+
+    setPosition({ x: newX, y: newY });
+  });
+
+  const handleMouseUp = useRef(() => {
+    isDragging.current = false;
+    window.removeEventListener('mousemove', handleMouseMove.current);
+    window.removeEventListener('mouseup', handleMouseUp.current);
+  });
+
+  // Garante a remoção dos event listeners ao desmontar o componente
+  useEffect(() => {
+    const mouseMoveHandler = handleMouseMove.current;
+    const mouseUpHandler = handleMouseUp.current;
+
+    return () => {
+      window.removeEventListener('mousemove', mouseMoveHandler);
+      window.removeEventListener('mouseup', mouseUpHandler);
+    };
+  }, []);
+
+  // 2. Retorno antecipado após a declaração de todos os Hooks
+  if (location.pathname === '/admin' || location.pathname === '/admin-login') {
     return null;
   }
 
@@ -30,26 +58,8 @@ export default function AdminFloatingButton() {
       y: e.clientY - position.y
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-  };
-
-  // Movimento do arraste (Mouse)
-  const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
-    hasMoved.current = true;
-
-    const newX = Math.max(10, Math.min(window.innerWidth - 70, e.clientX - dragStartOffset.current.x));
-    const newY = Math.max(10, Math.min(window.innerHeight - 70, e.clientY - dragStartOffset.current.y));
-
-    setPosition({ x: newX, y: newY });
-  };
-
-  // Fim do arraste (Mouse)
-  const handleMouseUp = () => {
-    isDragging.current = false;
-    window.removeEventListener('mousemove', handleMouseMove);
-    window.removeEventListener('mouseup', handleMouseUp);
+    window.addEventListener('mousemove', handleMouseMove.current);
+    window.addEventListener('mouseup', handleMouseUp.current);
   };
 
   // Suporte a Telas Sensíveis ao Toque (Mobile)
@@ -95,7 +105,7 @@ export default function AdminFloatingButton() {
       onClick={handleClick}
       title="Painel de Administração"
     >
-      👤 {/* Substituído a engrenagem pelo boneco */}
+      👤
     </div>
   );
 }

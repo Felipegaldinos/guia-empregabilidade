@@ -1,77 +1,142 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { auth, db } from '../services/firebase';
 import './AdminDashboard.css';
 
-export default function AdminDashboard({ allModulesData }) {
+export default function AdminDashboard({ allModulesData = [] }) {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [modulesProgress, setModulesProgress] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 1. Busca os dados cadastrados pelo usuário atual
-    const savedUser = JSON.parse(localStorage.getItem('user_identification') || 'null');
-    setUserData(savedUser);
+    async function fetchAdminDashboardData() {
+      setLoading(true);
+      const currentUser = auth.currentUser;
 
-    // Cria um identificador limpo do usuário (ex: "joao_silva")
-    const userPrefix = savedUser?.nome 
-      ? savedUser.nome.trim().toLowerCase().replace(/\s+/g, '_') 
-      : 'default_user';
+      // 1. Busca os dados do perfil do usuário (Firestore ou LocalStorage)
+      let currentProfile = null;
 
-    const progress = allModulesData.map((mod) => {
-      // 2. Chave isolada por usuário
-      const storageKey = `${userPrefix}_module_${mod.id}_quiz_answers`;
-      const savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      if (currentUser) {
+        try {
+          const userDocRef = doc(db, 'users', currentUser.uid);
+          const userSnap = await getDoc(userDocRef);
 
-      let moduleTotalQuestions = 0;
-      let moduleAnsweredCount = 0;
-      let moduleCorrectCount = 0;
+          if (userSnap.exists()) {
+            currentProfile = userSnap.data();
+          }
+        } catch (error) {
+          console.error("Erro ao buscar perfil do Firestore:", error);
+        }
+      }
 
-      mod.sections.forEach((sec) => {
-        const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
+      if (!currentProfile) {
+        currentProfile = JSON.parse(localStorage.getItem('user_identification') || 'null');
+      }
 
-        quizzesList.forEach((q, qIdx) => {
-          moduleTotalQuestions++;
-          const quizKey = `${sec.id}_q${qIdx}`;
-          const userAnswer = savedAnswers[quizKey];
+      setUserData(currentProfile);
 
-          if (userAnswer !== undefined) moduleAnsweredCount++;
-          if (userAnswer && userAnswer === q.correctAnswer) moduleCorrectCount++;
+      // 2. Busca as respostas dos módulos salvas no Firestore
+      const remoteAnswersMap = {};
+
+      if (currentUser) {
+        try {
+          const querySnapshot = await getDocs(
+            collection(db, 'users', currentUser.uid, 'module_responses')
+          );
+          querySnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data.moduleId && data.answers) {
+              remoteAnswersMap[data.moduleId] = data.answers;
+            }
+          });
+        } catch (error) {
+          console.error("Erro ao buscar respostas do Firestore:", error);
+        }
+      }
+
+      // 3. Monta o progresso de cada módulo
+      const userPrefix = currentProfile?.nome
+        ? currentProfile.nome.trim().toLowerCase().replace(/\s+/g, '_')
+        : 'default_user';
+
+      const progress = allModulesData.map((mod) => {
+        let savedAnswers = remoteAnswersMap[mod.id];
+
+        // Fallback para respostas salvas localmente no localStorage
+        if (!savedAnswers) {
+          const storageKey = `${userPrefix}_module_${mod.id}_quiz_answers`;
+          try {
+            savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
+          } catch (e) {
+            savedAnswers = {};
+          }
+        }
+
+        let moduleTotalQuestions = 0;
+        let moduleAnsweredCount = 0;
+        let moduleCorrectCount = 0;
+
+        (mod.sections || []).forEach((sec) => {
+          const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
+
+          quizzesList.forEach((q, qIdx) => {
+            moduleTotalQuestions++;
+            const quizKey = `${sec.id}_q${qIdx}`;
+            const userAnswer = savedAnswers ? savedAnswers[quizKey] : undefined;
+
+            if (userAnswer !== undefined) moduleAnsweredCount++;
+            if (userAnswer && userAnswer === q.correctAnswer) moduleCorrectCount++;
+          });
         });
+
+        return {
+          id: mod.id,
+          title: mod.title,
+          totalQuestions: moduleTotalQuestions,
+          answeredCount: moduleAnsweredCount,
+          correctCount: moduleCorrectCount,
+          isCompleted: moduleTotalQuestions > 0 && moduleAnsweredCount === moduleTotalQuestions,
+          accuracy: moduleAnsweredCount > 0 ? Math.round((moduleCorrectCount / moduleAnsweredCount) * 100) : 0
+        };
       });
 
-      return {
-        id: mod.id,
-        title: mod.title,
-        totalQuestions: moduleTotalQuestions,
-        answeredCount: moduleAnsweredCount,
-        correctCount: moduleCorrectCount,
-        isCompleted: moduleTotalQuestions > 0 && moduleAnsweredCount === moduleTotalQuestions,
-        accuracy: moduleAnsweredCount > 0 ? Math.round((moduleCorrectCount / moduleAnsweredCount) * 100) : 0
-      };
-    });
+      setModulesProgress(progress);
+      setLoading(false);
+    }
 
-    setModulesProgress(progress);
+    fetchAdminDashboardData();
   }, [allModulesData]);
 
   // Ação para deslogar
- const handleLogout = () => {
-  if (window.confirm("Deseja realmente sair do Painel?")) {
-    // 1. Desloga o admin
-    localStorage.removeItem('admin_authenticated');
-    
-    // 2. Encerra a sessão ativa (SEM apagar os dados de user_identification)
-    localStorage.removeItem('user_session_active');
+  const handleLogout = async () => {
+    if (window.confirm("Deseja realmente sair do Painel?")) {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.error("Erro ao deslogar no Firebase:", error);
+      }
 
-    navigate('/admin-login');
-  }
-};
+      localStorage.removeItem('admin_authenticated');
+      localStorage.removeItem('user_session_active');
+
+      navigate('/admin-login');
+    }
+  };
+
   const grandTotalQuestions = modulesProgress.reduce((acc, m) => acc + m.totalQuestions, 0);
   const grandTotalAnswered = modulesProgress.reduce((acc, m) => acc + m.answeredCount, 0);
   const grandTotalCorrect = modulesProgress.reduce((acc, m) => acc + m.correctCount, 0);
-  
+
   const completedModulesCount = modulesProgress.filter((m) => m.isCompleted).length;
   const overallCompletionPercentage = grandTotalQuestions > 0 ? Math.round((grandTotalAnswered / grandTotalQuestions) * 100) : 0;
   const overallAccuracy = grandTotalAnswered > 0 ? Math.round((grandTotalCorrect / grandTotalAnswered) * 100) : 0;
+
+  if (loading) {
+    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando dados do painel...</div>;
+  }
 
   return (
     <div className="admin-container">
@@ -87,7 +152,7 @@ export default function AdminDashboard({ allModulesData }) {
         </div>
       </div>
 
-      {/* Cartão de Perfil Atualizado */}
+      {/* Cartão de Perfil */}
       <div className="admin-card user-profile-card">
         <h2>👤 Dados do Usuário Cadastrado</h2>
         {userData ? (

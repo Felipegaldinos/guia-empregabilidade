@@ -5,6 +5,7 @@ import ModuleWrapper from '../ModuleWrapper';
 import FinalResult from '../FinalResult';
 import AdminDashboard from '../AdminDashboard';
 import AdminLogin from '../AdminLogin';
+import { useAuth } from '../../contexts/AuthContext';
 
 import { module1Data } from '../../data/module1Data';
 import { module2Data } from '../../data/module2Data';
@@ -22,22 +23,22 @@ function HomePage() {
   );
 }
 
-// Componente Reutilizável de Rota Privada
-function PrivateRoute({ children, isAuthenticated, redirectTo = '/admin-login' }) {
-  if (!isAuthenticated) {
-    return <Navigate to={redirectTo} replace />;
+// Rota Privada conectada ao Firebase Auth
+function PrivateRoute({ children }) {
+  const { currentUser, loading } = useAuth();
+
+  if (loading) return <div>Carregando...</div>;
+
+  if (!currentUser) {
+    return <Navigate to="/admin-login" replace />;
   }
 
   return children;
 }
 
 export default function AppRoutes() {
-  // Checagem dinâmiça da autenticação do Admin
-  const isAdminAuthenticated = localStorage.getItem('admin_authenticated') === 'true';
-
   return (
     <Routes>
-      {/* Rotas Públicas */}
       <Route path="/" element={<HomePage />} />
       <Route path="/modulo/:id" element={<ModuleWrapper />} />
       <Route 
@@ -46,17 +47,16 @@ export default function AppRoutes() {
       />
       <Route path="/admin-login" element={<AdminLogin />} />
 
-      {/* Rota Privada (Admin) */}
+      {/* Rota Protegida do Admin */}
       <Route 
         path="/admin" 
         element={
-          <PrivateRoute isAuthenticated={isAdminAuthenticated}>
+          <PrivateRoute>
             <AdminDashboard allModulesData={allModules} />
           </PrivateRoute>
         } 
       />
 
-      {/* Rota Fallback (Redireciona rotas inexistentes para a Home) */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

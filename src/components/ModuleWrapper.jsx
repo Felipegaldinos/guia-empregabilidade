@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from '../services/firebase';
+
 import ModulePage from './ModulePage';
 import UserFormModal from './UserFormModal';
 
@@ -20,38 +24,51 @@ export default function ModuleWrapper() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [isSessionActive, setIsSessionActive] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Evita renderizar o modal antes de ler o localStorage
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('user_identification');
-    const sessionActive = localStorage.getItem('user_session_active');
-    const adminAuth = localStorage.getItem('admin_authenticated');
+    // Escuta o estado de autenticação em tempo real no Firebase
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        try {
+          // Busca os dados do perfil salvos no Firestore
+          const userDocRef = doc(db, 'users', user.uid);
+          const userSnap = await getDoc(userDocRef);
 
-    // Considera logado se houver usuário salvo E (sessão ativa OU admin logado)
-    if (savedUser && (sessionActive === 'true' || adminAuth === 'true')) {
-      setUserData(JSON.parse(savedUser));
-      setIsSessionActive(true);
-    } else {
-      setIsSessionActive(false);
-    }
+          if (userSnap.exists()) {
+            const data = userSnap.data();
+            setUserData(data);
+            localStorage.setItem('user_identification', JSON.stringify(data));
+          } else {
+            // Fallback para dados salvos localmente se o documento não existir
+            const savedUser = localStorage.getItem('user_identification');
+            if (savedUser) setUserData(JSON.parse(savedUser));
+          }
+          setIsSessionActive(true);
+        } catch (error) {
+          console.error("Erro ao procurar utilizador no Firestore:", error);
+          setIsSessionActive(true);
+        }
+      } else {
+        // Se não estiver logado no Firebase, limpa a sessão
+        setUserData(null);
+        setIsSessionActive(false);
+      }
+      setIsLoading(false);
+    });
 
-    setIsLoading(false); // Conclui a leitura do localStorage
+    return () => unsubscribe();
   }, [id]);
 
   const handleFormSubmitSuccess = (data) => {
-    localStorage.setItem('user_identification', JSON.stringify(data));
-    localStorage.setItem('user_session_active', 'true');
-    localStorage.setItem('admin_authenticated', 'true');
-
     setUserData(data);
     setIsSessionActive(true);
   };
 
   const currentModule = modulesMap[id];
 
-  // Enquanto lê o localStorage, não renderiza nada para evitar o "piscar" do modal
   if (isLoading) {
-    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando...</div>;
+    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando perfil...</div>;
   }
 
   if (!currentModule || !currentModule.data) {
@@ -74,7 +91,7 @@ export default function ModuleWrapper() {
 
   return (
     <div>
-      {/* Exibe o modal SOMENTE se a checagem terminou e NÃO houver sessão ativa */}
+      {/* Exibe o modal apenas se a verificação terminou e NÃO houver utilizador logado */}
       {!isSessionActive && (
         <UserFormModal onSubmitSuccess={handleFormSubmitSuccess} />
       )}
@@ -97,7 +114,7 @@ export default function ModuleWrapper() {
       </div>
 
       <ModulePage 
-        key={`${id}-${userData?.nome || 'guest'}`}
+        key={`${id}-${userData?.uid || userData?.nome || 'guest'}`}
         moduleData={currentModule.data} 
         userData={userData}
         onNextModule={handleNextModule} 

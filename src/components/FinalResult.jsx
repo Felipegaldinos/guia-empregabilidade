@@ -1,56 +1,114 @@
-import  { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { auth, db } from '../services/firebase';
 import './FinalResult.css';
 
-export default function FinalResult({ allModulesData }) {
+export default function FinalResult({ allModulesData = [] }) {
   const navigate = useNavigate();
-
-  // 1. Calcula o total de questões e acertos de TODOS os módulos
-  let totalQuestions = 0;
-  let totalAnswered = 0;
-  let correctAnswersCount = 0;
-
-  allModulesData.forEach((mod) => {
-    const storageKey = `module_${mod.id}_quiz_answers`;
-    const savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
-
-    mod.sections.forEach((sec) => {
-      const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
-      
-      quizzesList.forEach((q, qIdx) => {
-        totalQuestions++;
-        const quizKey = `${sec.id}_q${qIdx}`;
-        const userAnswer = savedAnswers[quizKey];
-
-        if (userAnswer !== undefined) {
-          totalAnswered++;
-        }
-
-        if (userAnswer && userAnswer === q.correctAnswer) {
-          correctAnswersCount++;
-        }
-      });
-    });
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalQuestions: 0,
+    totalAnswered: 0,
+    correctAnswersCount: 0
   });
 
-  // 2. Trava de segurança: Se não respondeu TUDO, redireciona para a Home
-  const isAllModulesCompleted = totalQuestions > 0 && totalAnswered === totalQuestions;
+  useEffect(() => {
+    async function calculateResults() {
+      setLoading(true);
+
+      const currentUser = auth.currentUser;
+      const remoteAnswersMap = {};
+
+      // 1. Busca as respostas gravadas no Firestore para o usuário
+      if (currentUser) {
+        try {
+          const querySnapshot = await getDocs(
+            collection(db, 'users', currentUser.uid, 'module_responses')
+          );
+          querySnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            if (data.moduleId && data.answers) {
+              remoteAnswersMap[data.moduleId] = data.answers;
+            }
+          });
+        } catch (error) {
+          console.error("Erro ao buscar respostas do Firestore:", error);
+        }
+      }
+
+      let totalQuestions = 0;
+      let totalAnswered = 0;
+      let correctAnswersCount = 0;
+
+      // 2. Itera sobre todos os módulos do curso
+      allModulesData.forEach((mod) => {
+        let savedAnswers = remoteAnswersMap[mod.id];
+
+        // Fallback local se não houver dados no Firestore
+        if (!savedAnswers) {
+          const userPrefix = currentUser?.displayName
+            ? currentUser.displayName.trim().toLowerCase().replace(/\s+/g, '_')
+            : 'default_user';
+          const storageKey = `${userPrefix}_module_${mod.id}_quiz_answers`;
+
+          try {
+            savedAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
+          } catch (e) {
+            savedAnswers = {};
+          }
+        }
+
+        (mod.sections || []).forEach((sec) => {
+          const quizzesList = sec.quizzes || (sec.quiz ? [sec.quiz] : []);
+
+          quizzesList.forEach((q, qIdx) => {
+            totalQuestions++;
+            const quizKey = `${sec.id}_q${qIdx}`;
+            const userAnswer = savedAnswers ? savedAnswers[quizKey] : undefined;
+
+            if (userAnswer !== undefined) {
+              totalAnswered++;
+            }
+
+            if (userAnswer && userAnswer === q.correctAnswer) {
+              correctAnswersCount++;
+            }
+          });
+        });
+      });
+
+      setStats({
+        totalQuestions,
+        totalAnswered,
+        correctAnswersCount
+      });
+
+      setLoading(false);
+    }
+
+    calculateResults();
+  }, [allModulesData]);
+
+  const isAllModulesCompleted =
+    stats.totalQuestions > 0 && stats.totalAnswered === stats.totalQuestions;
 
   useEffect(() => {
-    if (!isAllModulesCompleted) {
+    if (!loading && !isAllModulesCompleted && allModulesData.length > 0) {
       alert("Você precisa completar as questões de todos os módulos para acessar o resultado final!");
       navigate('/');
     }
-  }, [isAllModulesCompleted, navigate]);
+  }, [loading, isAllModulesCompleted, allModulesData.length, navigate]);
 
-  // Se não concluiu tudo, não renderiza a tela enquanto redireciona
+  if (loading) {
+    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando resultado final...</div>;
+  }
+
   if (!isAllModulesCompleted) {
     return null;
   }
 
-  const percentage = totalQuestions > 0 
-    ? Math.round((correctAnswersCount / totalQuestions) * 100) 
-    : 0;
+  const percentage = Math.round((stats.correctAnswersCount / stats.totalQuestions) * 100);
 
   const getFeedbackMessage = () => {
     if (percentage >= 80) return "🔥 Desempenho Excelente! Você está mais do que preparado para enfrentar seus desafios.";
@@ -77,7 +135,7 @@ export default function FinalResult({ allModulesData }) {
           </div>
 
           <div className="metric-box">
-            <span className="metric-value">{correctAnswersCount}/{totalQuestions}</span>
+            <span className="metric-value">{stats.correctAnswersCount}/{stats.totalQuestions}</span>
             <span className="metric-label">Questões Corretas</span>
           </div>
         </div>

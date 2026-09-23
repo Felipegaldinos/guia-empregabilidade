@@ -1,42 +1,70 @@
 import { useState, useEffect } from 'react';
+import { doc, getDoc, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
+import { auth, db } from '../services/firebase';
 import './ModulePage.css';
 import img from '../assets/module-hero.png';
 
 export default function ModulePage({ moduleData, userData, onNextModule }) {
   const [openIndex, setOpenIndex] = useState(0);
-
-  // Armazena as respostas da sessão atual do usuário: { [quizUniqueKey]: optionIdSelected }
   const [answers, setAnswers] = useState({});
+  const [loadingAnswers, setLoadingAnswers] = useState(true);
 
-  // Gera o prefixo único do usuário cadastrado (ex: "joao_silva")
+  // Identificador do usuário logado no Auth ou fallback via props
+  const currentUid = auth.currentUser?.uid || userData?.uid;
+
+  // Prefixo para fallback local no localStorage
   const userPrefix = userData?.nome
     ? userData.nome.trim().toLowerCase().replace(/\s+/g, '_')
     : 'default_user';
 
-  // Chave de persistência individualizada por usuário e por módulo
   const STORAGE_KEY = `${userPrefix}_module_${moduleData.id}_quiz_answers`;
 
-  // Carrega respostas salvas do usuário atual ao carregar a página/módulo
+  // Carrega respostas salvas do Firestore (e do localStorage como fallback)
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        setAnswers(JSON.parse(saved));
-      } catch (e) {
-        console.error("Erro ao carregar respostas do localStorage", e);
+    async function loadAnswers() {
+      setLoadingAnswers(true);
+
+      if (currentUid) {
+        try {
+          const docRef = doc(db, 'users', currentUid, 'module_responses', `module_${moduleData.id}`);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists() && docSnap.data().answers) {
+            const remoteAnswers = docSnap.data().answers;
+            setAnswers(remoteAnswers);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(remoteAnswers));
+            setLoadingAnswers(false);
+            return;
+          }
+        } catch (e) {
+          console.error("Erro ao carregar respostas do Firestore:", e);
+        }
+      }
+
+      // Fallback para o localStorage se não houver dados na nuvem
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          setAnswers(JSON.parse(saved));
+        } catch (e) {
+          console.error("Erro ao carregar respostas do localStorage", e);
+          setAnswers({});
+        }
+      } else {
         setAnswers({});
       }
-    } else {
-      setAnswers({});
-    }
-  }, [STORAGE_KEY]);
 
-  // Calcula o número total de questões existentes em todas as seções
+      setLoadingAnswers(false);
+    }
+
+    loadAnswers();
+  }, [moduleData.id, currentUid, STORAGE_KEY]);
+
+  // Calcula o número total de questões em todas as seções
   const totalQuestions = moduleData.sections.reduce((acc, sec) => {
     return acc + (sec.quizzes ? sec.quizzes.length : (sec.quiz ? 1 : 0));
   }, 0);
 
-  // Quantidade de questões já respondidas
   const answeredCount = Object.keys(answers).length;
   const isAllAnswered = totalQuestions > 0 && answeredCount === totalQuestions;
 
@@ -51,26 +79,48 @@ export default function ModulePage({ moduleData, userData, onNextModule }) {
     }
   };
 
-  // Processa a seleção de uma opção de resposta
-  const handleSelectOption = (quizKey, selectedOptionId) => {
-    if (answers[quizKey]) return; // Impede alterar caso já respondida na sessão atual
+  // Processa e salva a seleção no Firestore e localStorage
+  const handleSelectOption = async (quizKey, selectedOptionId) => {
+    if (answers[quizKey]) return; // Impede alteração na sessão atual
 
     const newAnswers = { ...answers, [quizKey]: selectedOptionId };
     setAnswers(newAnswers);
 
-    // Salva/Atualiza o registro no localStorage para este usuário específico
+    // 1. Salva localmente
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newAnswers));
-  };
 
-  // Reinicia a visualização das questões e limpa o histórico do usuário para este módulo
-  const handleResetQuiz = () => {
-    if (window.confirm("Deseja refazer as questões deste módulo? Seu progresso neste módulo será reiniciado.")) {
-      setAnswers({});
-      localStorage.removeItem(STORAGE_KEY);
+    // 2. Persiste na nuvem via Firestore
+    if (currentUid) {
+      try {
+        const responseRef = doc(db, 'users', currentUid, 'module_responses', `module_${moduleData.id}`);
+        await setDoc(responseRef, {
+          moduleId: moduleData.id,
+          answers: newAnswers,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+      } catch (error) {
+        console.error("Erro ao salvar resposta no Firestore:", error);
+      }
     }
   };
 
-  // Trata o clique de avanço com validação
+  // Reinicia os testes no Firestore e limpa o localStorage
+  const handleResetQuiz = async () => {
+    if (window.confirm("Deseja refazer as questões deste módulo? Seu progresso neste módulo será reiniciado.")) {
+      setAnswers({});
+      localStorage.removeItem(STORAGE_KEY);
+
+      if (currentUid) {
+        try {
+          const responseRef = doc(db, 'users', currentUid, 'module_responses', `module_${moduleData.id}`);
+          await deleteDoc(responseRef);
+        } catch (error) {
+          console.error("Erro ao deletar respostas do Firestore:", error);
+        }
+      }
+    }
+  };
+
   const handleNextClick = () => {
     if (isAllAnswered) {
       onNextModule();
@@ -78,6 +128,10 @@ export default function ModulePage({ moduleData, userData, onNextModule }) {
       alert(`Responda todas as questões para liberar o próximo módulo (${answeredCount}/${totalQuestions})`);
     }
   };
+
+  if (loadingAnswers) {
+    return <div style={{ textAlign: 'center', padding: '40px' }}>Carregando questões do módulo...</div>;
+  }
 
   return (
     <div className="module-page-container">
