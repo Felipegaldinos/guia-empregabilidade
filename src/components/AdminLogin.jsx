@@ -23,7 +23,7 @@ export default function AdminLogin({ onLoginSuccess }) {
       
       if (onLoginSuccess) {
         onLoginSuccess();
-      }
+      } 
 
       navigate('/admin');
     } catch (err) {

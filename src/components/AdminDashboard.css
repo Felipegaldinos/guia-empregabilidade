@@ -336,3 +336,125 @@
     gap: 10px;
   }
 }
+
+/* Gamificação & Selos no Perfil */
+.user-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .user-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.user-gamification-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.xp-badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.xp-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.xp-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #28a745;
+  background: #e6f4ea;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.badges-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.badge-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.metric-card.highlight-xp {
+  border-left: 4px solid #28a745;
+  background: #f0fff4;
+}
+
+/* Tabela de Ranking */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ranking-table th, .ranking-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.ranking-table th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+}
+
+.ranking-table tr.active-row {
+  background-color: #e8f0fe;
+}
+
+/* Botão para Continuar Módulo */
+.btn-continue-module {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-continue-module:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-continue-module:active {
+  transform: translateY(0);
+}
