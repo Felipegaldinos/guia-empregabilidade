@@ -458,3 +458,8 @@
 .btn-continue-module:active {
   transform: translateY(0);
 }
+
+.ranking-table tr.user-out-of-top {
+  background-color: #e3f2fd;
+  border-top: 2px dashed #90caf9;
+}
