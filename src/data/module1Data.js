@@ -27,22 +27,22 @@ export const module1Data = {
           statement: "Qual é a principal diferença entre um currículo tradicional em PDF e um currículo digital?",
           options: [
             { id: "a", label: "O currículo digital não precisa conter dados pessoais nem contatos." },
-            { id: "b", label: "O currículo digital permite incluir evidências práticas, como links para projetos, repositórios e certificados interativos." },
-            { id: "c", label: "O currículo tradicional deve ter obrigatoriamente mais de 3 páginas de extensão." },
+            { id: "b", label: "O currículo tradicional deve ter obrigatoriamente mais de 3 páginas de extensão." },
+            { id: "c", label: "O currículo digital permite incluir evidências práticas, como links para projetos, repositórios e certificados interativos." },
             { id: "d", label: "O currículo digital serve apenas para profissionais seniores com vasta experiência." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "A principal vantagem do currículo digital é permitir o anexo de evidências práticas do trabalho (como links, imagens, repositórios no GitHub e projetos interativos), indo além do texto estático do PDF tradicional."
         },
         {
           statement: "Além do PDF, quais plataformas podem ser utilizadas como um currículo digital?",
           options: [
             { id: "a", label: "Apenas arquivos compactados (.ZIP) com planilhas." },
-            { id: "b", label: "Perfis em redes profissionais (LinkedIn), páginas no Notion, sites próprios e repositórios no GitHub." },
-            { id: "c", label: "Apenas mensagens enviadas por aplicativos de conversa." },
-            { id: "d", label: "Arquivos de áudio descrevendo sua trajetória." }
+            { id: "b", label: "Apenas mensagens enviadas por aplicativos de conversa." },
+            { id: "c", label: "Arquivos de áudio descrevendo sua trajetória." },
+            { id: "d", label: "Perfis em redes profissionais (LinkedIn), páginas no Notion, sites próprios e repositórios no GitHub." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Um currículo digital pode assumir diversos formatos interativos, incluindo LinkedIn, Notion, GitHub e sites pessoais, facilitando o compartilhamento por link."
         }
       ]
@@ -55,23 +55,23 @@ export const module1Data = {
         {
           statement: "Qual dos seguintes itens deve ser EVITADO na seção de dados pessoais do seu currículo?",
           options: [
-            { id: "a", label: "E-mail profissional e telefone de contato." },
-            { id: "b", label: "Cidade e Estado de residência." },
-            { id: "c", label: "Número do CPF, RG e endereço residencial completo." },
+            { id: "a", label: "Número do CPF, RG e endereço residencial completo." },
+            { id: "b", label: "E-mail profissional e telefone de contato." },
+            { id: "c", label: "Cidade e Estado de residência." },
             { id: "d", label: "Link do perfil do LinkedIn e do Portfólio." }
           ],
-          correctAnswer: "c",
+          correctAnswer: "a",
           feedback: "Documentos pessoais (CPF, RG) e endereço completo são desnecessários na etapa inicial de seleção e expõem sua privacidade sem necessidade."
         },
         {
           statement: "Como deve ser escrito um objetivo profissional eficiente no currículo?",
           options: [
             { id: "a", label: "Genérico, como 'Busco uma oportunidade para crescer profissionalmente e aprender'." },
-            { id: "b", label: "Curto e direcionado, indicando área, contexto atual e principais tecnologias/competências." },
-            { id: "c", label: "Longo, contando toda a sua história desde o ensino fundamental." },
+            { id: "b", label: "Longo, contando toda a sua história desde o ensino fundamental." },
+            { id: "c", label: "Curto e direcionado, indicando área, contexto atual e principais tecnologias/competências." },
             { id: "d", label: "Com o valor exato da pretensão salarial desejada." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Um bom objetivo é direto e claro. Exemplo: 'Estudante de Análise e Desenvolvimento de Sistemas com foco em desenvolvimento web utilizando HTML, CSS e JavaScript'."
         }
       ]
@@ -85,12 +85,12 @@ export const module1Data = {
           statement: "De acordo com a fórmula recomendada (Ação + Atividade + Ferramenta + Resultado), qual descrição está mais bem estruturada?",
           options: [
             { id: "a", label: "Trabalhei criando páginas no meu antigo trabalho." },
-            { id: "b", label: "Desenvolvi uma página institucional utilizando HTML e CSS, estruturando cinco seções responsivas para a empresa." },
-            { id: "c", label: "Fui responsável pela parte de TI e ajudava o pessoal do setor." },
-            { id: "d", label: "Tenho amplo conhecimento e grande facilidade com tecnologia em geral." }
+            { id: "b", label: "Fui responsável pela parte de TI e ajudava o pessoal do setor." },
+            { id: "c", label: "Tenho amplo conhecimento e grande facilidade com tecnologia em geral." },
+            { id: "d", label: "Desenvolvi uma página institucional utilizando HTML e CSS, estruturando cinco seções responsivas para a empresa." }
           ],
-          correctAnswer: "b",
-          feedback: "A opção 'b' segue a fórmula perfeitamente: Ação (Desenvolvi) + Atividade (página institucional) + Ferramenta (HTML/CSS) + Resultado/Entregável (cinco seções responsivas)."
+          correctAnswer: "d",
+          feedback: "A opção 'd' segue a fórmula perfeitamente: Ação (Desenvolvi) + Atividade (página institucional) + Ferramenta (HTML/CSS) + Resultado/Entregável (cinco seções responsivas)."
         },
         {
           statement: "Por que devemos incluir resultados numéricos ou dados práticos ao descrever experiências?",
@@ -114,22 +114,22 @@ export const module1Data = {
           statement: "Se você ainda não possui experiência em carteira assinada (CLT), qual estratégia é recomendada para demonstrar suas capacidades?",
           options: [
             { id: "a", label: "Deixar o espaço de experiências totalmente em branco." },
-            { id: "b", label: "Apresentar projetos acadêmicos, pessoais, trabalhos voluntários ou desafios práticos realizados em cursos." },
-            { id: "c", label: "Criar experiências fictícias em empresas reais." },
+            { id: "b", label: "Criar experiências fictícias em empresas reais." },
+            { id: "c", label: "Apresentar projetos acadêmicos, pessoais, trabalhos voluntários ou desafios práticos realizados em cursos." },
             { id: "d", label: "Listar apenas os nomes de canais do YouTube aos quais você assiste." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Projetos práticos (acadêmicos, voluntários ou pessoais) comprovam sua capacidade de execução, compensando a falta de experiência no mercado formal."
         },
         {
           statement: "Qual é a melhor forma de descrever um projeto pessoal no currículo para quem está começando?",
           options: [
-            { id: "a", label: "Colocar apenas o nome do projeto sem explicar nada." },
-            { id: "b", label: "Detalhar o objetivo do projeto, tecnologias utilizadas e disponibilizar links do projeto online e do código-fonte." },
+            { id: "a", label: "Detalhar o objetivo do projeto, tecnologias utilizadas e disponibilizar links do projeto online e do código-fonte." },
+            { id: "b", label: "Colocar apenas o nome do projeto sem explicar nada." },
             { id: "c", label: "Colocar todo o código escrito em texto dentro do próprio arquivo do currículo." },
             { id: "d", label: "Informar apenas o tempo que você levou para concluir o projeto." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Descrever o objetivo, as tecnologias e anexar os links permite que o avaliador valide suas competências técnicas de maneira prática."
         }
       ]
@@ -143,22 +143,22 @@ export const module1Data = {
           statement: "Qual é a ordem estrutural recomendada para organizar as informações no seu portfólio técnico?",
           options: [
             { id: "a", label: "1. Contato / 2. Certificados / 3. Habilidades / 4. Sobre mim / 5. Projetos." },
-            { id: "b", label: "1. Sobre mim / 2. Habilidades / 3. Projetos / 4. Formação / 5. Certificados / 6. Contato." },
-            { id: "c", label: "1. Projetos / 2. Fotos pessoais / 3. Redes sociais pessoais / 4. Hobby." },
-            { id: "d", label: "1. Apenas links para baixar arquivos PDF." }
+            { id: "b", label: "1. Projetos / 2. Fotos pessoais / 3. Redes sociais pessoais / 4. Hobby." },
+            { id: "c", label: "1. Apenas links para baixar arquivos PDF." },
+            { id: "d", label: "1. Sobre mim / 2. Habilidades / 3. Projetos / 4. Formação / 5. Certificados / 6. Contato." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Uma estrutura lógica começa apresentando quem você é, destaca suas habilidades e projetos principais, e finaliza com formação, certificados e contatos."
         },
         {
           statement: "Qual é o principal erro ao apresentar habilidades no portfólio?",
           options: [
-            { id: "a", label: "Apenas dizer 'Eu sei HTML/CSS/JS' sem demonstrar projetos onde essas tecnologias foram aplicadas." },
-            { id: "b", label: "Linkar o repositório do GitHub." },
+            { id: "a", label: "Linkar o repositório do GitHub." },
+            { id: "b", label: "Apenas dizer 'Eu sei HTML/CSS/JS' sem demonstrar projetos onde essas tecnologias foram aplicadas." },
             { id: "c", label: "Inserir o nome da instituição onde estudou." },
             { id: "d", label: "Indicar as tecnologias em formato de tags ou badges." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "Listar linguagens ou ferramentas isoladamente sem associá-las a projetos práticos reduz a credibilidade do seu portfólio."
         }
       ]
@@ -171,12 +171,12 @@ export const module1Data = {
         {
           statement: "Qual das seguintes ferramentas é amplamente utilizada para criar documentos visuais, como currículos em PDF e apresentações?",
           options: [
-            { id: "a", label: "Canva." },
-            { id: "b", label: "GitHub Pages." },
-            { id: "c", label: "Vercel." },
+            { id: "a", label: "GitHub Pages." },
+            { id: "b", label: "Vercel." },
+            { id: "c", label: "Canva." },
             { id: "d", label: "Visual Studio Code." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "O Canva é uma ferramenta de design com diversos modelos prontos de currículos e apresentações."
         },
         {
@@ -201,22 +201,22 @@ export const module1Data = {
           statement: "Para publicar e hospedar gratuitamente uma aplicação web ou portfólio feito em HTML/CSS/JS, qual opção é recomendada?",
           options: [
             { id: "a", label: "Behance." },
-            { id: "b", label: "GitHub Pages / Vercel." },
-            { id: "c", label: "Google Drive." },
-            { id: "d", label: "Europass." }
+            { id: "b", label: "Google Drive." },
+            { id: "c", label: "Europass." },
+            { id: "d", label: "GitHub Pages / Vercel." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "GitHub Pages e Vercel são plataformas gratuitas projetadas para realizar o deploy (hospedagem) de aplicações web e sites diretamente do repositório."
         },
         {
           statement: "Se o seu foco for a área de Design de Interfaces ou UX/UI, qual ferramenta é essencial no seu portfólio?",
           options: [
-            { id: "a", label: "Figma." },
-            { id: "b", label: "Europass." },
+            { id: "a", label: "Europass." },
+            { id: "b", label: "Figma." },
             { id: "c", label: "Excel." },
             { id: "d", label: "Word." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "O Figma é o padrão de mercado para prototipação e design de interfaces de usuário (UI/UX)."
         }
       ]
@@ -230,22 +230,22 @@ export const module1Data = {
           statement: "O que deve ser colocado no campo 'Título' do seu perfil do LinkedIn?",
           options: [
             { id: "a", label: "Frases motivacionais como 'Em busca de um sonho'." },
-            { id: "b", label: "Sua área de atuação, formação e principais tecnologias (ex: Estudante de ADS | Desenvolvimento Web | HTML | CSS)." },
-            { id: "c", label: "Apenas o status 'Em busca de recolocação'." },
+            { id: "b", label: "Apenas o status 'Em busca de recolocação'." },
+            { id: "c", label: "Sua área de atuação, formação e principais tecnologias (ex: Estudante de ADS | Desenvolvimento Web | HTML | CSS)." },
             { id: "d", label: "Sua Pretensão Salarial." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "O título é indexado pelos algoritmos de busca dos recrutadores. Incluir palavras-chave e sua área facilita que seu perfil seja encontrado."
         },
         {
           statement: "Qual é a função da seção 'Sobre' do LinkedIn?",
           options: [
-            { id: "a", label: "Resumir em 3 a 5 linhas quem você é, o que estuda, o que sabe fazer e em qual área deseja atuar." },
-            { id: "b", label: "Copiar na íntegra a lista de todas as matérias da faculdade." },
-            { id: "c", label: "Postar desabafos sobre o mercado de trabalho." },
-            { id: "d", label: "Colocar links de compra e vendas." }
+            { id: "a", label: "Copiar na íntegra a lista de todas as matérias da faculdade." },
+            { id: "b", label: "Postar desabafos sobre o mercado de trabalho." },
+            { id: "c", label: "Colocar links de compra e vendas." },
+            { id: "d", label: "Resumir em 3 a 5 linhas quem você é, o que estuda, o que sabe fazer e em qual área deseja atuar." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "d",
           feedback: "A seção 'Sobre' serve como um resumo executivo da sua história profissional, direcionamento de carreira e habilidades técnicas."
         }
       ]
@@ -258,23 +258,23 @@ export const module1Data = {
         {
           statement: "Ao listar cursos e certificados no currículo, qual é a postura correta?",
           options: [
-            { id: "a", label: "Listar absolutamente todos os cursos já feitos na vida, mesmo os que não têm relação com a vaga." },
-            { id: "b", label: "Priorizar cursos relevantes para a área desejada, informando nome, instituição, carga horária, ano e link de verificação." },
+            { id: "a", label: "Priorizar cursos relevantes para a área desejada, informando nome, instituição, carga horária, ano e link de verificação." },
+            { id: "b", label: "Listar absolutamente todos os cursos já feitos na vida, mesmo os que não têm relação com a vaga." },
             { id: "c", label: "Anexar os arquivos dos certificados no arquivo PDF do currículo." },
             { id: "d", label: "Omitir o nome da instituição onde fez o curso." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Apenas cursos relevantes para o objetivo profissional devem ser destacados. Incluir carga horária, ano e link traz transparência e valor."
         },
         {
           statement: "O que deve ser evitado ao incluir certificados digitais?",
           options: [
             { id: "a", label: "Inserir o link de validação do certificado." },
-            { id: "b", label: "Listar dezenas de cursos curtos desconexos gerando poluição visual." },
-            { id: "c", label: "Organizar em ordem cronológica inversa." },
+            { id: "b", label: "Organizar em ordem cronológica inversa." },
+            { id: "c", label: "Listar dezenas de cursos curtos desconexos gerando poluição visual." },
             { id: "d", label: "Destacar a carga horária do curso." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Listar excessos de cursos irrelevantes gera poluição visual e dificulta para o selecionador identificar suas reais qualificações."
         }
       ]
@@ -287,23 +287,23 @@ export const module1Data = {
         {
           statement: "Ao estruturar a apresentação de um projeto, quais elementos essenciais devem ser abordados?",
           options: [
-            { id: "a", label: "Nome do projeto, problema/objetivo, tecnologias utilizadas, aprendizados e links (projeto e código)." },
-            { id: "b", label: "Apenas o nome do arquivo no seu computador." },
+            { id: "a", label: "Apenas o nome do arquivo no seu computador." },
+            { id: "b", label: "Nome do projeto, problema/objetivo, tecnologias utilizadas, aprendizados e links (projeto e código)." },
             { id: "c", label: "O preço cobrado ou custo do computador usado na execução." },
             { id: "d", label: "Lista das pessoas que não ajudaram na execução." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "Contextualizar o problema resolvido, o que foi aprendido e disponibilizar os links do código e demonstração são passos essenciais para validação técnica."
         },
         {
           statement: "Por que explicitar os 'aprendizados obtidos' em um projeto é bem visto por avaliadores?",
           options: [
-            { id: "a", label: "Mostra capacidade de reflexão, evolução técnica e facilidade de aprendizado." },
-            { id: "b", label: "Serve para preencher espaço em branco na folha." },
-            { id: "c", label: "É uma regra obrigatória exigida pelo LinkedIn." },
+            { id: "a", label: "Serve para preencher espaço em branco na folha." },
+            { id: "b", label: "É uma regra obrigatória exigida pelo LinkedIn." },
+            { id: "c", label: "Mostra capacidade de reflexão, evolução técnica e facilidade de aprendizado." },
             { id: "d", label: "Substitui a necessidade de enviar o currículo." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "Avaliadores buscam profissionais com mentalidade de aprendizado contínuo (growth mindset) e capacidade de autoavaliação."
         }
       ]
@@ -317,11 +317,11 @@ export const module1Data = {
           statement: "Qual deve ser a seção em destaque de um candidato sem experiência formal no mercado de TI?",
           options: [
             { id: "a", label: "Histórico escolar do ensino fundamental." },
-            { id: "b", label: "Projetos acadêmicos/pessoais desenvolvidos e competências técnicas dominadas." },
-            { id: "c", label: "Endereço residencial completo com ponto de referência." },
-            { id: "d", label: "Uma declaração prometendo aprender tudo do zero após a contratação." }
+            { id: "b", label: "Endereço residencial completo com ponto de referência." },
+            { id: "c", label: "Uma declaração prometendo aprender tudo do zero após a contratação." },
+            { id: "d", label: "Projetos acadêmicos/pessoais desenvolvidos e competências técnicas dominadas." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Para quem está começando, demonstrar o que é capaz de construir através de projetos práticos e competências adquiridas é o principal diferencial."
         },
         {
@@ -356,12 +356,12 @@ export const module1Data = {
         {
           statement: "Por que deve ser evitado o envio de currículos em formato editável (.DOCX)?",
           options: [
-            { id: "a", label: "O formato PDF garante que a formatação do documento não desfigure em diferentes dispositivos e leitores." },
+            { id: "a", label: "Arquivos .DOCX são proibidos por lei nas contratações." },
             { id: "b", label: "PDFs são mais pesados e ocupam mais espaço no e-mail." },
-            { id: "c", label: "Arquivos .DOCX são proibidos por lei nas contratações." },
+            { id: "c", label: "O formato PDF garante que a formatação do documento não desfigure em diferentes dispositivos e leitores." },
             { id: "d", label: "Recrutadores não conseguem abrir arquivos em computadores." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "O PDF preserva o layout e o design originais exatamente como você configurou, independentemente do sistema operacional do recrutador."
         }
       ]
@@ -375,22 +375,22 @@ export const module1Data = {
           statement: "Qual é o nome de arquivo mais adequado para salvar o seu currículo em PDF antes do envio?",
           options: [
             { id: "a", label: "curriculo_novo_final_v2.pdf" },
-            { id: "b", label: "SeuNome_SeuSobrenome_Curriculo.pdf" },
-            { id: "c", label: "documento_12345.pdf" },
-            { id: "d", label: "sem_titulo.pdf" }
+            { id: "b", label: "documento_12345.pdf" },
+            { id: "c", label: "sem_titulo.pdf" },
+            { id: "d", label: "SeuNome_SeuSobrenome_Curriculo.pdf" }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Salvar com seu nome completo e a identificação do documento (ex: 'Felipe_Galdino_Curriculo.pdf') facilita o arquivamento e busca por parte do recrutador."
         },
         {
           statement: "Antes de enviar seu currículo digital, qual verificação final é indispensável?",
           options: [
-            { id: "a", label: "Testar se todos os links (LinkedIn, GitHub, Portfólio) estão funcionando corretamente." },
-            { id: "b", label: "Imprimir 10 cópias em papel." },
+            { id: "a", label: "Imprimir 10 cópias em papel." },
+            { id: "b", label: "Testar se todos os links (LinkedIn, GitHub, Portfólio) estão funcionando corretamente." },
             { id: "c", label: "Mudar a cor de todo o texto para verde." },
             { id: "d", label: "Apagar os dados de telefone para contato." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "Links quebrados inviabilizam o acesso aos seus projetos e certificados, prejudicando a avaliação da sua candidatura."
         }
       ]
@@ -404,11 +404,11 @@ export const module1Data = {
           statement: "O que compõe o ecossistema completo de identidade profissional digital proposto neste módulo?",
           options: [
             { id: "a", label: "Apenas um currículo impresso entregue pessoalmente." },
-            { id: "b", label: "Currículo otimizado + LinkedIn estruturado + Portfólio técnico + Central unificada de links." },
-            { id: "c", label: "Apenas uma página de cadastro em sites de emprego." },
+            { id: "b", label: "Apenas uma página de cadastro em sites de emprego." },
+            { id: "c", label: "Currículo otimizado + LinkedIn estruturado + Portfólio técnico + Central unificada de links." },
             { id: "d", label: "Perfil pessoal em redes sociais de entretenimento." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Construir uma presença digital consistente exige alinhar seu Currículo, LinkedIn, Portfólio e unificar seus links para fácil acesso."
         },
         {

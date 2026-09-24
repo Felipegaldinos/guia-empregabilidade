@@ -6,7 +6,6 @@ export default function AdminFloatingButton() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 1. Hooks declarados no topo
   const [position, setPosition] = useState(() => ({
     x: typeof window !== 'undefined' ? window.innerWidth - 80 : 20,
     y: typeof window !== 'undefined' ? window.innerHeight - 80 : 20
@@ -16,7 +15,6 @@ export default function AdminFloatingButton() {
   const dragStartOffset = useRef({ x: 0, y: 0 });
   const hasMoved = useRef(false);
 
-  // Manipuladores de movimento e finalização do drag do mouse via refs para evitar re-binds desnecessários
   const handleMouseMove = useRef((e) => {
     if (!isDragging.current) return;
     hasMoved.current = true;

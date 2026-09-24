@@ -14,11 +14,11 @@ export const module2Data = {
           statement: "O que caracteriza uma busca de emprego realmente eficiente?",
           options: [
             { id: "a", label: "Pesquisar termos genéricos como 'vaga tecnologia' e enviar o currículo para todas as vagas." },
-            { id: "b", label: "Definir cargo, nível de experiência, localização e usar pesquisas específicas como 'Desenvolvedor Front-end Júnior'." },
-            { id: "c", label: "Candidatar-se apenas a vagas do tipo Home Office no exterior." },
+            { id: "b", label: "Candidatar-se apenas a vagas do tipo Home Office no exterior." },
+            { id: "c", label: "Definir cargo, nível de experiência, localização e usar pesquisas específicas como 'Desenvolvedor Front-end Júnior'." },
             { id: "d", label: "Aguardar os recrutadores entrarem em contato sem realizar pesquisas ativas." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Pesquisas específicas filtram oportunidades realmente compatíveis com seu objetivo, economizando tempo e aumentando suas chances de retorno."
         }
       ]
@@ -33,10 +33,10 @@ export const module2Data = {
           options: [
             { id: "a", label: "“Em busca de recolocação / Desempregado”" },
             { id: "b", label: "“Estudante”" },
-            { id: "c", label: "“Estudante de ADS | Desenvolvimento Web | HTML, CSS e JavaScript”" },
-            { id: "d", label: "“Futuro Engenheiro de Software na Google”" }
+            { id: "c", label: "“Futuro Engenheiro de Software na Google”" },
+            { id: "d", label: "“Estudante de ADS | Desenvolvimento Web | HTML, CSS e JavaScript”" }
           ],
-          correctAnswer: "c",
+          correctAnswer: "d",
           feedback: "O título deve destacar sua área de estudo/atuação e as principais tecnologias/competências que você domina, ajudando os recrutadores a encontrarem você nas buscas."
         }
       ]
@@ -49,12 +49,12 @@ export const module2Data = {
         {
           statement: "Qual é a maneira correta de utilizar palavras-chave no seu perfil e currículo?",
           options: [
-            { id: "a", label: "Copiar uma lista de 50 tecnologias famosas no rodapé, mesmo que não saiba usá-las." },
-            { id: "b", label: "Apresentar de forma natural no resumo e projetos as tecnologias e competências que você realmente possui." },
+            { id: "a", label: "Apresentar de forma natural no resumo e projetos as tecnologias e competências que você realmente possui." },
+            { id: "b", label: "Copiar uma lista de 50 tecnologias famosas no rodapé, mesmo que não saiba usá-las." },
             { id: "c", label: "Usar apenas palavras genéricas como 'dedicado', 'esforçado' e 'pontual'." },
             { id: "d", label: "Esconder palavras em texto branco dentro do arquivo do currículo." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "As palavras-chave devem representar seus conhecimentos reais. Inventar qualificações pode ser desmascarado facilmente em uma entrevista ou teste prático."
         }
       ]
@@ -87,10 +87,10 @@ export const module2Data = {
           options: [
             { id: "a", label: "O LinkedIn é a única plataforma que existe para buscar emprego." },
             { id: "b", label: "Plataformas locais como o SINE-RN e regionais não possuem vagas operacionais ou técnicas." },
-            { id: "c", label: "É recomendado diversificar a busca entre redes profissionais (LinkedIn), portais corporativos (Gupy), órgãos públicos (SINE) e sites especializados." },
-            { id: "d", label: "Sites de vagas exigem pagamento mensal obrigatório do candidato." }
+            { id: "c", label: "Sites de vagas exigem pagamento mensal obrigatório do candidato." },
+            { id: "d", label: "É recomendado diversificar a busca entre redes profissionais (LinkedIn), portais corporativos (Gupy), órgãos públicos (SINE) e sites especializados." }
           ],
-          correctAnswer: "c",
+          correctAnswer: "d",
           feedback: "Diversificar as plataformas amplia suas oportunidades, já que diferentes empresas utilizam canais variados para recrutamento."
         }
       ]
@@ -140,11 +140,11 @@ export const module2Data = {
           statement: "Se você não possui experiência formal e quer a primeira oportunidade, quais termos de busca são mais indicados?",
           options: [
             { id: "a", label: "“Especialista”, “Líder Técnico” e “Sênior”." },
-            { id: "b", label: "“Estágio”, “Jovem Aprendiz”, “Assistente”, “Júnior” e “Banco de Talentos”." },
-            { id: "c", label: "“Gerente de Projetos” e “Coordenador”." },
+            { id: "b", label: "“Gerente de Projetos” e “Coordenador”." },
+            { id: "c", label: "“Estágio”, “Jovem Aprendiz”, “Assistente”, “Júnior” e “Banco de Talentos”." },
             { id: "d", label: "Apenas a palavra “Desenvolvedor” solta." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Termos como 'Estágio', 'Júnior' e 'Assistente' filtram posições de entrada voltadas ao aprendizado e início de carreira."
         }
       ]
@@ -157,12 +157,12 @@ export const module2Data = {
         {
           statement: "Por que é importante fazer um checklist prévio da vaga antes de enviar seu currículo?",
           options: [
-            { id: "a", label: "Para garantir que você só se candidate a oportunidades onde possui compatibilidade de requisitos, localização e nível." },
-            { id: "b", label: "Para demorar mais tempo no processo de busca." },
-            { id: "c", label: "Porque os algoritmos bloqueiam quem envia mais de 3 currículos por dia." },
-            { id: "d", label: "Para tentar mudar os requisitos exigidos pela empresa." }
+            { id: "a", label: "Para demorar mais tempo no processo de busca." },
+            { id: "b", label: "Porque os algoritmos bloqueiam quem envia mais de 3 currículos por dia." },
+            { id: "c", label: "Para tentar mudar os requisitos exigidos pela empresa." },
+            { id: "d", label: "Para garantir que você só se candidate a oportunidades onde possui compatibilidade de requisitos, localização e nível." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "d",
           feedback: "Analisar a compatibilidade antes evita frustrações e aumenta a taxa de resposta dos recrutadores nas suas candidaturas."
         }
       ]
@@ -175,12 +175,12 @@ export const module2Data = {
         {
           statement: "O que significa 'adaptar o currículo' de forma inteligente para uma vaga específica?",
           options: [
-            { id: "a", label: "Reescrever o documento do zero trocando todas as suas experiências anteriores por histórias falsas." },
-            { id: "b", label: "Destacar e reordenar as competências e projetos reais mais relevantes para o foco daquela vaga." },
+            { id: "a", label: "Destacar e reordenar as competências e projetos reais mais relevantes para o foco daquela vaga." },
+            { id: "b", label: "Reescrever o documento do zero trocando todas as suas experiências anteriores por histórias falsas." },
             { id: "c", label: "Mudar as cores do arquivo para combinar com a logo da empresa." },
             { id: "d", label: "Aumentar o tamanho da fonte para o currículo parecer mais longo." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Adaptar não é inventar dados, mas sim dar destaque às informações da sua trajetória que mais interessam para a vaga em questão."
         }
       ]
@@ -212,11 +212,11 @@ export const module2Data = {
           statement: "Qual é a melhor prática para acompanhar seu progresso no mercado de trabalho?",
           options: [
             { id: "a", label: "Confiar na memória e esperar as empresas ligarem." },
-            { id: "b", label: "Manter uma planilha com nome da empresa, cargo, data de envio, link e status (ex: Em análise, Entrevista)." },
-            { id: "c", label: "Anotar os nomes das vagas no bloco de notas e apagar em seguida." },
+            { id: "b", label: "Anotar os nomes das vagas no bloco de notas e apagar em seguida." },
+            { id: "c", label: "Manter uma planilha com nome da empresa, cargo, data de envio, link e status (ex: Em análise, Entrevista)." },
             { id: "d", label: "Candidatar-se novamente para a mesma vaga todos os dias." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Acompanhar candidaturas em uma planilha previne constrangimentos em ligações de surpresa e ajuda a entender o andamento dos seus processos."
         }
       ]
@@ -248,11 +248,11 @@ export const module2Data = {
           statement: "Qual das alternativas abaixo indica um SINAL CLARO DE GOLPE em um processo seletivo?",
           options: [
             { id: "a", label: "A empresa pedir uma entrevista por vídeo no Google Meet ou Teams." },
-            { id: "b", label: "Cobrar taxa de inscrição, pagamento de treinamento ou compra de exames/equipamentos para liberar a vaga." },
-            { id: "c", label: "O recrutador pedir para você enviar seu currículo atualizado em PDF." },
-            { id: "d", label: "A vaga solicitar testes práticos compatíveis com a função." }
+            { id: "b", label: "O recrutador pedir para você enviar seu currículo atualizado em PDF." },
+            { id: "c", label: "A vaga solicitar testes práticos compatíveis com a função." },
+            { id: "d", label: "Cobrar taxa de inscrição, pagamento de treinamento ou compra de exames/equipamentos para liberar a vaga." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Nenhuma empresa séria cobra do candidato para que ele participe de um processo seletivo ou trabalhe. Fique alerta!"
         }
       ]
@@ -283,12 +283,12 @@ export const module2Data = {
         {
           statement: "Um candidato pronto para o mercado cumpriu com êxito quais etapas do checklist?",
           options: [
-            { id: "a", label: "Criou um LinkedIn completo, PDF atualizado com links ativos, alertas de vagas configurados e planilha de acompanhamento." },
-            { id: "b", label: "Apenas baixou o modelo de currículo sem alterar os dados." },
-            { id: "c", label: "Enviou 100 e-mails genéricos com cópia oculta para várias empresas." },
+            { id: "a", label: "Apenas baixou o modelo de currículo sem alterar os dados." },
+            { id: "b", label: "Enviou 100 e-mails genéricos com cópia oculta para várias empresas." },
+            { id: "c", label: "Criou um LinkedIn completo, PDF atualizado com links ativos, alertas de vagas configurados e planilha de acompanhamento." },
             { id: "d", label: "Criou um perfil no LinkedIn sem foto e sem preencher a seção Sobre." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "Garantir que a apresentação profissional, a busca estratégica e o controle estejam alinhados é a chave para o sucesso na busca por vagas."
         }
       ]

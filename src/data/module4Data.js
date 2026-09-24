@@ -24,12 +24,12 @@ export const module4Data = {
         {
           statement: "Quais são as etapas comumente encontradas em um fluxo de seleção remota?",
           options: [
-            { id: "a", label: "Triagem de currículo, testes de conhecimentos, entrevistas por vídeo e feedback/contratação." },
-            { id: "b", label: "Contratação imediata via mensagem de texto sem checagem de perfil." },
-            { id: "c", label: "Envio de senhas pessoais e pagamento de taxa de inscrição." },
+            { id: "a", label: "Contratação imediata via mensagem de texto sem checagem de perfil." },
+            { id: "b", label: "Envio de senhas pessoais e pagamento de taxa de inscrição." },
+            { id: "c", label: "Triagem de currículo, testes de conhecimentos, entrevistas por vídeo e feedback/contratação." },
             { id: "d", label: "Apenas uma conversa informal por áudio no WhatsApp." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "Processos remotos estruturados passam por triagem, testes práticos, entrevistas virtuais com RH/técnicos e etapas finais de proposta."
         }
       ]
@@ -42,12 +42,12 @@ export const module4Data = {
         {
           statement: "Qual dos itens abaixo faz parte de uma preparação adequada ANTES da entrevista virtual?",
           options: [
-            { id: "a", label: "Revisar a descrição da vaga, testar equipamentos (câmera/microfone) e pesquisar sobre a empresa." },
-            { id: "b", label: "Acessar o link da entrevista com 20 minutos de atraso." },
-            { id: "c", label: "Deixar o celular no volume máximo para não perder notificações." },
-            { id: "d", label: "Entrar na reunião em um ambiente barulhento e com pouca iluminação." }
+            { id: "a", label: "Acessar o link da entrevista com 20 minutos de atraso." },
+            { id: "b", label: "Deixar o celular no volume máximo para não perder notificações." },
+            { id: "c", label: "Entrar na reunião em um ambiente barulhento e com pouca iluminação." },
+            { id: "d", label: "Revisar a descrição da vaga, testar equipamentos (câmera/microfone) e pesquisar sobre a empresa." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "d",
           feedback: "Checar requisitos, testar a tecnologia e estudar a empresa são os pilares para passar confiança durante a entrevista."
         }
       ]
@@ -78,12 +78,12 @@ export const module4Data = {
         {
           statement: "Qual é a estrutura recomendada para responder à pergunta 'Fale um pouco sobre você'?",
           options: [
-            { id: "a", label: "Contar toda a sua história de infância e gostos pessoais não relacionados ao trabalho." },
-            { id: "b", label: "Quem é você → Formação → Conhecimentos/Projetos → Objetivo Profissional." },
+            { id: "a", label: "Quem é você → Formação → Conhecimentos/Projetos → Objetivo Profissional." },
+            { id: "b", label: "Contar toda a sua história de infância e gostos pessoais não relacionados ao trabalho." },
             { id: "c", label: "Dizer apenas 'O meu currículo já diz tudo' e aguardar a próxima pergunta." },
             { id: "d", label: "Reclamar dos antigos empregos ou das dificuldades dos estudos." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Seguir um roteiro objetivo ligando sua formação, projetos e objetivos conecta diretamente seu perfil às necessidades da vaga."
         }
       ]
@@ -97,11 +97,11 @@ export const module4Data = {
           statement: "Para transmitir atenção e conexão com o entrevistador durante uma videochamada, o candidato deve:",
           options: [
             { id: "a", label: "Ficar olhando fixamente para o celular enquanto responde." },
-            { id: "b", label: "Olhar para a lente da câmera periodicamente, manter boa postura e falar em ritmo calmo." },
-            { id: "c", label: "Usar filtros virtuais engraçados para descontrair a conversa." },
+            { id: "b", label: "Usar filtros virtuais engraçados para descontrair a conversa." },
+            { id: "c", label: "Olhar para a lente da câmera periodicamente, manter boa postura e falar em ritmo calmo." },
             { id: "d", label: "Interromper o entrevistador sempre que discordar de algo imediato." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Olhar para a câmera simula o contato visual olho no olho, transmitindo segurança e interesse ao avaliador."
         }
       ]
@@ -114,12 +114,12 @@ export const module4Data = {
         {
           statement: "Qual é o ambiente e enquadramento ideal para realizar uma entrevista remota?",
           options: [
-            { id: "a", label: "Ambiente silencioso, fundo limpo/organizado, iluminação frontal e câmera na altura dos olhos." },
-            { id: "b", label: "Quarto escuro com iluminação vindo de trás da cabeça (contra a luz)." },
+            { id: "a", label: "Quarto escuro com iluminação vindo de trás da cabeça (contra a luz)." },
+            { id: "b", label: "Ambiente silencioso, fundo limpo/organizado, iluminação frontal e câmera na altura dos olhos." },
             { id: "c", label: "Local movimentado e barulhento com a câmera apontada de baixo para cima." },
             { id: "d", label: "Dentro de um transporte público em movimento." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "Iluminação frontal e câmera na altura dos olhos garantem uma imagem nítida sem sombras nem distrações ao fundo."
         }
       ]
@@ -132,12 +132,12 @@ export const module4Data = {
         {
           statement: "Quais recursos básicos de plataformas como Google Meet, Zoom ou Teams o candidato deve dominar antes da entrevista?",
           options: [
-            { id: "a", label: "Apenas como alterar o plano de fundo por imagens de praia." },
-            { id: "b", label: "Ligar/desligar câmera e microfone, utilizar o chat e compartilhar a tela quando solicitado." },
+            { id: "a", label: "Ligar/desligar câmera e microfone, utilizar o chat e compartilhar a tela quando solicitado." },
+            { id: "b", label: "Apenas como alterar o plano de fundo por imagens de praia." },
             { id: "c", label: "Como gravar a chamada sem a permissão do recrutador." },
             { id: "d", label: "Como bloquear o áudio dos outros participantes da reunião." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Saber mexer nos botões essenciais da plataforma evita atrasos e demonstra maturidade digital."
         }
       ]
@@ -151,11 +151,11 @@ export const module4Data = {
           statement: "Ao receber um teste técnico (código, lógica, banco de dados ou estudo de caso), qual deve ser seu primeiro passo?",
           options: [
             { id: "a", label: "Começar a programar/escrever imediatamente sem ler o enunciado." },
-            { id: "b", label: "Ler com atenção todas as instruções até o final para entender o problema requisitado." },
+            { id: "b", label: "Copiar uma solução pronta do Google sem testar se atende aos requisitos." },
             { id: "c", label: "Enviar o teste em branco dizendo que não teve tempo." },
-            { id: "d", label: "Copiar uma solução pronta do Google sem testar se atende aos requisitos." }
+            { id: "d", label: "Ler com atenção todas as instruções até o final para entender o problema requisitado." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Compreender exatamente os requisitos evita que você perca tempo construindo algo que não foi solicitado."
         }
       ]
@@ -169,11 +169,11 @@ export const module4Data = {
           statement: "Durante um teste ou entrevista técnica, como proceder ao se deparar com uma pergunta que você não sabe a resposta exata?",
           options: [
             { id: "a", label: "Inventar uma resposta falsa tentando enganar o avaliador." },
-            { id: "b", label: "Desligar a chamada imediatamente por vergonha." },
-            { id: "c", label: "Explicar sua linha de raciocínio, mostrar como pesquisaria e como tentaria isolar o problema." },
+            { id: "b", label: "Explicar sua linha de raciocínio, mostrar como pesquisaria e como tentaria isolar o problema." },
+            { id: "c", label: "Desligar a chamada imediatamente por vergonha." },
             { id: "d", label: "Dizer que o tema da pergunta não é importante para a vaga." }
           ],
-          correctAnswer: "c",
+          correctAnswer: "b",
           feedback: "Recrutadores técnicos valorizam a capacidade de raciocínio lógico e a maturidade em buscar soluções perante problemas desconhecidos."
         }
       ]
@@ -187,11 +187,11 @@ export const module4Data = {
           statement: "Qual é a estrutura lógica recomendada para apresentar um projeto técnico em uma entrevista?",
           options: [
             { id: "a", label: "Mostrar direto o código sem explicar para que o sistema serve." },
-            { id: "b", label: "Problema → Solução → Tecnologias Utilizadas → Desenvolvimento → Resultado." },
-            { id: "c", label: "Falar apenas o nome das ferramentas utilizadas sem dar contexto." },
+            { id: "b", label: "Falar apenas o nome das ferramentas utilizadas sem dar contexto." },
+            { id: "c", label: "Problema → Solução → Tecnologias Utilizadas → Desenvolvimento → Resultado." },
             { id: "d", label: "Mencionar apenas os erros que aconteceram durante a criação." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Contextualizar o problema antes de falar do código ajuda o entrevistador a entender o valor e o impacto da sua solução."
         }
       ]
@@ -223,11 +223,11 @@ export const module4Data = {
           statement: "Quais cuidados com áudio e enquadramento garantem boa qualidade na gravação do vídeo de apresentação?",
           options: [
             { id: "a", label: "Gravar em locais com eco, vento e enquadrar apenas a testa." },
-            { id: "b", label: "Gravar em local silencioso, com celular na horizontal/vertical estável e enquadrando rosto e parte do tronco." },
-            { id: "c", label: "Segurar o celular andando pela casa para o vídeo parecer dinâmico." },
-            { id: "d", label: "Colocar uma música de fundo em volume alto cobrindo a sua voz." }
+            { id: "b", label: "Segurar o celular andando pela casa para o vídeo parecer dinâmico." },
+            { id: "c", label: "Colocar uma música de fundo em volume alto cobrindo a sua voz." },
+            { id: "d", label: "Gravar em local silencioso, com celular na horizontal/vertical estável e enquadrando rosto e parte do tronco." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Áudio limpo e câmera firme no enquadramento correto transmitem cuidado e profissionalismo na entrega do vídeo."
         }
       ]
@@ -259,11 +259,11 @@ export const module4Data = {
           statement: "O que significa a sigla da metodologia STAR, usada para responder perguntas comportamentais?",
           options: [
             { id: "a", label: "Sistema, Tarefa, Avaliação e Resposta." },
-            { id: "b", label: "Situação, Tarefa, Ação e Resultado." },
-            { id: "c", label: "Solução, Teste, Agilidade e Revisão." },
+            { id: "b", label: "Solução, Teste, Agilidade e Revisão." },
+            { id: "c", label: "Situação, Tarefa, Ação e Resultado." },
             { id: "d", label: "Síntese, Trabalho, Aplicação e Raciocínio." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "A técnica STAR (Situação, Tarefa, Ação, Resultado) organiza a narrativa mostrando o contexto e a sua contribuição real no problema."
         }
       ]
@@ -294,12 +294,12 @@ export const module4Data = {
         {
           statement: "Ao ser questionado sobre 'pontos a melhorar', qual abordagem transmite mais maturidade?",
           options: [
-            { id: "a", label: "Usar frases clichês como 'sou perfeccionista demais'." },
-            { id: "b", label: "Apresentar um ponto real de aprendizado acompanhado das ações concretas que você já está realizando para evoluir." },
+            { id: "a", label: "Apresentar um ponto real de aprendizado acompanhado das ações concretas que você já está realizando para evoluir." },
+            { id: "b", label: "Usar frases clichês como 'sou perfeccionista demais'." },
             { id: "c", label: "Dizer que não tem nenhum ponto a melhorar e que já sabe de tudo." },
             { id: "d", label: "Mencionar defeitos graves que inviabilizem sua atuação na vaga." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Demonstrar autoconhecimento e mostrar o que você está fazendo de prático para superar uma dificuldade é o que os avaliadores buscam."
         }
       ]
@@ -313,11 +313,11 @@ export const module4Data = {
           statement: "Antes de clicar no botão de compartilhar tela para apresentar um projeto, o candidato DEVE:",
           options: [
             { id: "a", label: "Compartilhar a tela inteira sem checar o que está aberto." },
-            { id: "b", label: "Fechar abas pessoais, desativar notificações de mensagens e abrir a IDE/projeto previamente." },
-            { id: "c", label: "Deixar conversas privadas do WhatsApp visíveis para mostrar que é comunicativo." },
-            { id: "d", label: "Aumentar a resolução da tela para o menor tamanho possível." }
+            { id: "b", label: "Deixar conversas privadas do WhatsApp visíveis para mostrar que é comunicativo." },
+            { id: "c", label: "Aumentar a resolução da tela para o menor tamanho possível." },
+            { id: "d", label: "Fechar abas pessoais, desativar notificações de mensagens e abrir a IDE/projeto previamente." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Preparar a área de trabalho previamente evita o vazamento acidental de dados pessoais e conversas privadas."
         }
       ]
@@ -349,11 +349,11 @@ export const module4Data = {
           statement: "O que você deve pesquisar sobre a empresa contratante antes de ir para a entrevista?",
           options: [
             { id: "a", label: "Apenas o endereço do prédio físico da sede." },
-            { id: "b", label: "Site oficial, produtos/serviços, área de atuação, notícias recentes e perfil no LinkedIn." },
-            { id: "c", label: "Apenas a quantidade de funcionários cadastrados no CNPJ." },
+            { id: "b", label: "Apenas a quantidade de funcionários cadastrados no CNPJ." },
+            { id: "c", label: "Site oficial, produtos/serviços, área de atuação, notícias recentes e perfil no LinkedIn." },
             { id: "d", label: "Não é necessário pesquisar nada sobre a empresa." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Conhecer o negócio e as soluções da empresa permite que você adapte suas respostas e mostre interesse genuíno."
         }
       ]
@@ -366,12 +366,12 @@ export const module4Data = {
         {
           statement: "Ao final da entrevista, quando o avaliador pergunta 'Você tem alguma dúvida?', qual é a melhor postura?",
           options: [
-            { id: "a", label: "Responder 'Não tenho nenhuma dúvida, tchau'." },
-            { id: "b", label: "Fazer perguntas estratégicas sobre a rotina da vaga, desafios do time ou próximas etapas." },
+            { id: "a", label: "Fazer perguntas estratégicas sobre a rotina da vaga, desafios do time ou próximas etapas." },
+            { id: "b", label: "Responder 'Não tenho nenhuma dúvida, tchau'." },
             { id: "c", label: "Perguntar imediatamente quantas folgas folgadas terá no ano." },
             { id: "d", label: "Perguntar se o recrutador achou sua roupa bonita." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Fazer perguntas inteligentes demonstra interesse ativo no cargo e ajuda você a entender se a empresa é adequada ao seu perfil."
         }
       ]
@@ -385,11 +385,11 @@ export const module4Data = {
           statement: "Qual dos comportamentos abaixo é um sinal claro de FRAUDE em um processo seletivo remoto?",
           options: [
             { id: "a", label: "Agendamento da conversa pelo Google Meet com e-mail corporativo da empresa." },
-            { id: "b", label: "Pedido de dinheiro para liberar exames admissionais, treinamento ou equipamentos." },
-            { id: "c", label: "Envio de um teste prático de código via GitHub." },
+            { id: "b", label: "Envio de um teste prático de código via GitHub." },
+            { id: "c", label: "Pedido de dinheiro para liberar exames admissionais, treinamento ou equipamentos." },
             { id: "d", label: "Entrevista conduzida pelo gestor técnico da área." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Empresas sérias nunca cobram valores do candidato para participação em processos seletivos ou liberação de vagas."
         }
       ]
@@ -421,11 +421,11 @@ export const module4Data = {
           statement: "Qual é o objetivo principal das etapas de simulação e autoavaliação propostas no desafio do Módulo 4?",
           options: [
             { id: "a", label: "Gravar um vídeo qualquer sem assistir ao resultado final." },
-            { id: "b", label: "Simular o pitch de apresentação, gravar respostas para perguntas reais e avaliar pontos de clareza, postura e tempo." },
-            { id: "c", label: "Publicar o vídeo no TikTok para ganhar curtidas." },
-            { id: "d", label: "Apenas ler o roteiro em voz baixa sem usar a câmera." }
+            { id: "b", label: "Publicar o vídeo no TikTok para ganhar curtidas." },
+            { id: "c", label: "Apenas ler o roteiro em voz baixa sem usar a câmera." },
+            { id: "d", label: "Simular o pitch de apresentação, gravar respostas para perguntas reais e avaliar pontos de clareza, postura e tempo." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Treinar a oratória diante da câmera e autoavaliar seu desempenho é o caminho mais rápido para perder o nervosismo e evoluir nas entrevistas reais."
         }
       ]

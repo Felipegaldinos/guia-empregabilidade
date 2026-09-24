@@ -43,11 +43,11 @@ export const module3Data = {
           statement: "Como funciona a técnica de fraude digital conhecida como Phishing?",
           options: [
             { id: "a", label: "É uma atualização automática enviada pela loja oficial de aplicativos do celular." },
-            { id: "b", label: "Uma tentativa de enganar a pessoa por mensagens ou sites falsos para obter dados sensíveis como senhas e códigos." },
-            { id: "c", label: "É um vírus que estraga o hardware do computador imediatamente ao ser baixado." },
-            { id: "d", label: "É o envio legítimo de faturas e comprovantes pelos bancos." }
+            { id: "b", label: "É o envio legítimo de faturas e comprovantes pelos bancos." },
+            { id: "c", label: "Uma tentativa de enganar a pessoa por mensagens ou sites falsos para obter dados sensíveis como senhas e códigos." },
+            { id: "d", label: "É um vírus que estraga o hardware do computador imediatamente ao ser baixado." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "O phishing usa engenharia social (mensagens convincentes ou alarmantes) para induzir a vítima a entregar dados ou clicar em links maliciosos."
         },
         {
@@ -55,10 +55,10 @@ export const module3Data = {
           options: [
             { id: "a", label: "Clicar imediatamente no link para evitar que a conta seja encerrada." },
             { id: "b", label: "Encaminhar a mensagem para todos os contatos da sua agenda." },
-            { id: "c", label: "Parar, não clicar no link e acessar o canal ou aplicativo oficial do serviço para verificar a situação." },
-            { id: "d", label: "Responder à mensagem enviando sua senha para liberar o acesso." }
+            { id: "c", label: "Responder à mensagem enviando sua senha para liberar o acesso." },
+            { id: "d", label: "Parar, não clicar no link e acessar o canal ou aplicativo oficial do serviço para verificar a situação." }
           ],
-          correctAnswer: "c",
+          correctAnswer: "d",
           feedback: "Diante do senso de urgência, nunca clique no link fornecido. Sempre confirme acessando diretamente o aplicativo ou site oficial."
         }
       ]
@@ -71,12 +71,12 @@ export const module3Data = {
         {
           statement: "Qual dos itens abaixo representa um SINAL CLARO DE ALERTA em mensagens recebidas por e-mail ou SMS?",
           options: [
-            { id: "a", label: "Mensagem personalizada vinda de um canal verificado da empresa." },
-            { id: "b", label: "Criar urgência exagerada, promessas de prêmios inesperados e links com domínios estranhos." },
+            { id: "a", label: "Criar urgência exagerada, promessas de prêmios inesperados e links com domínios estranhos." },
+            { id: "b", label: "Mensagem personalizada vinda de um canal verificado da empresa." },
             { id: "c", label: "Informativo mensal de fatura que você já esperava receber." },
             { id: "d", label: "Notificação de atualização do sistema operacional enviada pelo próprio aparelho." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Gatilhos de urgência, ofertas irrealistas e links com endereços estranhos são as marcas registradas de mensagens golpistas."
         }
       ]
@@ -89,23 +89,23 @@ export const module3Data = {
         {
           statement: "Por que não se deve confiar apenas no visual bonito ou nos logotipos de um site ao abrir um link?",
           options: [
-            { id: "a", label: "Porque golpistas conseguem copiar facilmente a identidade visual, cores e logos de empresas legítimas em páginas falsas." },
-            { id: "b", label: "Porque os sites oficiais não utilizam logotipos nem cores institucionais." },
+            { id: "a", label: "Porque os sites oficiais não utilizam logotipos nem cores institucionais." },
+            { id: "b", label: "Porque golpistas conseguem copiar facilmente a identidade visual, cores e logos de empresas legítimas em páginas falsas." },
             { id: "c", label: "Porque sites bonitos navegam mais devagar na internet móvel." },
             { id: "d", label: "Porque navegadores bloqueiam imagens de sites que possuem links seguros." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "A aparência visual é fácil de replicar. O que realmente valida a autenticidade é o endereço de domínio (URL) correto no navegador."
         },
         {
           statement: "Qual é a melhor conduta ao receber um link de pagamento ou login enviado por mensagem inesperada?",
           options: [
             { id: "a", label: "Clicar no link e preencher os dados o mais rápido possível." },
-            { id: "b", label: "Evitar clicar no link e digitar você mesmo o endereço oficial da empresa no navegador." },
-            { id: "c", label: "Compartilhar o link em grupos do WhatsApp para checar se é confiável." },
+            { id: "b", label: "Compartilhar o link em grupos do WhatsApp para checar se é confiável." },
+            { id: "c", label: "Evitar clicar no link e digitar você mesmo o endereço oficial da empresa no navegador." },
             { id: "d", label: "Desligar o Wi-Fi e clicar usando os dados móveis." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Digitar manualmente a URL oficial garante que você vá para o portal autêntico da instituição."
         }
       ]
@@ -154,23 +154,23 @@ export const module3Data = {
         {
           statement: "Como funciona a Autenticação em Dois Fatores (2FA)?",
           options: [
-            { id: "a", label: "Ela exige duas senhas de texto iguais digitadas em campos diferentes." },
-            { id: "b", label: "Ela combina a sua senha com um segundo elemento de verificação (ex: código gerado em app autenticador) para liberar o acesso." },
+            { id: "a", label: "Ela combina a sua senha com um segundo elemento de verificação (ex: código gerado em app autenticador) para liberar o acesso." },
+            { id: "b", label: "Ela exige duas senhas de texto iguais digitadas em campos diferentes." },
             { id: "c", label: "É um antivírus que roda em segundo plano verificando downloads." },
             { id: "d", label: "É a obrigação de mudar a senha do e-mail todos os dias." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Com o 2FA ativo, mesmo que um invasor descubra sua senha, ele não conseguirá logar sem o código temporário do seu dispositivo."
         },
         {
           statement: "Em quais destas contas a ativação da verificação em dois fatores (2FA) é considerada PRIORITÁRIA?",
           options: [
             { id: "a", label: "Apenas em jogos online offline." },
-            { id: "b", label: "E-mail principal, WhatsApp, redes sociais, aplicativos bancários e Conta Gov.br." },
-            { id: "c", label: "Em aplicativos de calculadora e lanterna do celular." },
+            { id: "b", label: "Em aplicativos de calculadora e lanterna do celular." },
+            { id: "c", label: "E-mail principal, WhatsApp, redes sociais, aplicativos bancários e Conta Gov.br." },
             { id: "d", label: "Não é necessário ativar em nenhuma conta importante." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Contas essenciais e que contêm dados sensíveis ou dão acesso a outros serviços (como e-mail e Gov.br) devem ser protegidas com 2FA imediatamente."
         }
       ]
@@ -184,11 +184,11 @@ export const module3Data = {
           statement: "Quais dados você NUNCA deve compartilhar com terceiros, mesmo que a pessoa afirme ser do suporte técnico ou do seu banco?",
           options: [
             { id: "a", label: "Seu nome completo para cadastro público de currículos." },
-            { id: "b", label: "Senhas, PINs de segurança e códigos de validação recebidos por SMS ou e-mail." },
-            { id: "c", label: "O endereço de e-mail comercial para receber propostas de trabalho." },
-            { id: "d", label: "O link para seu perfil profissional do LinkedIn." }
+            { id: "b", label: "O endereço de e-mail comercial para receber propostas de trabalho." },
+            { id: "c", label: "O link para seu perfil profissional do LinkedIn." },
+            { id: "d", label: "Senhas, PINs de segurança e códigos de validação recebidos por SMS ou e-mail." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "d",
           feedback: "Códigos SMS, PINs e senhas são dados de acesso estritamente pessoais. Bancos e empresas legítimas jamais solicitam esses códigos por telefone ou mensagem."
         }
       ]
@@ -256,11 +256,11 @@ export const module3Data = {
           statement: "Qual das situações abaixo aponta uma FRAUDE ou GOLPE em um anúncio de vaga de trabalho?",
           options: [
             { id: "a", label: "A empresa solicita o envio de um currículo atualizado em formato PDF." },
-            { id: "b", label: "Exigência de pagamento de taxa para fazer a inscrição ou comprar um curso obrigatório antes de ser contratado." },
-            { id: "c", label: "Agendamento de entrevista remota via Google Meet ou Microsoft Teams." },
+            { id: "b", label: "Agendamento de entrevista remota via Google Meet ou Microsoft Teams." },
+            { id: "c", label: "Exigência de pagamento de taxa para fazer a inscrição ou comprar um curso obrigatório antes de ser contratado." },
             { id: "d", label: "Solicitação para realizar um teste prático de conhecimentos alinhado ao cargo." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "Processos seletivos legítimos nunca cobram taxas para inscrição, treinamento ou compra de materiais/exames do candidato."
         }
       ]
@@ -291,12 +291,12 @@ export const module3Data = {
         {
           statement: "Por que manter o Sistema Operacional e os Aplicativos do dispositivo sempre ATUALIZADOS melhora a segurança?",
           options: [
-            { id: "a", label: "Porque as atualizações corrigem falhas e vulnerabilidades de segurança que poderiam ser exploradas por hackers." },
-            { id: "b", label: "Porque atualizações apagam todas as senhas salvas no aparelho." },
+            { id: "a", label: "Because as atualizações corrigem falhas e vulnerabilidades de segurança que poderiam ser exploradas por hackers." },
+            { id: "b", label: "Porque as atualizações corrigem falhas e vulnerabilidades de segurança que poderiam ser exploradas por hackers." },
             { id: "c", label: "Para mudar a cor dos ícones da tela inicial do celular." },
             { id: "d", label: "Apenas para deixar o aparelho ocupando mais espaço de memória." }
           ],
-          correctAnswer: "a",
+          correctAnswer: "b",
           feedback: "As atualizações de software frequentemente contêm correções de bugs de segurança que impedem a ação de softwares maliciosos."
         }
       ]
@@ -309,12 +309,12 @@ export const module3Data = {
         {
           statement: "Qual ação DEVE SER EVITADA ao estar conectado a uma rede Wi-Fi pública ou aberta em praças e aeroportos?",
           options: [
-            { id: "a", label: "Ler notícias em portais abertos de comunicação." },
-            { id: "b", label: "Realizar transações financeiras e acessar o aplicativo do seu banco." },
+            { id: "a", label: "Realizar transações financeiras e acessar o aplicativo do seu banco." },
+            { id: "b", label: "Ler notícias em portais abertos de comunicação." },
             { id: "c", label: "Consultar a previsão do tempo no celular." },
             { id: "d", label: "Buscar a rota do transporte público em aplicativos de mapa." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "a",
           feedback: "Redes Wi-Fi públicas podem ter o tráfego interceptado. Evite acessar bancos ou digitar senhas importantes nessas conexões."
         }
       ]
@@ -328,11 +328,11 @@ export const module3Data = {
           statement: "Qual é o PRIMEIRO PASSO imediato a ser tomado caso perceba ter sido vítima de um golpe financeiro ou vazamento de dados?",
           options: [
             { id: "a", label: "Esperar alguns dias para ver se o valor da transferência é devolvido." },
-            { id: "b", label: "Interromper contato com o golpista, alterar as senhas afetadas e contatar urgentemente seu banco." },
-            { id: "c", label: "Deletar todos os prints e mensagens para não lembrar do ocorrido." },
+            { id: "b", label: "Deletar todos os prints e mensagens para não lembrar do ocorrido." },
+            { id: "c", label: "Interromper contato com o golpista, alterar as senhas afetadas e contatar urgentemente seu banco." },
             { id: "d", label: "Desinstalar os aplicativos sem avisar a instituição financeira." }
           ],
-          correctAnswer: "b",
+          correctAnswer: "c",
           feedback: "A agilidade em bloquear acessos, contatar o banco e guardar os comprovantes/prints é essencial para tentar conter os danos e registrar o Boletim de Ocorrência."
         }
       ]
@@ -363,12 +363,12 @@ export const module3Data = {
         {
           statement: "Qual destas instituições disponibiliza a 'Cartilha de Segurança para Internet' com orientações gratuitas sobre proteção digital?",
           options: [
-            { id: "a", label: "CERT.br" },
-            { id: "b", label: "Netflix" },
-            { id: "c", label: "Spotify" },
+            { id: "a", label: "Netflix" },
+            { id: "b", label: "Spotify" },
+            { id: "c", label: "CERT.br" },
             { id: "d", label: "Steam" }
           ],
-          correctAnswer: "a",
+          correctAnswer: "c",
           feedback: "O CERT.br mantém cartilhas excelentes e atualizadas para ensinar cidadãos a se protegerem na internet."
         }
       ]
