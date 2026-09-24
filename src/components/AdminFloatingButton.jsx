@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { FaUserShield } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
 import './AdminFloatingButton.css';
 
 export default function AdminFloatingButton() {
@@ -11,11 +13,22 @@ export default function AdminFloatingButton() {
     y: typeof window !== 'undefined' ? window.innerHeight - 80 : 20
   }));
 
+  const [showTooltip, setShowTooltip] = useState(true);
+
   const isDragging = useRef(false);
   const dragStartOffset = useRef({ x: 0, y: 0 });
   const hasMoved = useRef(false);
 
-  const handleMouseMove = useRef((e) => {
+  // Timer para exibir a mensagem a cada 3 minutos (180.000 ms)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowTooltip(true);
+    }, 180000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleMouseMove = (e) => {
     if (!isDragging.current) return;
     hasMoved.current = true;
 
@@ -23,30 +36,17 @@ export default function AdminFloatingButton() {
     const newY = Math.max(10, Math.min(window.innerHeight - 70, e.clientY - dragStartOffset.current.y));
 
     setPosition({ x: newX, y: newY });
-  });
+  };
 
-  const handleMouseUp = useRef(() => {
+  const handleMouseUp = () => {
     isDragging.current = false;
-    window.removeEventListener('mousemove', handleMouseMove.current);
-    window.removeEventListener('mouseup', handleMouseUp.current);
-  });
-
-
-  useEffect(() => {
-    const mouseMoveHandler = handleMouseMove.current;
-    const mouseUpHandler = handleMouseUp.current;
-
-    return () => {
-      window.removeEventListener('mousemove', mouseMoveHandler);
-      window.removeEventListener('mouseup', mouseUpHandler);
-    };
-  }, []);
-
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('mouseup', handleMouseUp);
+  };
 
   if (location.pathname === '/admin' || location.pathname === '/admin-login') {
     return null;
   }
-
 
   const handleMouseDown = (e) => {
     isDragging.current = true;
@@ -56,10 +56,9 @@ export default function AdminFloatingButton() {
       y: e.clientY - position.y
     };
 
-    window.addEventListener('mousemove', handleMouseMove.current);
-    window.addEventListener('mouseup', handleMouseUp.current);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
   };
-
 
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
@@ -92,9 +91,14 @@ export default function AdminFloatingButton() {
     }
   };
 
+  const handleCloseTooltip = (e) => {
+    e.stopPropagation(); // Evita disparar o clique do botão/navegação
+    setShowTooltip(false);
+  };
+
   return (
     <div
-      className="admin-floating-btn"
+      className="admin-floating-container"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
@@ -103,7 +107,22 @@ export default function AdminFloatingButton() {
       onClick={handleClick}
       title="Painel de Administração"
     >
-      👤
+      {showTooltip && (
+        <div className="admin-tooltip">
+          <span>Acompanhe seus resultados</span>
+          <button
+            className="admin-tooltip-close"
+            onClick={handleCloseTooltip}
+            aria-label="Fechar mensagem"
+          >
+            <IoClose size={14} />
+          </button>
+        </div>
+      )}
+
+      <div className="admin-floating-btn">
+        <FaUserShield size={22} />
+      </div>
     </div>
   );
 }
