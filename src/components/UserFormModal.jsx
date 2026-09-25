@@ -59,7 +59,7 @@ export default function UserFormModal({ onSubmitSuccess }) {
 
       switch (err.code) {
         case 'auth/email-already-in-use':
-          setError('Não foi possível concluir o cadastro. Verifique os dados informados.');
+          setError('Não foi possível concluir o cadastro. E-mail com restrição.');
           break;
         case 'auth/weak-password':
           setError('A senha deve conter no mínimo 6 caracteres.');
